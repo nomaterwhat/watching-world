@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="minimal">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233b82f6'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='18' font-weight='bold' fill='white' font-family='sans-serif'%3EW%3C/text%3E%3C/svg%3E">
+<meta name="description" content="无限挑战完整全集列表 - 614集按时间顺序排列，含播放日期、节目标题、参与嘉宾">
+<meta property="og:type" content="website">
+<meta property="og:title" content="完整全集列表 · 观看世界">
+<meta property="og:description" content="《无限挑战》2005-2018年614集完整索引 - 搜索筛选、已看标记、嘉宾高亮">
+<meta property="og:locale" content="zh_CN">
+<title>完整全集列表 · 观看世界</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;700&family=ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+:root {
+  --transition-theme: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+  --max-width: 1200px; --nav-height: 60px; --subnav-height: 48px;
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", Consolas, monospace;
+}
+[data-theme="minimal"] {
+  --bg: #f8f9fa; --bg-2: #fff; --bg-3: #f1f3f5;
+  --text: #1a1a2e; --text-2: #6c757d; --text-3: #adb5bd;
+  --accent: #3b82f6; --accent-h: #2563eb; --accent-soft: rgba(59,130,246,0.1);
+  --border: #e9ecef; --card-bg: #fff; --card-border: #e9ecef;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-accent: 0 4px 20px rgba(59,130,246,0.2);
+  --hero-grad: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  --nav-bg: rgba(255,255,255,0.85); --nav-border: rgba(0,0,0,0.06);
+  --tag-bg: #f1f3f5; --tag-text: #495057;
+  --font-h: var(--font-base);
+  --table-header-bg: #f8f9fa; --table-row-alt: #fafbfc;
+  --progress-bg: #e9ecef; --progress-fill: #3b82f6;
+  --check-border: #d1d5db; --check-fill: #3b82f6;
+}
+[data-theme="darktech"] {
+  --bg: #0a0e1a; --bg-2: #131826; --bg-3: #1a2033;
+  --text: #e2e8f0; --text-2: #94a3b8; --text-3: #64748b;
+  --accent: #00ff9d; --accent-h: #00cc7d; --accent-soft: rgba(0,255,157,0.08);
+  --border: #1e293b; --card-bg: #131826; --card-border: #1e293b;
+  --shadow: 0 2px 12px rgba(0,0,0,0.4); --shadow-hover: 0 8px 30px rgba(0,255,157,0.1);
+  --shadow-accent: 0 0 24px rgba(0,255,157,0.25);
+  --hero-grad: linear-gradient(135deg, #0a0e1a 0%, #0d1521 50%, #0a1f1a 100%);
+  --nav-bg: rgba(10,14,26,0.85); --nav-border: rgba(0,255,157,0.1);
+  --tag-bg: rgba(0,255,157,0.08); --tag-text: #00ff9d;
+  --font-h: var(--font-mono);
+  --table-header-bg: #131826; --table-row-alt: #0f1625;
+  --progress-bg: #1e293b; --progress-fill: #00ff9d;
+  --check-border: #334155; --check-fill: #00ff9d;
+}
+[data-theme="creative"] {
+  --bg: #fef3ff; --bg-2: #fff; --bg-3: #f3e8ff;
+  --text: #2d1b4e; --text-2: #7c6a9c; --text-3: #b4a3c8;
+  --accent: #a855f7; --accent-h: #9333ea; --accent-soft: rgba(168,85,247,0.1);
+  --border: #f3e8ff; --card-bg: #fff; --card-border: #f3e8ff;
+  --shadow: 0 4px 16px rgba(168,85,247,0.08); --shadow-hover: 0 12px 36px rgba(168,85,247,0.18);
+  --shadow-accent: 0 4px 24px rgba(236,72,153,0.25);
+  --hero-grad: linear-gradient(135deg, #fef3ff 0%, #fce7f3 50%, #ddd6fe 100%);
+  --nav-bg: rgba(254,243,255,0.85); --nav-border: rgba(168,85,247,0.1);
+  --tag-bg: #f3e8ff; --tag-text: #7c3aed;
+  --font-h: var(--font-base);
+  --table-header-bg: #faf5ff; --table-row-alt: #fdf8ff;
+  --progress-bg: #f3e8ff; --progress-fill: #a855f7;
+  --check-border: #d8b4fe; --check-fill: #a855f7;
+}
+[data-theme="guofeng"] {
+  --bg: #f5f0e8; --bg-2: #ede4d3; --bg-3: #e8dcc6;
+  --text: #2c1810; --text-2: #6b4423; --text-3: #a08968;
+  --accent: #8b2500; --accent-h: #6b1d00; --accent-soft: rgba(139,37,0,0.08);
+  --border: #d4c4a8; --card-bg: #faf6ef; --card-border: #d4c4a8;
+  --shadow: 0 2px 12px rgba(139,37,0,0.06); --shadow-hover: 0 8px 30px rgba(139,37,0,0.12);
+  --shadow-accent: 0 4px 20px rgba(212,160,23,0.2);
+  --hero-grad: linear-gradient(135deg, #f5f0e8 0%, #ede4d3 50%, #f0e6d2 100%);
+  --nav-bg: rgba(245,240,232,0.88); --nav-border: rgba(139,37,0,0.08);
+  --tag-bg: #ede4d3; --tag-text: #8b2500;
+  --font-h: "Songti SC", "STSong", serif;
+  --table-header-bg: #f0ebe3; --table-row-alt: #faf6ef;
+  --progress-bg: #e8dcc6; --progress-fill: #8b2500;
+  --check-border: #d4c4a8; --check-fill: #8b2500;
+}
+[data-theme="handdrawn"] {
+  --bg: #fdf6e3; --bg-2: #f5ecd7; --bg-3: #efe4c8;
+  --text: #3c2f1f; --text-2: #8b6914; --text-3: #bda56a;
+  --accent: #d97706; --accent-h: #b45309; --accent-soft: rgba(217,119,6,0.1);
+  --border: #e7d5b5; --card-bg: #fffbeb; --card-border: #e7d5b5;
+  --shadow: 0 2px 8px rgba(139,105,20,0.08); --shadow-hover: 0 8px 24px rgba(139,105,20,0.15);
+  --shadow-accent: 0 4px 20px rgba(217,119,6,0.2);
+  --hero-grad: linear-gradient(135deg, #fdf6e3 0%, #faecd0 50%, #f5e6c8 100%);
+  --nav-bg: rgba(253,246,227,0.88); --nav-border: rgba(139,105,20,0.08);
+  --tag-bg: #f5ecd7; --tag-text: #8b6914;
+  --font-h: "Hannotate SC", "Comic Sans MS", cursive;
+  --table-header-bg: #f5ecd7; --table-row-alt: #fdf6e3;
+  --progress-bg: #efe4c8; --progress-fill: #d97706;
+  --check-border: #d4c4a8; --check-fill: #d97706;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + var(--subnav-height) + 20px); font-size: calc(16px * var(--font-scale,1)); }
+body { font-family: var(--font-base); background: var(--bg); color: var(--text); line-height: 1.7; transition: background var(--transition-theme), color var(--transition-theme); overflow-x: hidden; min-height: 100vh; }
+h1,h2,h3,h4 { font-family: var(--font-h); font-weight: 700; line-height: 1.3; color: var(--text); transition: color var(--transition-theme); }
+a { color: var(--accent); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--accent-h); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* Navbar */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height);
+  background: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--nav-border); z-index: 1000;
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+.navbar .container { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo {
+  font-family: var(--font-h); font-size: calc(18px * var(--font-scale, 1)); font-weight: 800; color: var(--text);
+  display: flex; align-items: center; gap: 8px; transition: color var(--transition-theme);
+}
+.nav-logo-mark {
+  width: 30px; height: 30px; border-radius: var(--radius-sm);
+  background: var(--accent); display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: calc(14px * var(--font-scale, 1)); transition: background var(--transition-theme);
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link {
+  padding: 8px 14px; font-size: calc(14px * var(--font-scale, 1)); color: var(--text-2);
+  border-radius: var(--radius-sm); transition: all var(--transition-fast); position: relative;
+}
+.nav-link:hover { color: var(--text); background: var(--accent-soft); }
+.nav-link.active { color: var(--accent); font-weight: 600; }
+
+/* Sub-nav */
+.sub-nav {
+  position: sticky; top: var(--nav-height); z-index: 900;
+  background: var(--bg-2); border-bottom: 1px solid var(--border);
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+.sub-nav .container { display: flex; gap: 0; height: var(--subnav-height); align-items: center; overflow-x: auto; scrollbar-width: none; }
+.sub-nav::-webkit-scrollbar { display: none; }
+.sub-nav-link {
+  padding: 0 20px; font-size: calc(14px * var(--font-scale, 1)); color: var(--text-2);
+  white-space: nowrap; height: 100%; display: flex; align-items: center;
+  border-bottom: 2px solid transparent; transition: all var(--transition-fast);
+}
+.sub-nav-link:hover { color: var(--text); background: var(--accent-soft); }
+.sub-nav-link.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+/* Main content */
+.main-content { padding-top: var(--nav-height); }
+
+/* Hero */
+.hero {
+  background: var(--hero-grad); padding: 40px 0 30px;
+  transition: background var(--transition-theme);
+  border-bottom: 1px solid var(--border);
+}
+.hero h1 { font-size: calc(28px * var(--font-scale, 1)); margin-bottom: 8px; }
+.hero p { color: var(--text-2); font-size: calc(14px * var(--font-scale, 1)); }
+.hero-stats { display: flex; gap: 24px; margin-top: 20px; flex-wrap: wrap; }
+.hero-stat { text-align: center; }
+.hero-stat .num { font-size: calc(24px * var(--font-scale, 1)); font-weight: 700; color: var(--accent); }
+.hero-stat .label { font-size: calc(12px * var(--font-scale, 1)); color: var(--text-3); }
+
+/* Progress bar */
+.progress-bar-wrap {
+  margin-top: 16px; background: var(--progress-bg); border-radius: var(--radius-full);
+  height: 8px; overflow: hidden;
+}
+.progress-bar {
+  height: 100%; background: var(--progress-fill); border-radius: var(--radius-full);
+  transition: width 0.5s ease, background var(--transition-theme);
+  width: 0%;
+}
+.progress-text {
+  font-size: calc(13px * var(--font-scale, 1)); color: var(--text-2); margin-top: 8px;
+}
+
+/* Control panel */
+.control-panel {
+  background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 16px 0;
+  position: sticky; top: calc(var(--nav-height) + var(--subnav-height)); z-index: 800;
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+.control-panel .container { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.search-box {
+  flex: 1; min-width: 200px; position: relative;
+}
+.search-box input {
+  width: 100%; padding: 10px 16px 10px 40px;
+  border: 1px solid var(--border); border-radius: var(--radius-md);
+  background: var(--bg); color: var(--text); font-size: calc(14px * var(--font-scale, 1));
+  transition: all var(--transition-fast);
+}
+.search-box input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search-box::before {
+  content: "🔍"; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  font-size: calc(14px * var(--font-scale, 1)); opacity: 0.5;
+}
+.year-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.year-tag {
+  padding: 6px 12px; border-radius: var(--radius-full); font-size: calc(12px * var(--font-scale, 1));
+  background: var(--tag-bg); color: var(--tag-text); border: 1px solid var(--border);
+  cursor: pointer; transition: all var(--transition-fast); white-space: nowrap;
+}
+.year-tag:hover { border-color: var(--accent); color: var(--accent); }
+.year-tag.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.year-tag.all { font-weight: 600; }
+
+/* Table */
+.episode-table-wrap {
+  padding: 24px 0 60px;
+}
+.episode-table {
+  width: 100%; border-collapse: collapse; font-size: calc(14px * var(--font-scale, 1));
+}
+.episode-table thead {
+  position: sticky; top: calc(var(--nav-height) + var(--subnav-height) + 64px); z-index: 700;
+}
+.episode-table th {
+  background: var(--table-header-bg); color: var(--text-2); font-weight: 600;
+  padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border);
+  font-size: calc(13px * var(--font-scale, 1)); white-space: nowrap;
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+.episode-table th:first-child { text-align: center; width: 60px; }
+.episode-table th:nth-child(2) { width: 140px; }
+.episode-table th:nth-child(3) { width: 100px; }
+.episode-table td {
+  padding: 10px 16px; border-bottom: 1px solid var(--border);
+  transition: border-color var(--transition-theme);
+  vertical-align: top;
+}
+.episode-table tr:nth-child(even) td {
+  background: var(--table-row-alt);
+}
+.episode-table tbody tr:hover td {
+  background: var(--accent-soft);
+}
+.episode-table td:first-child { text-align: center; font-weight: 600; }
+.episode-table td:nth-child(2) { color: var(--text-2); white-space: nowrap; font-size: calc(13px * var(--font-scale, 1)); }
+.episode-table td:nth-child(3) { color: var(--text); font-weight: 500; }
+.episode-table td:nth-child(4) { color: var(--text-2); font-size: calc(13px * var(--font-scale, 1)); }
+
+/* Checkbox */
+.check-cell { width: 48px; text-align: center !important; }
+.ep-check {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid var(--check-border); background: var(--bg-2);
+  cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+  transition: all var(--transition-fast); position: relative;
+  -webkit-appearance: none; appearance: none;
+}
+.ep-check:hover { border-color: var(--accent); }
+.ep-check.checked {
+  background: var(--check-fill); border-color: var(--check-fill);
+}
+.ep-check.checked::after {
+  content: "✓"; color: #fff; font-size: 12px; font-weight: bold;
+}
+
+/* Season header row */
+.season-row td {
+  background: var(--bg-3) !important; font-weight: 700;
+  padding: 14px 16px !important; font-size: calc(15px * var(--font-scale, 1));
+  color: var(--text); border-top: 2px solid var(--accent);
+}
+
+/* Guest highlight */
+.guest-highlight { background: rgba(255, 235, 59, 0.3); padding: 1px 3px; border-radius: 3px; }
+
+/* Empty state */
+.empty-state { text-align: center; padding: 80px 20px; color: var(--text-3); }
+.empty-state .icon { font-size: calc(48px * var(--font-scale, 1)); margin-bottom: 16px; }
+
+/* Scroll top */
+.scroll-top {
+  position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px;
+  border-radius: 50%; background: var(--accent); color: #fff; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-accent); opacity: 0; visibility: hidden;
+  transition: all var(--transition-fast); z-index: 999; cursor: pointer; border: none;
+}
+.scroll-top.visible { opacity: 1; visibility: visible; }
+.scroll-top:hover { transform: translateY(-2px); }
+
+/* Font size panel */
+.font-size-panel {
+  position: fixed; bottom: 80px; right: 24px;
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: 12px 16px; box-shadow: var(--shadow-hover); z-index: 998;
+  display: none; min-width: 160px;
+}
+.font-size-panel.visible { display: block; }
+.font-size-label { font-size: calc(12px * var(--font-scale, 1)); color: var(--text-2); margin-bottom: 8px; }
+.font-size-slider { width: 100%; }
+.font-size-labels { display: flex; justify-content: space-between; margin-top: 6px; font-size: 12px; color: var(--text-3); }
+
+/* Theme toggle */
+.theme-btn {
+  position: fixed; bottom: 24px; right: 76px; width: 44px; height: 44px;
+  border-radius: 50%; background: var(--card-bg); color: var(--text);
+  border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow); cursor: pointer; z-index: 999; font-size: 18px;
+  transition: all var(--transition-fast);
+}
+.theme-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .control-panel .container { flex-direction: column; align-items: stretch; }
+  .year-tags { justify-content: center; }
+  .episode-table th:nth-child(4), .episode-table td:nth-child(4) { display: none; }
+  .episode-table th:first-child, .episode-table td:first-child { width: 40px; }
+  .hero-stats { gap: 16px; }
+}
+@media (max-width: 480px) {
+  .episode-table th:nth-child(2), .episode-table td:nth-child(2) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark">W</span>
+      <span>观看世界</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="wutz-catalog.html" class="nav-link active">无限挑战</a>
+      <a href="other-watching.html" class="nav-link">其他观看</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Sub-nav -->
+<div class="sub-nav">
+  <div class="container">
+    <a href="full-episodes.html" class="sub-nav-link active">完整全集</a>
+    <a href="wutz-catalog.html#eras" class="sub-nav-link">时期</a>
+    <a href="wutz-catalog.html#catalog" class="sub-nav-link">特辑目录</a>
+    <a href="wutz-catalog.html" id="membersChoiceLink" class="sub-nav-link">成员变动</a>
+    <a href="wutz-catalog.html" id="statsChoiceLink" class="sub-nav-link">统计</a>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main-content">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>完整全集列表</h1>
+    <p>《无限挑战》2005-2018年全部614集节目索引，按播出时间顺序排列</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num" id="statTotal">614</div><div class="label">总集数</div></div>
+      <div class="hero-stat"><div class="num" id="statWatched">0</div><div class="label">已看</div></div>
+      <div class="hero-stat"><div class="num" id="statProgress">0%</div><div class="label">进度</div></div>
+      <div class="hero-stat"><div class="num">13</div><div class="label">年份跨度</div></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText">已看 0 / 614 集</div>
+  </div>
+</section>
+
+<!-- Control panel -->
+<div class="control-panel">
+  <div class="container">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="搜索集数、标题或嘉宾...">
+    </div>
+    <div class="year-tags" id="yearTags">
+      <button class="year-tag all active" data-year="all">全部</button>
+      <button class="year-tag" data-year="2005">2005</button>
+      <button class="year-tag" data-year="2006">2006</button>
+      <button class="year-tag" data-year="2007">2007</button>
+      <button class="year-tag" data-year="2008">2008</button>
+      <button class="year-tag" data-year="2009">2009</button>
+      <button class="year-tag" data-year="2010">2010</button>
+      <button class="year-tag" data-year="2011">2011</button>
+      <button class="year-tag" data-year="2012">2012</button>
+      <button class="year-tag" data-year="2013">2013</button>
+      <button class="year-tag" data-year="2014">2014</button>
+      <button class="year-tag" data-year="2015">2015</button>
+      <button class="year-tag" data-year="2016">2016</button>
+      <button class="year-tag" data-year="2017">2017</button>
+      <button class="year-tag" data-year="2018">2018</button>
+    </div>
+  </div>
+</div>
+
+<!-- Table -->
+<section class="episode-table-wrap">
+  <div class="container">
+    <table class="episode-table">
+      <thead>
+        <tr>
+          <th>已看</th>
+          <th>集数</th>
+          <th>日期</th>
+          <th>节目标题</th>
+          <th>参与嘉宾</th>
+        </tr>
+      </thead>
+      <tbody id="episodeTableBody">
+        <!-- JS will populate -->
+      </tbody>
+    </table>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="icon">🔍</div>
+      <p>没有找到匹配的集数</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- Floating buttons -->
+<button class="scroll-top" id="scrollTop" title="回到顶部">↑</button>
+<button class="theme-btn" id="themeBtn" title="切换主题">🎨</button>
+<div class="font-size-panel" id="fontSizePanel">
+  <div class="font-size-label">字体大小</div>
+  <input type="range" class="font-size-slider" id="fontSizeSlider" min="75" max="150" value="100">
+  <div class="font-size-labels"><span>75%</span><span>100%</span><span>150%</span></div>
+</div>
+
+<script src="wutz_full_data.js"></script>
+<script>
+// ========== DATA ==========
+const DATA = window.__wutzFullData;
+const EPISODES = DATA.episodes;
+const SEASONS = DATA.seasons;
+const MEMBER_PERIODS = DATA.member_periods;
+
+// ========== STATE ==========
+let currentYear = 'all';
+let searchQuery = '';
+let watchedSet = new Set();
+const STORAGE_KEY = 'wutz_watched_episodes';
+
+// ========== INIT ==========
+function init() {
+  loadWatched();
+  renderTable();
+  updateProgress();
+  setupEventListeners();
+  setupTheme();
+  setupFontSize();
+}
+
+// ========== STORAGE ==========
+function loadWatched() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      watchedSet = new Set(JSON.parse(stored));
+    }
+  } catch (e) { console.warn('Failed to load watched data', e); }
+}
+
+function saveWatched() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...watchedSet]));
+  } catch (e) { console.warn('Failed to save watched data', e); }
+}
+
+function toggleWatched(ep) {
+  if (watchedSet.has(ep)) {
+    watchedSet.delete(ep);
+  } else {
+    watchedSet.add(ep);
+  }
+  saveWatched();
+  updateProgress();
+  // Update checkbox visual
+  const checkbox = document.querySelector(`[data-ep="${ep}"] .ep-check`);
+  if (checkbox) {
+    checkbox.classList.toggle('checked', watchedSet.has(ep));
+  }
+}
+
+// ========== RENDER ==========
+function renderTable() {
+  const tbody = document.getElementById('episodeTableBody');
+  const emptyState = document.getElementById('emptyState');
+  
+  // Filter episodes
+  let filtered = EPISODES.filter(ep => {
+    // Year filter
+    if (currentYear !== 'all' && ep.year !== parseInt(currentYear)) {
+      return false;
+    }
+    // Search filter
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const matchEp = ep.ep.toLowerCase().includes(q);
+      const matchTitle = ep.title.toLowerCase().includes(q);
+      const matchGuest = ep.guest.toLowerCase().includes(q);
+      const matchDate = ep.date.includes(q);
+      if (!matchEp && !matchTitle && !matchGuest && !matchDate) {
+        return false;
+      }
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    emptyState.style.display = 'block';
+    return;
+  }
+  emptyState.style.display = 'none';
+
+  // Group by season
+  let currentSeasonName = null;
+  let html = '';
+
+  filtered.forEach(ep => {
+    // Use episode's season field directly
+    const season = SEASONS[ep.season - 1];
+    const seasonName = season ? season.name : '';
+    if (seasonName !== currentSeasonName) {
+      currentSeasonName = seasonName;
+      const memberInfo = getMemberInfoForSeason(seasonName);
+      html += `<tr class="season-row"><td colspan="5">${season.name} <span style="color:var(--text-3);font-weight:400;font-size:calc(13px*var(--font-scale,1));margin-left:12px;">${memberInfo}</span></td></tr>`;
+    }
+
+    const isWatched = watchedSet.has(ep.ep);
+    const guestHtml = highlightGuest(ep.guest, searchQuery);
+    
+    html += `<tr data-ep="${ep.ep}">
+      <td class="check-cell"><span class="ep-check ${isWatched ? 'checked' : ''}" onclick="toggleWatched('${ep.ep}')" title="标记已看"></span></td>
+      <td>${ep.ep}</td>
+      <td>${ep.date}</td>
+      <td>${escapeHtml(ep.title)}</td>
+      <td>${guestHtml}</td>
+    </tr>`;
+  });
+
+  tbody.innerHTML = html;
+}
+
+function getMemberInfoForSeason(seasonName) {
+  if (seasonName.includes('第一季')) return '成员：' + MEMBER_PERIODS[0].members;
+  if (seasonName.includes('第二季')) return '成员：' + MEMBER_PERIODS[1].members;
+  if (seasonName.includes('第三季')) return '成员：' + MEMBER_PERIODS[2].members;
+  return '';
+}
+
+function highlightGuest(guest, query) {
+  if (!query || guest === '——') return escapeHtml(guest);
+  const q = query.toLowerCase();
+  if (guest.toLowerCase().includes(q)) {
+    // Simple highlight
+    const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+    return escapeHtml(guest).replace(regex, '<span class="guest-highlight">$1</span>');
+  }
+  return escapeHtml(guest);
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// ========== PROGRESS ==========
+function updateProgress() {
+  const watched = watchedSet.size;
+  const total = EPISODES.length;
+  const pct = Math.round((watched / total) * 100);
+  
+  document.getElementById('statWatched').textContent = watched;
+  document.getElementById('statProgress').textContent = pct + '%';
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `已看 ${watched} / ${total} 集`;
+}
+
+// ========== EVENT LISTENERS ==========
+function setupEventListeners() {
+  // Search
+  const searchInput = document.getElementById('searchInput');
+  let searchTimeout;
+  searchInput.addEventListener('input', (e) => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      searchQuery = e.target.value.trim();
+      renderTable();
+    }, 200);
+  });
+
+  // Year tags
+  document.getElementById('yearTags').addEventListener('click', (e) => {
+    if (e.target.classList.contains('year-tag')) {
+      document.querySelectorAll('.year-tag').forEach(t => t.classList.remove('active'));
+      e.target.classList.add('active');
+      currentYear = e.target.dataset.year;
+      renderTable();
+    }
+  });
+
+  // Scroll top
+  const scrollTop = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollTop.classList.toggle('visible', window.scrollY > 300);
+  });
+  scrollTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Font size panel toggle
+  const fontSizePanel = document.getElementById('fontSizePanel');
+  const fontSizeSlider = document.getElementById('fontSizeSlider');
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'f' || e.key === 'F') {
+      fontSizePanel.classList.toggle('visible');
+    }
+  });
+
+  // Load saved font size
+  const savedFontSize = localStorage.getItem('wutz_font_scale');
+  if (savedFontSize) {
+    fontSizeSlider.value = savedFontSize;
+    document.documentElement.style.setProperty('--font-scale', savedFontSize / 100);
+  }
+
+  fontSizeSlider.addEventListener('input', (e) => {
+    const scale = e.target.value / 100;
+    document.documentElement.style.setProperty('--font-scale', scale);
+    localStorage.setItem('wutz_font_scale', e.target.value);
+  });
+}
+
+// ========== THEME ==========
+function setupTheme() {
+  const themes = ['minimal', 'darktech', 'creative', 'guofeng', 'handdrawn'];
+  let currentTheme = parseInt(localStorage.getItem('wutz_theme') || '0');
+
+  function applyTheme(index) {
+    document.documentElement.setAttribute('data-theme', themes[index]);
+    localStorage.setItem('wutz_theme', index);
+  }
+
+  applyTheme(currentTheme);
+
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    currentTheme = (currentTheme + 1) % themes.length;
+    applyTheme(currentTheme);
+  });
+}
+
+function setupFontSize() {
+  // Already handled in event listeners
+}
+
+// ========== BOOT ==========
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
