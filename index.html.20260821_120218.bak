@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="minimal">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233b82f6'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='18' font-weight='bold' fill='white' font-family='sans-serif'%3EW%3C/text%3E%3C/svg%3E">
+<meta name="description" content="我的观看世界 - 个人兴趣观看记录目录站">
+<meta property="og:type" content="website">
+<meta property="og:title" content="观看世界">
+<meta property="og:description" content="个人兴趣观看记录目录站 - 无限挑战完整目录、成员变迁时间轴、多主题切换">
+<meta property="og:locale" content="zh_CN">
+<title>我的观看世界</title>
+<style>
+:root {
+  --transition-theme: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+  --max-width: 1200px; --nav-height: 60px;
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", Consolas, monospace;
+}
+[data-theme="minimal"] {
+  --bg: #f8f9fa; --bg-2: #fff; --bg-3: #f1f3f5;
+  --text: #1a1a2e; --text-2: #6c757d; --text-3: #adb5bd;
+  --accent: #3b82f6; --accent-h: #2563eb; --accent-soft: rgba(59,130,246,0.1);
+  --border: #e9ecef; --card-bg: #fff; --card-border: #e9ecef;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-accent: 0 4px 20px rgba(59,130,246,0.2);
+  --hero-grad: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  --nav-bg: rgba(255,255,255,0.85); --nav-border: rgba(0,0,0,0.06);
+  --tag-bg: #f1f3f5; --tag-text: #495057; --font-h: var(--font-base);
+}
+[data-theme="darktech"] {
+  --bg: #0a0e1a; --bg-2: #131826; --bg-3: #1a2033;
+  --text: #e2e8f0; --text-2: #94a3b8; --text-3: #64748b;
+  --accent: #00ff9d; --accent-h: #00cc7d; --accent-soft: rgba(0,255,157,0.08);
+  --border: #1e293b; --card-bg: #131826; --card-border: #1e293b;
+  --shadow: 0 2px 12px rgba(0,0,0,0.4); --shadow-hover: 0 8px 30px rgba(0,255,157,0.1);
+  --shadow-accent: 0 0 24px rgba(0,255,157,0.25);
+  --hero-grad: linear-gradient(135deg, #0a0e1a 0%, #0d1521 50%, #0a1f1a 100%);
+  --nav-bg: rgba(10,14,26,0.85); --nav-border: rgba(0,255,157,0.1);
+  --tag-bg: rgba(0,255,157,0.08); --tag-text: #00ff9d; --font-h: var(--font-mono);
+}
+[data-theme="creative"] {
+  --bg: #fef3ff; --bg-2: #fff; --bg-3: #f3e8ff;
+  --text: #2d1b4e; --text-2: #7c6a9c; --text-3: #b4a3c8;
+  --accent: #a855f7; --accent-h: #9333ea; --accent-soft: rgba(168,85,247,0.1);
+  --border: #f3e8ff; --card-bg: #fff; --card-border: #f3e8ff;
+  --shadow: 0 4px 16px rgba(168,85,247,0.08); --shadow-hover: 0 12px 36px rgba(168,85,247,0.18);
+  --shadow-accent: 0 4px 24px rgba(236,72,153,0.25);
+  --hero-grad: linear-gradient(135deg, #fef3ff 0%, #fce7f3 50%, #ddd6fe 100%);
+  --nav-bg: rgba(254,243,255,0.85); --nav-border: rgba(168,85,247,0.1);
+  --tag-bg: #f3e8ff; --tag-text: #7c3aed; --font-h: var(--font-base);
+}
+[data-theme="guofeng"] {
+  --bg: #f5f0e8; --bg-2: #ede4d3; --bg-3: #e8dcc6;
+  --text: #2c1810; --text-2: #6b4423; --text-3: #a08968;
+  --accent: #8b2500; --accent-h: #6b1d00; --accent-soft: rgba(139,37,0,0.08);
+  --border: #d4c4a8; --card-bg: #faf6ef; --card-border: #d4c4a8;
+  --shadow: 0 2px 12px rgba(139,37,0,0.06); --shadow-hover: 0 8px 30px rgba(139,37,0,0.12);
+  --shadow-accent: 0 4px 20px rgba(212,160,23,0.2);
+  --hero-grad: linear-gradient(135deg, #f5f0e8 0%, #ede4d3 50%, #f0e6d2 100%);
+  --nav-bg: rgba(245,240,232,0.88); --nav-border: rgba(139,37,0,0.08);
+  --tag-bg: #ede4d3; --tag-text: #8b2500; --font-h: "Songti SC","STSong",serif;
+}
+[data-theme="handdrawn"] {
+  --bg: #fdf6e3; --bg-2: #f5ecd7; --bg-3: #efe4c8;
+  --text: #3c2f1f; --text-2: #8b6914; --text-3: #bda56a;
+  --accent: #d97706; --accent-h: #b45309; --accent-soft: rgba(217,119,6,0.1);
+  --border: #e7d5b5; --card-bg: #fffbeb; --card-border: #e7d5b5;
+  --shadow: 0 2px 8px rgba(139,105,20,0.08); --shadow-hover: 0 8px 24px rgba(139,105,20,0.15);
+  --shadow-accent: 0 4px 20px rgba(217,119,6,0.2);
+  --hero-grad: linear-gradient(135deg, #fdf6e3 0%, #faecd0 50%, #f5e6c8 100%);
+  --nav-bg: rgba(253,246,227,0.88); --nav-border: rgba(139,105,20,0.08);
+  --tag-bg: #f5ecd7; --tag-text: #8b6914; --font-h: "Hannotate SC","Comic Sans MS",cursive;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; scroll-padding-top:calc(var(--nav-height) + 20px); }
+body { font-family:var(--font-base); background:var(--bg); color:var(--text); line-height:1.7; transition:background var(--transition-theme),color var(--transition-theme); overflow-x:hidden; }
+h1,h2,h3,h4 { font-family:var(--font-h); font-weight:700; line-height:1.3; color:var(--text); transition:color var(--transition-theme); }
+a { color:var(--accent); text-decoration:none; transition:color var(--transition-fast); }
+a:hover { color:var(--accent-h); }
+button { font-family:inherit; cursor:pointer; border:none; background:none; }
+ul { list-style:none; }
+section { padding:70px 0; position:relative; }
+.container { max-width:var(--max-width); margin:0 auto; padding:0 24px; }
+
+/* Navbar */
+.navbar { position:fixed; top:0; left:0; right:0; height:var(--nav-height); background:var(--nav-bg); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-bottom:1px solid var(--nav-border); z-index:1000; transition:background var(--transition-theme),border-color var(--transition-theme); }
+.navbar .container { height:100%; display:flex; align-items:center; justify-content:space-between; }
+.nav-logo { font-family:var(--font-h); font-size:18px; font-weight:800; color:var(--text); display:flex; align-items:center; gap:8px; transition:color var(--transition-theme); }
+.nav-logo-mark { width:30px; height:30px; border-radius:var(--radius-sm); background:var(--accent); display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; transition:background var(--transition-theme); }
+.nav-links { display:flex; align-items:center; gap:4px; }
+.nav-link { padding:8px 14px; font-size:14px; color:var(--text-2); border-radius:var(--radius-sm); transition:all var(--transition-fast); position:relative; }
+.nav-link:hover { color:var(--text); background:var(--accent-soft); }
+.nav-link.active { color:var(--accent); font-weight:600; }
+.nav-link.active::after { content:''; position:absolute; bottom:2px; left:50%; transform:translateX(-50%); width:20px; height:2px; background:var(--accent); border-radius:2px; }
+
+/* Theme switcher */
+.theme-switcher { display:flex; align-items:center; gap:5px; padding:3px; background:var(--bg-3); border-radius:var(--radius-full); border:1px solid var(--border); transition:all var(--transition-theme); }
+.theme-btn { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:all var(--transition-fast); position:relative; }
+.theme-btn:hover { transform:scale(1.15); }
+.theme-btn.active { transform:scale(1.1); }
+.theme-dot { width:16px; height:16px; border-radius:50%; border:2px solid var(--border); }
+.theme-btn[data-theme="minimal"] .theme-dot { background:linear-gradient(135deg,#3b82f6,#e3f2fd); }
+.theme-btn[data-theme="darktech"] .theme-dot { background:linear-gradient(135deg,#00ff9d,#0a0e1a); }
+.theme-btn[data-theme="creative"] .theme-dot { background:linear-gradient(135deg,#a855f7,#ec4899); }
+.theme-btn[data-theme="guofeng"] .theme-dot { background:linear-gradient(135deg,#8b2500,#d4a017); }
+.theme-btn[data-theme="handdrawn"] .theme-dot { background:linear-gradient(135deg,#d97706,#fdf6e3); }
+.theme-btn.active .theme-dot { border-color:var(--text); }
+.theme-btn::after { content:attr(data-label); position:absolute; bottom:-30px; left:50%; transform:translateX(-50%); font-size:11px; color:var(--text-2); background:var(--card-bg); padding:2px 8px; border-radius:4px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity var(--transition-fast); border:1px solid var(--border); }
+.theme-btn:hover::after { opacity:1; }
+.nav-toggle { display:none; width:40px; height:40px; flex-direction:column; justify-content:center; align-items:center; gap:5px; border-radius:var(--radius-sm); }
+.nav-toggle span { width:20px; height:2px; background:var(--text); border-radius:2px; transition:all var(--transition-fast); }
+.nav-toggle.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity:0; }
+.nav-toggle.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+/* Hero */
+#home { min-height:90vh; display:flex; align-items:center; padding-top:var(--nav-height); background:var(--hero-grad); position:relative; overflow:hidden; }
+#home::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 20% 50%,var(--accent-soft) 0%,transparent 50%),radial-gradient(circle at 80% 30%,var(--accent-soft) 0%,transparent 50%); pointer-events:none; }
+.hero-content { position:relative; z-index:2; text-align:center; width:100%; }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; background:var(--accent-soft); color:var(--accent); border-radius:var(--radius-full); font-size:13px; font-weight:600; margin-bottom:20px; }
+.hero-title { font-size:clamp(36px,6vw,64px); font-weight:800; margin-bottom:16px; background:linear-gradient(135deg,var(--text),var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hero-sub { font-size:clamp(15px,2vw,19px); color:var(--text-2); margin-bottom:40px; max-width:580px; margin-left:auto; margin-right:auto; }
+.hero-stats { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-bottom:40px; }
+.hero-stat { text-align:center; }
+.hero-stat-num { font-family:var(--font-h); font-size:clamp(32px,5vw,44px); font-weight:800; color:var(--accent); line-height:1; }
+.hero-stat-label { font-size:13px; color:var(--text-2); margin-top:6px; }
+.hero-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; gap:8px; padding:11px 26px; font-size:14px; font-weight:600; border-radius:var(--radius-md); transition:all var(--transition-base); cursor:pointer; border:2px solid transparent; }
+.btn-primary { background:var(--accent); color:#fff; box-shadow:var(--shadow-accent); }
+.btn-primary:hover { background:var(--accent-h); transform:translateY(-2px); color:#fff; }
+.btn-outline { background:transparent; color:var(--text); border-color:var(--border); }
+.btn-outline:hover { border-color:var(--accent); color:var(--accent); background:var(--accent-soft); }
+
+/* Section headers */
+.section-tag { display:inline-block; font-size:13px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
+.section-title { font-size:clamp(26px,4vw,36px); margin-bottom:16px; }
+.section-desc { font-size:16px; color:var(--text-2); max-width:600px; margin-bottom:48px; }
+
+/* Project cards */
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:24px; }
+.project-card { background:var(--card-bg); border:1px solid var(--card-border); border-radius:var(--radius-lg); overflow:hidden; transition:all var(--transition-base); box-shadow:var(--shadow); display:flex; flex-direction:column; }
+.project-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-hover); border-color:var(--accent); }
+.project-cover { height:200px; position:relative; overflow:hidden; background:var(--bg-3); }
+.project-cover svg { width:100%; height:100%; transition:transform var(--transition-base); }
+.project-card:hover .project-cover svg { transform:scale(1.08); }
+.project-badge { position:absolute; top:12px; right:12px; padding:4px 12px; border-radius:var(--radius-full); font-size:12px; font-weight:600; backdrop-filter:blur(8px); }
+.project-badge.active { background:var(--accent); color:#fff; }
+.project-badge.template { background:var(--tag-bg); color:var(--tag-text); border:1px solid var(--border); }
+.project-body { padding:24px; flex:1; display:flex; flex-direction:column; }
+.project-title { font-size:20px; margin-bottom:8px; transition:color var(--transition-fast); }
+.project-card:hover .project-title { color:var(--accent); }
+.project-desc { font-size:14px; color:var(--text-2); margin-bottom:16px; flex:1; }
+.project-stats { display:flex; gap:16px; margin-bottom:16px; flex-wrap:wrap; }
+.project-stat { display:flex; flex-direction:column; gap:2px; }
+.project-stat-val { font-size:20px; font-weight:800; color:var(--accent); font-family:var(--font-h); }
+.project-stat-label { font-size:11px; color:var(--text-3); }
+.project-link { display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:600; color:var(--accent); transition:gap var(--transition-fast); }
+.project-link:hover { gap:10px; }
+.project-card.coming-soon { opacity:0.6; }
+.project-card.coming-soon:hover { transform:none; border-color:var(--card-border); }
+
+/* About section */
+#about { background:var(--bg-2); transition:background var(--transition-theme); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+.about-text h3 { font-size:22px; margin-bottom:16px; }
+.about-text p { font-size:15px; color:var(--text-2); margin-bottom:16px; line-height:1.8; }
+.about-features { display:flex; flex-direction:column; gap:12px; }
+.about-feature { display:flex; align-items:center; gap:12px; font-size:14px; color:var(--text-2); }
+.about-feature svg { width:20px; height:20px; color:var(--accent); flex-shrink:0; }
+.about-visual { display:flex; align-items:center; justify-content:center; }
+.about-visual svg { max-width:100%; height:auto; }
+
+/* Footer */
+.footer { background:var(--bg-3); border-top:1px solid var(--border); padding:32px 0; transition:all var(--transition-theme); }
+.footer .container { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+.footer-text { font-size:13px; color:var(--text-2); }
+
+/* Reveal */
+.reveal { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal:nth-child(2) { transition-delay:0.1s; }
+.reveal:nth-child(3) { transition-delay:0.2s; }
+.theme-transitioning * { transition:background-color 0.4s ease,color 0.4s ease,border-color 0.4s ease,box-shadow 0.4s ease !important; }
+
+@media (max-width:768px) {
+  section { padding:50px 0; }
+  .container { padding:0 16px; }
+  .nav-links { position:fixed; top:var(--nav-height); left:0; right:0; background:var(--nav-bg); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); flex-direction:column; align-items:stretch; padding:12px; gap:4px; border-bottom:1px solid var(--nav-border); transform:translateY(-100%); opacity:0; pointer-events:none; transition:all 0.3s ease; }
+  .nav-links.open { transform:translateY(0); opacity:1; pointer-events:auto; }
+  .nav-link { padding:10px 14px; font-size:14px; }
+  .nav-link.active::after { display:none; }
+  .nav-toggle { display:flex; }
+  .theme-switcher { padding:2px; gap:3px; }
+  .theme-btn { width:22px; height:22px; }
+  .theme-dot { width:13px; height:13px; }
+  .hero-stats { gap:24px; }
+  .projects-grid { grid-template-columns:1fr; }
+  .about-grid { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+  .hero-actions { flex-direction:column; align-items:center; }
+  .btn { width:100%; justify-content:center; }
+  .project-stats { gap:12px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+  .reveal { opacity:1; transform:none; }
+}
+:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+@media print {
+  .navbar,.theme-switcher,.nav-toggle,.footer,.back-to-top,.hero-actions,.btn,.search-bar,.filters,.filter-btn,.era-cards-scroll,.chart-grid,.event-node,.arrow-connector,.theme-btn { display:none !important; }
+  body { background:#fff !important; color:#000 !important; }
+  section { padding:10px 0 !important; }
+  .container { max-width:100% !important; padding:0 !important; }
+  .hero-title { -webkit-text-fill-color:#000 !important; color:#000 !important; }
+  .cat-card,.event-content,.phase-box,.stat-card { box-shadow:none !important; border:1px solid #ccc !important; page-break-inside:avoid; }
+  .reveal { opacity:1 !important; transform:none !important; }
+  a { color:#000 !important; text-decoration:underline !important; }
+}
+
+/* Reading progress bar */
+.reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, var(--accent), var(--accent-h)); transition: width 0.1s ease; pointer-events: none; }
+/* Page fade-in */
+body { opacity: 0; animation: pageFadeIn 0.4s ease 0.1s forwards; }
+@keyframes pageFadeIn { to { opacity: 1; } }
+/* Enhanced footer */
+.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.footer-link { font-size: 13px; color: var(--text-2); transition: color var(--transition-fast); }
+.footer-link:hover { color: var(--accent); }
+.footer-meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--text-3); }
+.footer-theme-tag { padding: 2px 8px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent); font-size: 11px; font-weight: 600; }
+
+</style>
+<script>// Auto-detect system dark mode (only if no saved theme)
+(function(){
+  if(!localStorage.getItem('wutz-theme')&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+    document.documentElement.setAttribute('data-theme','darktech');
+    document.querySelectorAll('.theme-btn').forEach(function(b){
+      b.classList.toggle('active',b.dataset.theme==='darktech');
+    });
+  }
+})();
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "观看世界",
+    "description": "个人兴趣观看记录目录站 - 无限挑战完整目录、成员变迁时间轴、多主题切换",
+    "inLanguage": "zh-CN"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://watching-world.local/index.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark">W</span>
+      <span>观看世界</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link active">首页</a></li>
+      <li><a href="wutz-catalog.html" class="nav-link">无限挑战</a></li>
+      <li><a href="other-watching.html" class="nav-link">其他观看</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="theme-switcher" role="group" aria-label="Theme switcher">
+        <button class="theme-btn active" data-theme="minimal" data-label="简约现代" aria-label="Minimal"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="darktech" data-label="暗黑科技" aria-label="Dark tech"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="creative" data-label="活泼创意" aria-label="Creative"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="guofeng" data-label="国风雅韵" aria-label="Guofeng"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="handdrawn" data-label="手绘温暖" aria-label="Handdrawn"><span class="theme-dot"></span></button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        个人观看记录目录站
+      </div>
+      <h1 class="hero-title">我的观看世界</h1>
+      <p class="hero-sub">记录每一部追过的综艺、剧集和电影。在这里，每一次观看都是一段值得收藏的旅程。</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num" id="stat-episodes" data-suffix="+">0</div><div class="hero-stat-label">已记录集数</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" id="stat-categories" data-suffix="+">0</div><div class="hero-stat-label">特辑分类</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" id="stat-years">0</div><div class="hero-stat-label">年份跨度</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">主题风格</div></div>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          浏览目录
+        </a>
+        <a href="wutz-catalog.html" class="btn btn-outline">无限挑战目录</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">PROJECTS</span>
+      <h2 class="section-title">观看项目</h2>
+      <p class="section-desc">每个观看项目都是一个独立的目录，点击进入查看完整的分类、集数和笔记。</p>
+    </div>
+    <div class="projects-grid">
+      <!-- 无限挑战 -->
+      <a href="wutz-catalog.html" class="project-card reveal" style="text-decoration:none;color:inherit;">
+        <div class="project-cover">
+          <svg viewBox="0 0 340 200" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="wutzGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.3"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0.05"/></linearGradient></defs>
+            <rect width="340" height="200" fill="url(#wutzGrad)"/>
+            <circle cx="170" cy="100" r="60" fill="none" stroke="var(--accent)" stroke-width="2" opacity="0.3"/>
+            <circle cx="170" cy="100" r="40" fill="var(--accent)" opacity="0.15"/>
+            <text x="170" y="95" text-anchor="middle" font-size="28" font-weight="800" fill="var(--accent)" font-family="var(--font-h)" opacity="0.6">MUCHE</text>
+            <text x="170" y="120" text-anchor="middle" font-size="14" fill="var(--accent)" opacity="0.4">DOJEON</text>
+            <rect x="20" y="170" width="50" height="3" rx="1.5" fill="var(--accent)" opacity="0.3"/>
+            <rect x="80" y="170" width="30" height="3" rx="1.5" fill="var(--accent)" opacity="0.2"/>
+            <rect x="270" y="170" width="50" height="3" rx="1.5" fill="var(--accent)" opacity="0.3"/>
+          </svg>
+          <span class="project-badge active">完整数据</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">无限挑战观看目录</h3>
+          <p class="project-desc">韩国 MBC 综艺《无限挑战》的完整观看索引，按特辑类别和年份分类整理，包含成员变动时间线。</p>
+          <div class="project-stats">
+            <div class="project-stat"><span class="project-stat-val">622</span><span class="project-stat-label">集数</span></div>
+            <div class="project-stat"><span class="project-stat-val">39</span><span class="project-stat-label">分类</span></div>
+            <div class="project-stat"><span class="project-stat-val">2005-18</span><span class="project-stat-label">时间跨度</span></div>
+          </div>
+          <span class="project-link">查看详情 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 其他观看记录 -->
+      <a href="other-watching.html" class="project-card reveal" style="text-decoration:none;color:inherit;">
+        <div class="project-cover">
+          <svg viewBox="0 0 340 200" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="otherGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.2"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0.03"/></linearGradient></defs>
+            <rect width="340" height="200" fill="url(#otherGrad)"/>
+            <rect x="60" y="50" width="60" height="80" rx="8" fill="var(--accent)" opacity="0.15"/>
+            <rect x="140" y="40" width="60" height="90" rx="8" fill="var(--accent)" opacity="0.25"/>
+            <rect x="220" y="55" width="60" height="75" rx="8" fill="var(--accent)" opacity="0.1"/>
+            <polygon points="170,75 185,100 155,100" fill="var(--accent)" opacity="0.5"/>
+            <rect x="30" y="160" width="280" height="2" fill="var(--accent)" opacity="0.1"/>
+          </svg>
+          <span class="project-badge template">模板页</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">其他观看记录</h3>
+          <p class="project-desc">综艺、电视剧、电影、纪录片的观看记录。提供分类管理和搜索功能，持续更新中。</p>
+          <div class="project-stats">
+            <div class="project-stat"><span class="project-stat-val">待填</span><span class="project-stat-label">集数</span></div>
+            <div class="project-stat"><span class="project-stat-val">4</span><span class="project-stat-label">分类</span></div>
+            <div class="project-stat"><span class="project-stat-val">模板</span><span class="project-stat-label">状态</span></div>
+          </div>
+          <span class="project-link">进入模板 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 成员变迁时间轴 -->
+      <a href="timeline.html" class="project-card reveal" style="text-decoration:none;color:inherit;">
+        <div class="project-cover">
+          <svg viewBox="0 0 340 200" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="tlGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.25"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0.05"/></linearGradient></defs>
+            <rect width="340" height="200" fill="url(#tlGrad)"/>
+            <line x1="170" y1="20" x2="170" y2="180" stroke="var(--accent)" stroke-width="3" opacity="0.3"/>
+            <circle cx="170" cy="40" r="8" fill="#3498db" opacity="0.7"/>
+            <circle cx="170" cy="70" r="8" fill="#3498db" opacity="0.7"/>
+            <circle cx="170" cy="100" r="8" fill="#3498db" opacity="0.7"/>
+            <circle cx="170" cy="130" r="8" fill="#e74c3c" opacity="0.7"/>
+            <circle cx="170" cy="160" r="8" fill="#27ae60" opacity="0.7"/>
+            <rect x="190" y="33" width="60" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
+            <rect x="90" y="63" width="60" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
+            <rect x="190" y="93" width="60" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
+            <rect x="90" y="123" width="60" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
+            <rect x="190" y="153" width="60" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
+          </svg>
+          <span class="project-badge active">完整数据</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">成员变迁时间轴</h3>
+          <p class="project-desc">《无限挑战》2005-2018 年成员变动全记录，17 次人员变动，16 个时期阶段，交替时间线可视化呈现。</p>
+          <div class="project-stats">
+            <div class="project-stat"><span class="project-stat-val">17</span><span class="project-stat-label">次变动</span></div>
+            <div class="project-stat"><span class="project-stat-val">16</span><span class="project-stat-label">个时期</span></div>
+            <div class="project-stat"><span class="project-stat-val">13年</span><span class="project-stat-label">跨度</span></div>
+          </div>
+          <span class="project-link">查看时间轴 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- 3D数据统计 -->
+      <a href="statistics.html" class="project-card reveal" style="text-decoration:none;color:inherit;">
+        <div class="project-cover">
+          <svg viewBox="0 0 340 200" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="s3dGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.2"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0.03"/></linearGradient></defs>
+            <rect width="340" height="200" fill="url(#s3dGrad)"/>
+            <!-- 3D bar columns (isometric) -->
+            <g transform="translate(100,50)">
+              <!-- Bar 1 -->
+              <polygon points="0,100 30,85 60,100 60,140 30,125 0,140" fill="var(--accent)" opacity="0.7"/>
+              <polygon points="0,100 30,85 60,100 30,115" fill="var(--accent)" opacity="0.9"/>
+              <polygon points="30,85 60,100 30,115" fill="var(--accent)" opacity="0.5"/>
+              <!-- Bar 2 -->
+              <polygon points="40,90 70,75 100,90 100,120 70,105 40,120" fill="var(--accent)" opacity="0.7"/>
+              <polygon points="40,90 70,75 100,90 70,105" fill="var(--accent)" opacity="0.9"/>
+              <polygon points="70,75 100,90 70,105" fill="var(--accent)" opacity="0.5"/>
+              <!-- Bar 3 (tallest) -->
+              <polygon points="80,70 110,55 140,70 140,110 110,95 80,110" fill="var(--accent)" opacity="0.7"/>
+              <polygon points="80,70 110,55 140,70 110,85" fill="var(--accent)" opacity="0.9"/>
+              <polygon points="110,55 140,70 110,85" fill="var(--accent)" opacity="0.5"/>
+              <!-- Bar 4 -->
+              <polygon points="120,80 150,65 180,80 180,130 150,115 120,130" fill="var(--accent)" opacity="0.7"/>
+              <polygon points="120,80 150,65 180,80 150,95" fill="var(--accent)" opacity="0.9"/>
+              <polygon points="150,65 180,80 150,95" fill="var(--accent)" opacity="0.5"/>
+              <!-- Bar 5 -->
+              <polygon points="160,95 190,80 220,95 220,115 190,100 160,115" fill="var(--accent)" opacity="0.6"/>
+              <polygon points="160,95 190,80 220,95 190,110" fill="var(--accent)" opacity="0.8"/>
+              <polygon points="190,80 220,95 190,110" fill="var(--accent)" opacity="0.4"/>
+            </g>
+            <!-- scatter dots -->
+            <circle cx="30" cy="30" r="3" fill="var(--accent)" opacity="0.4"/>
+            <circle cx="50" cy="20" r="2" fill="var(--accent)" opacity="0.3"/>
+            <circle cx="290" cy="40" r="2.5" fill="var(--accent)" opacity="0.3"/>
+            <circle cx="310" cy="25" r="2" fill="var(--accent)" opacity="0.25"/>
+            <circle cx="270" cy="50" r="3" fill="var(--accent)" opacity="0.35"/>
+          </svg>
+          <span class="project-badge active">三维可视化</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">3D 数据统计</h3>
+          <p class="project-desc">5 个三维交互图表全方位解析《无限挑战》12 年 622 集节目数据，年度产出矩阵、节目分布星云、趋势曲面、季度密度、分类轨迹线。</p>
+          <div class="project-stats">
+            <div class="project-stat"><span class="project-stat-val">5</span><span class="project-stat-label">个3D图表</span></div>
+            <div class="project-stat"><span class="project-stat-val">622</span><span class="project-stat-label">集覆盖</span></div>
+            <div class="project-stat"><span class="project-stat-val">39</span><span class="project-stat-label">个分类</span></div>
+          </div>
+          <span class="project-link">查看3D统计 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">ABOUT</span>
+      <h2 class="section-title">关于这个站</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <h3>用数据的方式记录观看旅程</h3>
+        <p>这不是一个影评站，也不是简单的追剧清单。这里把每一部看过的节目拆解成结构化的数据——按特辑分类、按年份归档、按成员变动标记时间线。</p>
+        <p>每个观看项目都有独立的子页面，支持搜索、筛选和可视化统计。你可以切换 5 种视觉主题，找到最适合自己的阅读氛围。</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            结构化分类，按特辑/年份/主题检索
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            关键词搜索，快速定位特定集数
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            数据可视化，年份分布和统计图表
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            5 套主题切换，跨页面持久化记忆
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <svg viewBox="0 0 400 300" width="100%">
+          <defs><linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="var(--accent)" stop-opacity="0.3"/><stop offset="100%" stop-color="var(--accent)" stop-opacity="0.05"/></linearGradient></defs>
+          <rect x="50" y="50" width="300" height="200" rx="16" fill="url(#aboutGrad)" stroke="var(--accent)" stroke-width="1.5" opacity="0.5"/>
+          <rect x="80" y="80" width="100" height="12" rx="6" fill="var(--accent)" opacity="0.4"/>
+          <rect x="80" y="102" width="160" height="6" rx="3" fill="var(--accent)" opacity="0.2"/>
+          <rect x="80" y="116" width="130" height="6" rx="3" fill="var(--accent)" opacity="0.2"/>
+          <rect x="80" y="140" width="240" height="40" rx="8" fill="var(--accent)" opacity="0.1"/>
+          <circle cx="100" cy="160" r="8" fill="var(--accent)" opacity="0.5"/>
+          <rect x="118" y="156" width="80" height="8" rx="4" fill="var(--accent)" opacity="0.3"/>
+          <rect x="80" y="200" width="60" height="20" rx="10" fill="var(--accent)" opacity="0.25"/>
+          <rect x="150" y="200" width="60" height="20" rx="10" fill="var(--accent)" opacity="0.15"/>
+          <rect x="220" y="200" width="60" height="20" rx="10" fill="var(--accent)" opacity="0.1"/>
+          <circle cx="320" cy="80" r="20" fill="var(--accent)" opacity="0.08"/>
+          <circle cx="340" cy="120" r="12" fill="var(--accent)" opacity="0.06"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="wutz-catalog.html" class="footer-link">无限挑战</a><a href="other-watching.html" class="footer-link">其他观看</a>
+    </div>
+    <div class="footer-meta">
+      <span>更新于 2026.08</span>
+      <span class="footer-theme-tag" id="footerThemeTag">简约现代</span>
+    </div>
+  </div></footer>
+
+<script src="wutz_data.js"></script>
+<script>
+(function(){
+  const html=document.documentElement,btns=document.querySelectorAll('.theme-btn'),KEY='wutz-theme';
+  const saved=localStorage.getItem(KEY);
+  if(saved){setTheme(saved);}
+  function setTheme(t){
+    document.body.classList.add('theme-transitioning');
+    html.setAttribute('data-theme',t);
+    localStorage.setItem(KEY,t);
+    btns.forEach(b=>b.classList.toggle('active',b.dataset.theme===t));
+    setTimeout(()=>document.body.classList.remove('theme-transitioning'),500);
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.theme)));
+})();
+
+(function(){
+  const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+  t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});
+  l.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=>{l.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}));
+})();
+
+(function(){
+  const els=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+  els.forEach(e=>obs.observe(e));
+})();
+
+
+// Reading progress bar
+(function(){
+  var bar=document.getElementById('readingProgress');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var sh=document.documentElement.scrollHeight-window.innerHeight;
+    var pct=sh>0?(window.scrollY/sh*100):0;
+    bar.style.width=pct+'%';
+  },{passive:true});
+})();
+
+// Update footer theme tag
+(function(){
+  var tag=document.getElementById('footerThemeTag');
+  if(!tag)return;
+  var labels={'minimal':'简约现代','darktech':'暗黑科技','creative':'活泼创意','guofeng':'国风雅韵','handdrawn':'手绘温暖'};
+  function updateTag(){
+    var t=document.documentElement.getAttribute('data-theme')||'minimal';
+    tag.textContent=labels[t]||t;
+  }
+  updateTag();
+  document.querySelectorAll('.theme-btn').forEach(function(b){
+    b.addEventListener('click',function(){setTimeout(updateTag,50);});
+  });
+})();
+
+// Back to top
+(function(){
+  var btn=document.getElementById('backToTop');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('visible',window.scrollY>300);
+  },{passive:true});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+
+// Hero stats: dynamically load from wutz_data.json
+(function(){
+  var elEp = document.getElementById('stat-episodes');
+  var elCat = document.getElementById('stat-categories');
+  var elYr = document.getElementById('stat-years');
+  if(!elEp || !elCat || !elYr) return;
+
+  function animateCount(el, target, suffix){
+    var dur = 1200, start = performance.now(), from = 0;
+    suffix = suffix || '';
+    function step(now){
+      var t = Math.min((now - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - t, 3);
+      var val = Math.round(from + (target - from) * eased);
+      el.textContent = val + suffix;
+      if(t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function computeAndRender(data){
+    var left = data.left_categories || [];
+    var right = data.right_categories || [];
+    var allCats = left.concat(right);
+    var totalEps = 0;
+    var years = [];
+    allCats.forEach(function(cat){
+      (cat.items || []).forEach(function(it){
+        totalEps++;
+        var m = (it.year || '').match(/(\d{4})/);
+        if(m) years.push(parseInt(m[1], 10));
+      });
+    });
+    var catCount = allCats.length;
+    var yearSpan = years.length ? (Math.max.apply(null, years) - Math.min.apply(null, years) + 1) : 0;
+    animateCount(elEp, totalEps, elEp.getAttribute('data-suffix') || '');
+    animateCount(elCat, catCount, elCat.getAttribute('data-suffix') || '');
+    animateCount(elYr, yearSpan, '');
+  }
+
+  function fallback(){
+    elEp.textContent = '622+';
+    elCat.textContent = '39+';
+    elYr.textContent = '12';
+  }
+
+  // 1) file:// protocol: <script src="wutz_data.js"> already set window.__wutzData
+  if(window.__wutzData){
+    computeAndRender(window.__wutzData);
+  } else {
+    // 2) HTTP protocol: try fetch('wutz_data.json')
+    fetch('wutz_data.json')
+      .then(function(r){ return r.json(); })
+      .then(computeAndRender)
+      .catch(fallback);
+  }
+})();
+
+</script>
+<button class="back-to-top" id="backToTop" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg></button>
+</body>
+</html>

@@ -1,0 +1,3395 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="minimal">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233b82f6'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='18' font-weight='bold' fill='white' font-family='sans-serif'%3EW%3C/text%3E%3C/svg%3E">
+<meta name="description" content="无限挑战观看目录 - 622集节目完整索引，39个特辑分类，2005-2018">
+<meta property="og:type" content="website">
+<meta property="og:title" content="无限挑战观看目录 · 观看世界">
+<meta property="og:description" content="韩国MBC综艺《无限挑战》完整观看索引 - 622集39个分类，ECharts可视化，时期卡片，搜索筛选">
+<meta property="og:locale" content="zh_CN">
+<title>无限挑战观看目录 · 观看世界</title>
+<style>
+:root {
+  --transition-theme: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --max-width: 1200px;
+  --nav-height: 60px;
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", Consolas, monospace;
+
+  /* Era card colors */
+  --era-color-3:#3498db; --era-color-4:#2ecc71; --era-color-5:#9b59b6; --era-color-5b:#e67e22;
+  --era-color-6b:#1abc9c; --era-color-7:#f39c12; --era-color-final:#e74c3c;
+}
+
+/* Theme 1: Minimal */
+[data-theme="minimal"] {
+  --bg: #f8f9fa; --bg-2: #fff; --bg-3: #f1f3f5;
+  --text: #1a1a2e; --text-2: #6c757d; --text-3: #adb5bd;
+  --accent: #3b82f6; --accent-h: #2563eb; --accent-soft: rgba(59,130,246,0.1);
+  --border: #e9ecef; --card-bg: #fff; --card-border: #e9ecef;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-accent: 0 4px 20px rgba(59,130,246,0.2);
+  --hero-grad: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  --nav-bg: rgba(255,255,255,0.85); --nav-border: rgba(0,0,0,0.06);
+  --tag-bg: #f1f3f5; --tag-text: #495057;
+  --font-h: var(--font-base);
+}
+/* Theme 2: DarkTech */
+[data-theme="darktech"] {
+  --bg: #0a0e1a; --bg-2: #131826; --bg-3: #1a2033;
+  --text: #e2e8f0; --text-2: #94a3b8; --text-3: #64748b;
+  --accent: #00ff9d; --accent-h: #00cc7d; --accent-soft: rgba(0,255,157,0.08);
+  --border: #1e293b; --card-bg: #131826; --card-border: #1e293b;
+  --shadow: 0 2px 12px rgba(0,0,0,0.4); --shadow-hover: 0 8px 30px rgba(0,255,157,0.1);
+  --shadow-accent: 0 0 24px rgba(0,255,157,0.25);
+  --hero-grad: linear-gradient(135deg, #0a0e1a 0%, #0d1521 50%, #0a1f1a 100%);
+  --nav-bg: rgba(10,14,26,0.85); --nav-border: rgba(0,255,157,0.1);
+  --tag-bg: rgba(0,255,157,0.08); --tag-text: #00ff9d;
+  --font-h: var(--font-mono);
+}
+/* Theme 3: Creative */
+[data-theme="creative"] {
+  --bg: #fef3ff; --bg-2: #fff; --bg-3: #f3e8ff;
+  --text: #2d1b4e; --text-2: #7c6a9c; --text-3: #b4a3c8;
+  --accent: #a855f7; --accent-h: #9333ea; --accent-soft: rgba(168,85,247,0.1);
+  --border: #f3e8ff; --card-bg: #fff; --card-border: #f3e8ff;
+  --shadow: 0 4px 16px rgba(168,85,247,0.08); --shadow-hover: 0 12px 36px rgba(168,85,247,0.18);
+  --shadow-accent: 0 4px 24px rgba(236,72,153,0.25);
+  --hero-grad: linear-gradient(135deg, #fef3ff 0%, #fce7f3 50%, #ddd6fe 100%);
+  --nav-bg: rgba(254,243,255,0.85); --nav-border: rgba(168,85,247,0.1);
+  --tag-bg: #f3e8ff; --tag-text: #7c3aed;
+  --font-h: var(--font-base);
+}
+/* Theme 4: GuoFeng */
+[data-theme="guofeng"] {
+  --bg: #f5f0e8; --bg-2: #ede4d3; --bg-3: #e8dcc6;
+  --text: #2c1810; --text-2: #6b4423; --text-3: #a08968;
+  --accent: #8b2500; --accent-h: #6b1d00; --accent-soft: rgba(139,37,0,0.08);
+  --border: #d4c4a8; --card-bg: #faf6ef; --card-border: #d4c4a8;
+  --shadow: 0 2px 12px rgba(139,37,0,0.06); --shadow-hover: 0 8px 30px rgba(139,37,0,0.12);
+  --shadow-accent: 0 4px 20px rgba(212,160,23,0.2);
+  --hero-grad: linear-gradient(135deg, #f5f0e8 0%, #ede4d3 50%, #f0e6d2 100%);
+  --nav-bg: rgba(245,240,232,0.88); --nav-border: rgba(139,37,0,0.08);
+  --tag-bg: #ede4d3; --tag-text: #8b2500;
+  --font-h: "Songti SC", "STSong", serif;
+}
+/* Theme 5: HandDrawn */
+[data-theme="handdrawn"] {
+  --bg: #fdf6e3; --bg-2: #f5ecd7; --bg-3: #efe4c8;
+  --text: #3c2f1f; --text-2: #8b6914; --text-3: #bda56a;
+  --accent: #d97706; --accent-h: #b45309; --accent-soft: rgba(217,119,6,0.1);
+  --border: #e7d5b5; --card-bg: #fffbeb; --card-border: #e7d5b5;
+  --shadow: 0 2px 8px rgba(139,105,20,0.08); --shadow-hover: 0 8px 24px rgba(139,105,20,0.15);
+  --shadow-accent: 0 4px 20px rgba(217,119,6,0.2);
+  --hero-grad: linear-gradient(135deg, #fdf6e3 0%, #faecd0 50%, #f5e6c8 100%);
+  --nav-bg: rgba(253,246,227,0.88); --nav-border: rgba(139,105,20,0.08);
+  --tag-bg: #f5ecd7; --tag-text: #8b6914;
+  --font-h: "Hannotate SC", "Comic Sans MS", cursive;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 20px); }
+body {
+  font-family: var(--font-base); background: var(--bg); color: var(--text);
+  line-height: 1.7; transition: background var(--transition-theme), color var(--transition-theme);
+  overflow-x: hidden;
+}
+h1,h2,h3,h4 { font-family: var(--font-h); font-weight: 700; line-height: 1.3; color: var(--text); transition: color var(--transition-theme); }
+a { color: var(--accent); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--accent-h); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul,ol { list-style: none; }
+section { padding: 70px 0; position: relative; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+/* Navbar */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height);
+  background: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--nav-border); z-index: 1000;
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+.navbar .container { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo {
+  font-family: var(--font-h); font-size: 18px; font-weight: 800; color: var(--text);
+  display: flex; align-items: center; gap: 8px; transition: color var(--transition-theme);
+}
+.nav-logo-mark {
+  width: 30px; height: 30px; border-radius: var(--radius-sm);
+  background: var(--accent); display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 14px; transition: background var(--transition-theme);
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link {
+  padding: 8px 14px; font-size: 14px; color: var(--text-secondary, var(--text-2));
+  border-radius: var(--radius-sm); transition: all var(--transition-fast); position: relative;
+}
+.nav-link:hover { color: var(--text); background: var(--accent-soft); }
+.nav-link.active { color: var(--accent); font-weight: 600; }
+.nav-link.active::after {
+  content: ''; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%);
+  width: 20px; height: 2px; background: var(--accent); border-radius: 2px;
+}
+
+/* Theme switcher */
+.theme-switcher {
+  display: flex; align-items: center; gap: 5px; padding: 3px;
+  background: var(--bg-3); border-radius: var(--radius-full); border: 1px solid var(--border);
+  transition: all var(--transition-theme);
+}
+.theme-btn {
+  width: 26px; height: 26px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; transition: all var(--transition-fast); position: relative;
+}
+.theme-btn:hover { transform: scale(1.15); }
+.theme-btn.active { transform: scale(1.1); }
+.theme-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--border); }
+.theme-btn[data-theme="minimal"] .theme-dot { background: linear-gradient(135deg, #3b82f6, #e3f2fd); }
+.theme-btn[data-theme="darktech"] .theme-dot { background: linear-gradient(135deg, #00ff9d, #0a0e1a); }
+.theme-btn[data-theme="creative"] .theme-dot { background: linear-gradient(135deg, #a855f7, #ec4899); }
+.theme-btn[data-theme="guofeng"] .theme-dot { background: linear-gradient(135deg, #8b2500, #d4a017); }
+.theme-btn[data-theme="handdrawn"] .theme-dot { background: linear-gradient(135deg, #d97706, #fdf6e3); }
+.theme-btn.active .theme-dot { border-color: var(--text); }
+.theme-btn::after {
+  content: attr(data-label); position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
+  font-size: 11px; color: var(--text-2); background: var(--card-bg); padding: 2px 8px;
+  border-radius: 4px; white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity var(--transition-fast); border: 1px solid var(--border);
+}
+.theme-btn:hover::after { opacity: 1; }
+
+/* Mobile nav */
+.nav-toggle { display: none; width: 40px; height: 40px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; border-radius: var(--radius-sm); }
+.nav-toggle span { width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition-fast); }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Hero */
+#home {
+  min-height: 70vh; display: flex; align-items: center; padding-top: var(--nav-height);
+  background: var(--hero-grad); position: relative; overflow: hidden;
+}
+#home::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 50%, var(--accent-soft) 0%, transparent 50%),
+              radial-gradient(circle at 80% 30%, var(--accent-soft) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; text-align: center; width: 100%; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px;
+  background: var(--accent-soft); color: var(--accent); border-radius: var(--radius-full);
+  font-size: 13px; font-weight: 600; margin-bottom: 20px;
+}
+.hero-title {
+  font-size: clamp(32px, 5vw, 52px); font-weight: 800; margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--text), var(--accent));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-sub { font-size: clamp(15px, 2vw, 18px); color: var(--text-2); margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; }
+.hero-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 32px; }
+.hero-stat { text-align: center; }
+.hero-stat-num { font-family: var(--font-h); font-size: 36px; font-weight: 800; color: var(--accent); line-height: 1; }
+.hero-stat-label { font-size: 13px; color: var(--text-2); margin-top: 4px; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 11px 26px;
+  font-size: 14px; font-weight: 600; border-radius: var(--radius-md);
+  transition: all var(--transition-base); cursor: pointer; border: 2px solid transparent;
+}
+.btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-accent); }
+.btn-primary:hover { background: var(--accent-h); transform: translateY(-2px); color: #fff; }
+.btn-outline { background: transparent; color: var(--text); border-color: var(--border); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+/* Search bar */
+.search-bar {
+  max-width: 600px; margin: 0 auto 32px; position: relative;
+}
+.search-input {
+  width: 100%; padding: 14px 44px 14px 48px; font-size: 15px; font-family: inherit;
+  background: var(--card-bg); color: var(--text); border: 1px solid var(--border);
+  border-radius: var(--radius-full); transition: all var(--transition-fast); outline: none;
+  box-shadow: var(--shadow);
+}
+.search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-3); }
+.search-clear {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: var(--text-3); background: var(--bg-3); transition: all var(--transition-fast);
+}
+.search-clear:hover { color: var(--text); background: var(--border); }
+.search-result-count { text-align: center; font-size: 14px; color: var(--text-2); margin-bottom: 24px; }
+mark.search-hl { background: var(--accent-soft); color: var(--accent); padding: 1px 3px; border-radius: 3px; }
+.ep-item.hidden { display: none; }
+
+/* Empty state */
+.empty-state { text-align: center; padding: 60px 20px; color: var(--text-3); }
+.empty-state svg { margin-bottom: 16px; opacity: 0.4; }
+.empty-title { font-size: 18px; font-weight: 600; color: var(--text-2); margin-bottom: 8px; }
+.empty-desc { font-size: 14px; color: var(--text-3); }
+
+/* Filters */
+.filters { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; justify-content: center; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+.filters::-webkit-scrollbar { height: 4px; }
+.filters::-webkit-scrollbar-track { background: var(--bg-3); border-radius: 2px; }
+.filters::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.filter-btn {
+  padding: 7px 16px; font-size: 13px; font-weight: 500; color: var(--text-2);
+  background: var(--tag-bg); border-radius: var(--radius-full);
+  transition: all var(--transition-fast); border: 1px solid transparent;
+}
+.filter-btn:hover { color: var(--text); }
+.filter-btn.active { background: var(--accent); color: #fff; }
+
+/* Category cards */
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+.cat-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius-md); overflow: hidden;
+  transition: all var(--transition-base); box-shadow: var(--shadow);
+}
+.cat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+.cat-header {
+  padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border); cursor: pointer;
+}
+.cat-name { font-size: 17px; transition: color var(--transition-fast); }
+.cat-card:hover .cat-name { color: var(--accent); }
+.cat-count { font-size: 12px; color: var(--text-2); background: var(--tag-bg); padding: 3px 10px; border-radius: var(--radius-full); }
+.cat-body { padding: 16px 20px; max-height: 400px; overflow-y: auto; }
+.cat-body.collapsed { display: none; }
+
+/* Custom scrollbar */
+.cat-body::-webkit-scrollbar { width: 5px; }
+.cat-body::-webkit-scrollbar-track { background: transparent; }
+.cat-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.cat-body::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Episode items */
+.ep-year-group { margin-bottom: 14px; }
+.ep-year-group:last-child { margin-bottom: 0; }
+.ep-year-tag {
+  font-size: 12px; font-weight: 700; color: var(--accent);
+  background: var(--accent-soft); padding: 2px 8px; border-radius: var(--radius-sm);
+  margin-bottom: 6px; display: inline-block;
+}
+.ep-list { display: flex; flex-direction: column; gap: 4px; }
+.ep-item {
+  font-size: 13px; color: var(--text-2); padding: 5px 10px;
+  border-radius: var(--radius-sm); transition: all var(--transition-fast);
+  line-height: 1.5;
+}
+.ep-item:hover { background: var(--accent-soft); color: var(--accent); }
+.ep-item.hidden { display: none; }
+
+/* Year stats */
+.year-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.year-bars { display: flex; flex-direction: column; gap: 12px; }
+.year-bar-item { display: flex; align-items: center; gap: 12px; }
+.year-bar-label { font-size: 13px; font-weight: 600; color: var(--text-2); width: 60px; flex-shrink: 0; }
+.year-bar-track { flex: 1; height: 10px; background: var(--bg-3); border-radius: var(--radius-full); overflow: hidden; }
+.year-bar-fill { height: 100%; background: var(--accent); border-radius: var(--radius-full); width: 0; transition: width 1s cubic-bezier(0.4,0,0.2,1); }
+[data-theme="darktech"] .year-bar-fill { box-shadow: 0 0 8px var(--accent); }
+[data-theme="creative"] .year-bar-fill { background: linear-gradient(90deg, #a855f7, #ec4899); }
+[data-theme="guofeng"] .year-bar-fill { background: linear-gradient(90deg, #8b2500, #d4a017); }
+.year-bar-count { font-size: 13px; font-weight: 700; color: var(--accent); width: 32px; text-align: right; flex-shrink: 0; }
+
+.year-info-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius-md); padding: 24px; box-shadow: var(--shadow);
+}
+.year-info-card h3 { font-size: 18px; margin-bottom: 16px; }
+.year-info-list { display: flex; flex-direction: column; gap: 10px; }
+.year-info-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--bg-3); border-radius: var(--radius-sm); }
+.year-info-year { font-weight: 600; font-size: 14px; }
+.year-info-eps { font-size: 13px; color: var(--accent); font-weight: 700; }
+
+/* Member timeline */
+.member-tl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.member-events { position: relative; }
+.member-events::before {
+  content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--border);
+}
+[data-theme="darktech"] .member-events::before { background: linear-gradient(to bottom, transparent, var(--accent), transparent); box-shadow: 0 0 8px var(--accent); }
+.tl-item { position: relative; padding-left: 32px; padding-bottom: 20px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute; left: 1px; top: 4px; width: 16px; height: 16px;
+  border-radius: 50%; background: var(--card-bg); border: 3px solid var(--accent); z-index: 2;
+  transition: all var(--transition-base);
+}
+[data-theme="darktech"] .tl-dot { box-shadow: 0 0 10px var(--accent); }
+.tl-item:hover .tl-dot { transform: scale(1.2); background: var(--accent); }
+.tl-content {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius-md); padding: 12px 16px; box-shadow: var(--shadow);
+  font-size: 14px; transition: all var(--transition-base);
+}
+.tl-item:hover .tl-content { box-shadow: var(--shadow-hover); border-color: var(--accent); transform: translateX(4px); }
+
+.period-list { display: flex; flex-direction: column; gap: 10px; }
+.period-tag {
+  padding: 10px 14px; background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius-md); font-size: 13px; color: var(--text-2);
+  border-left: 4px solid var(--accent); transition: all var(--transition-base);
+  box-shadow: var(--shadow);
+}
+.period-tag:hover { transform: translateX(4px); border-color: var(--accent); color: var(--text); }
+
+/* Footer */
+.footer { background: var(--bg-3); border-top: 1px solid var(--border); padding: 32px 0; transition: all var(--transition-theme); }
+.footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-text { font-size: 13px; color: var(--text-2); }
+
+/* Reveal animation */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+
+.theme-transitioning * { transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease !important; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  section { padding: 50px 0; }
+  .container { padding: 0 16px; }
+  .nav-links {
+    position: fixed; top: var(--nav-height); left: 0; right: 0;
+    background: var(--nav-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    flex-direction: column; align-items: stretch; padding: 12px; gap: 4px;
+    border-bottom: 1px solid var(--nav-border); transform: translateY(-100%); opacity: 0;
+    pointer-events: none; transition: all 0.3s ease;
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-link { padding: 10px 14px; font-size: 14px; }
+  .nav-link.active::after { display: none; }
+  .nav-toggle { display: flex; }
+  .theme-switcher { padding: 2px; gap: 3px; }
+  .theme-btn { width: 22px; height: 22px; }
+  .theme-dot { width: 13px; height: 13px; }
+  .hero-stats { gap: 20px; }
+  .hero-stat-num { font-size: 28px; }
+  .cat-grid { grid-template-columns: 1fr; }
+  .year-stats { grid-template-columns: 1fr; }
+  .member-tl-grid { grid-template-columns: 1fr; }
+  .filters { gap: 6px; }
+  .filter-btn { padding: 6px 12px; font-size: 12px; }
+}
+@media (max-width: 480px) {
+  .hero-stat-num { font-size: 24px; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .btn { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ===== Era Cards ===== */
+.era-cards-wrap { margin-bottom: 48px; }
+.era-cards-scroll {
+  display: flex; gap: 0; align-items: stretch; overflow-x: auto; padding: 8px 4px 16px;
+  scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+}
+.era-cards-scroll::-webkit-scrollbar { height: 6px; }
+.era-cards-scroll::-webkit-scrollbar-track { background: var(--bg-3); border-radius: 3px; }
+.era-cards-scroll::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+.era-card {
+  flex: 0 0 200px; background: var(--card-bg); border: 1px solid var(--card-border);
+  border-top: 4px solid var(--accent); border-radius: var(--radius-md); padding: 16px;
+  box-shadow: var(--shadow); transition: transform var(--transition-base), box-shadow var(--transition-base);
+  cursor: pointer; position: relative;
+}
+.era-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.era-card-longest { border-top-width: 5px; background: linear-gradient(135deg, var(--card-bg) 0%, var(--accent-soft) 100%); }
+.era-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.era-card-name { font-size: 14px; font-weight: 700; color: var(--text); }
+.era-card-count { font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 2px 10px; border-radius: var(--radius-full); }
+.era-card-range { font-size: 12px; color: var(--text-2); margin-bottom: 4px; }
+.era-card-duration { font-size: 11px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.era-card-members { font-size: 11px; color: var(--text-2); line-height: 1.5; border-top: 1px dashed var(--border); padding-top: 6px; }
+.era-card-arrow { flex: 0 0 24px; display: flex; align-items: center; justify-content: center; color: var(--text-3); font-size: 18px; }
+
+/* ===== ECharts Containers ===== */
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+.chart-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow); }
+.chart-box-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.chart-box-title::before { content: ''; width: 4px; height: 16px; background: var(--accent); border-radius: 2px; }
+.chart-canvas { width: 100%; height: 360px; }
+.chart-hint { font-size: 12px; color: var(--text-3); margin-top: 8px; text-align: center; }
+@media (max-width: 768px) {
+  .chart-grid { grid-template-columns: 1fr; }
+  .chart-canvas { height: 280px; }
+  .era-card { flex: 0 0 170px; }
+}
+
+/* Sticky search bar in catalog section */
+#catalog .search-bar { position: sticky; top: calc(var(--nav-height) + 8px); z-index: 50; background: var(--bg); padding: 8px 0; margin-top: 8px; border-radius: var(--radius-md); }
+#catalog .search-bar .search-input { box-shadow: var(--shadow-hover); }
+#catalog .filters { position: sticky; top: calc(var(--nav-height) + 56px); z-index: 49; background: var(--bg); padding: 6px 0; }
+
+/* content-visibility for render performance */
+.cat-card { content-visibility: auto; contain-intrinsic-size: 300px; }
+.era-card { content-visibility: auto; contain-intrinsic-size: 180px; }
+
+/* Keyboard accessibility for cat-header */
+.cat-header { outline: none; }
+.cat-header:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); border-radius: var(--radius-md); }
+.cat-header[aria-expanded="false"] .cat-name::after { content: ' \25BC'; font-size: 10px; color: var(--text-3); transition: transform var(--transition-fast); }
+.cat-header[aria-expanded="true"] .cat-name::after { content: ' \25B2'; font-size: 10px; color: var(--text-3); }
+
+
+/* ===== Right-side Filter Result Panel ===== */
+.result-panel {
+  position: fixed; top: calc(var(--nav-height) + 8px); right: -360px;
+  width: 340px; height: calc(100vh - var(--nav-height) - 24px);
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  box-shadow: var(--shadow-hover); z-index: 200;
+  transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.result-panel.open { right: 0; }
+.result-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  flex-shrink: 0; background: var(--bg-2);
+}
+.result-panel-title { font-size: 15px; font-weight: 700; color: var(--text); }
+.result-panel-close {
+  width: 28px; height: 28px; border-radius: 50%; border: none;
+  background: var(--bg-3); color: var(--text-2); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; transition: all var(--transition-fast);
+}
+.result-panel-close:hover { background: var(--evt-out-bg); color: var(--evt-out); transform: rotate(90deg); }
+.result-panel-search {
+  padding: 10px 16px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.result-panel-search input {
+  width: 100%; padding: 8px 14px; font-size: 14px; background: var(--bg-3);
+  color: var(--text); border: 1px solid var(--border); border-radius: var(--radius-full);
+  outline: none; transition: border-color var(--transition-fast);
+}
+.result-panel-search input:focus { border-color: var(--accent); }
+.result-panel-list {
+  flex: 1; overflow-y: auto; padding: 8px 12px;
+  -webkit-overflow-scrolling: touch;
+}
+.result-panel-list::-webkit-scrollbar { width: 5px; }
+.result-panel-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+.result-panel-item {
+  padding: 10px 12px; border-radius: var(--radius-sm);
+  margin-bottom: 4px; cursor: pointer; transition: all var(--transition-fast);
+  font-size: 13px; color: var(--text); line-height: 1.5;
+  border: 1px solid transparent;
+}
+.result-panel-item:hover { background: var(--accent-soft); border-color: var(--accent); }
+.result-panel-item mark { background: var(--accent-soft); color: var(--accent); padding: 0 2px; border-radius: 2px; }
+.result-panel-empty { text-align: center; padding: 40px 20px; color: var(--text-3); font-size: 14px; }
+.result-panel-empty svg { margin-bottom: 12px; opacity: 0.5; }
+.result-panel-count { padding: 8px 16px; font-size: 12px; color: var(--text-2); border-top: 1px solid var(--border); flex-shrink: 0; }
+.result-panel-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.15); z-index: 199;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.result-panel-overlay.open { opacity: 1; pointer-events: auto; }
+/* Toggle button when panel is open */
+.result-panel-toggle {
+  position: fixed; top: calc(var(--nav-height) + 60px); right: 16px;
+  width: 40px; height: 40px; border-radius: 50%; border: none;
+  background: var(--accent); color: var(--bg); font-size: 16px;
+  cursor: pointer; z-index: 195; box-shadow: var(--shadow-hover);
+  display: none; align-items: center; justify-content: center;
+  transition: all var(--transition-fast); opacity: 0; transform: scale(0.8);
+}
+.result-panel-toggle.show { display: flex; opacity: 1; transform: scale(1); }
+.result-panel-toggle:hover { transform: scale(1.1); }
+
+/* Responsive: full-screen panel on mobile */
+@media (max-width: 768px) {
+  .result-panel { width: 100vw; right: -100vw; top: 0; height: 100vh; border-radius: 0; }
+  .result-panel.open { right: 0; }
+  .result-panel-toggle { top: auto; bottom: 20px; right: 16px; width: 48px; height: 48px; font-size: 20px; }
+}
+
+@media print {
+  .navbar,.theme-switcher,.nav-toggle,.footer,.back-to-top,.hero-actions,.btn,.search-bar,.filters,.filter-btn,.era-cards-scroll,.chart-grid,.event-node,.arrow-connector,.theme-btn,.reading-progress,.result-panel,.result-panel-toggle,.result-panel-overlay { display:none !important; }
+  body { background:#fff !important; color:#000 !important; }
+  section { padding:10px 0 !important; }
+  .container { max-width:100% !important; padding:0 !important; }
+  .hero-title { -webkit-text-fill-color:#000 !important; color:#000 !important; }
+  .cat-card,.event-content,.phase-box,.stat-card { box-shadow:none !important; border:1px solid #ccc !important; page-break-inside:avoid; }
+  .reveal { opacity:1 !important; transform:none !important; }
+  a { color:#000 !important; text-decoration:underline !important; }
+}
+
+/* Reading progress bar */
+.reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, var(--accent), var(--accent-h)); transition: width 0.1s ease; pointer-events: none; }
+/* Page fade-in */
+body { opacity: 0; animation: pageFadeIn 0.4s ease 0.1s forwards; }
+@keyframes pageFadeIn { to { opacity: 1; } }
+/* Enhanced footer */
+.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.footer-link { font-size: 13px; color: var(--text-2); transition: color var(--transition-fast); }
+.footer-link:hover { color: var(--accent); }
+.footer-meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--text-3); }
+.footer-theme-tag { padding: 2px 8px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent); font-size: 11px; font-weight: 600; }
+
+</style>
+<script>// Auto-detect system dark mode (only if no saved theme)
+(function(){
+  if(!localStorage.getItem('wutz-theme')&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+    document.documentElement.setAttribute('data-theme','darktech');
+    document.querySelectorAll('.theme-btn').forEach(function(b){
+      b.classList.toggle('active',b.dataset.theme==='darktech');
+    });
+  }
+})();
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "无限挑战观看目录",
+    "description": "韩国MBC综艺《无限挑战》完整观看索引 - 622集39个分类",
+    "inLanguage": "zh-CN"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://watching-world.local/index.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "无限挑战",
+        "item": "https://watching-world.local/wutz-catalog.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<!-- Right-side filter result panel -->
+<div class="result-panel-overlay" id="resultPanelOverlay"></div>
+<div class="result-panel" id="resultPanel">
+  <div class="result-panel-header">
+    <span class="result-panel-title" id="resultPanelTitle">筛选结果</span>
+    <button class="result-panel-close" id="resultPanelClose" aria-label="关闭面板">&times;</button>
+  </div>
+  <div class="result-panel-search">
+    <input type="text" id="resultPanelSearch" placeholder="在此筛选...">
+  </div>
+  <div class="result-panel-list" id="resultPanelList"></div>
+  <div class="result-panel-count" id="resultPanelCount"></div>
+</div>
+<button class="result-panel-toggle" id="resultPanelToggle" aria-label="打开筛选结果">&larr;</button>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark">W</span>
+      <span>观看世界</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">首页</a></li>
+      <li><a href="#home" class="nav-link active">无限挑战</a></li>
+      <li><a href="other-watching.html" class="nav-link">其他观看</a></li>
+      <li><a href="timeline.html" class="nav-link">时间轴</a></li>
+      <li><a href="#eras" class="nav-link">时期</a></li>
+      <li><a href="#catalog" class="nav-link">特辑目录</a></li>
+      <li><a href="#stats" class="nav-link">统计</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="theme-switcher" role="group" aria-label="Theme switcher">
+        <button class="theme-btn active" data-theme="minimal" data-label="简约现代" aria-label="Minimal theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="darktech" data-label="暗黑科技" aria-label="Dark tech theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="creative" data-label="活泼创意" aria-label="Creative theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="guofeng" data-label="国风雅韵" aria-label="Guofeng theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="handdrawn" data-label="手绘温暖" aria-label="Handdrawn theme"><span class="theme-dot"></span></button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        2005 - 2018 完整观看目录
+      </div>
+      <h1 class="hero-title">无限挑战观看目录</h1>
+      <p class="hero-sub">韩国 MBC 综艺节目《无限挑战》的完整观看索引，按特辑类别和年份分类整理。</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">622</div><div class="hero-stat-label">集数</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">39</div><div class="hero-stat-label">特辑分类</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">年份跨度</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">主题风格</div></div>
+      </div>
+      <div class="hero-actions">
+        <a href="#catalog" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          浏览目录
+        </a>
+        <a href="#stats" class="btn btn-outline">查看统计</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="eras">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag" style="display:inline-block;font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">ERAS</span>
+      <h2 class="section-title" style="font-size:clamp(26px,4vw,36px);margin-bottom:16px;">16 个时期阶段</h2>
+      <p style="font-size:16px;color:var(--text-2);max-width:600px;margin-bottom:32px;">从 2005 年开播到 2018 年停播，成员阵容经历 17 次变动，划分为 16 个时期。横向滚动浏览全部时期。</p>
+    </div>
+    <div class="era-cards-wrap reveal">
+      <div class="era-cards-scroll" id="eraCardsScroll">
+        <div class="era-card" data-era-start="1" data-era-end="13" style="border-top-color:var(--era-color-3)">
+          <div class="era-card-header"><span class="era-card-name">三人时期</span><span class="era-card-count">13 集</span></div>
+          <div class="era-card-range">2005.04-2005.10</div>
+          <div class="era-card-duration">6个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="14" data-era-end="15" style="border-top-color:var(--era-color-4)">
+          <div class="era-card-header"><span class="era-card-name">四人时期</span><span class="era-card-count">2 集</span></div>
+          <div class="era-card-range">2005.10-2005.12</div>
+          <div class="era-card-duration">2个月（最短）</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="16" data-era-end="20" style="border-top-color:var(--era-color-5)">
+          <div class="era-card-header"><span class="era-card-name">五人时期</span><span class="era-card-count">6 集</span></div>
+          <div class="era-card-range">2005.12-2006.03</div>
+          <div class="era-card-duration">3个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀、HAHA</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="21" data-era-end="94" style="border-top-color:var(--era-color-3)">
+          <div class="era-card-header"><span class="era-card-name">第一次六人时期</span><span class="era-card-count">82 集</span></div>
+          <div class="era-card-range">2006.03-2008.02</div>
+          <div class="era-card-duration">1年11个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀、HAHA、郑俊河</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="95" data-era-end="107" style="border-top-color:var(--era-color-5b)">
+          <div class="era-card-header"><span class="era-card-name">第一次五人时期</span><span class="era-card-count">14 集</span></div>
+          <div class="era-card-range">2008.02-2008.06</div>
+          <div class="era-card-duration">4个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀、郑俊河</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="108" data-era-end="150" style="border-top-color:var(--era-color-6b)">
+          <div class="era-card-header"><span class="era-card-name">第二次六人时期</span><span class="era-card-count">48 集</span></div>
+          <div class="era-card-range">2008.06-2009.04</div>
+          <div class="era-card-duration">10个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀、郑俊河、JunJin</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="151" data-era-end="177" style="border-top-color:var(--era-color-final)">
+          <div class="era-card-header"><span class="era-card-name">第一次七人时期</span><span class="era-card-count">27 集</span></div>
+          <div class="era-card-range">2009.04-2009.10</div>
+          <div class="era-card-duration">6个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀、郑俊河、JunJin、吉</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="178" data-era-end="197" style="border-top-color:var(--era-color-3)">
+          <div class="era-card-header"><span class="era-card-name">第三次六人时期</span><span class="era-card-count">24 集</span></div>
+          <div class="era-card-range">2009.10-2010.03</div>
+          <div class="era-card-duration">5个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀、郑俊河、吉</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card era-card-longest" data-era-start="198" data-era-end="376" style="border-top-color:var(--era-color-7)">
+          <div class="era-card-header"><span class="era-card-name">第二次七人时期 ★</span><span class="era-card-count">223 集</span></div>
+          <div class="era-card-range">2010.03-2014.04</div>
+          <div class="era-card-duration">4年1个月（最长）</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀、HAHA、郑俊河、吉</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="377" data-era-end="403" style="border-top-color:var(--era-color-6b)">
+          <div class="era-card-header"><span class="era-card-name">第四次六人时期</span><span class="era-card-count">33 集</span></div>
+          <div class="era-card-range">2014.04-2014.11</div>
+          <div class="era-card-duration">7个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、卢洪哲、朴明秀、HAHA、郑俊河</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="404" data-era-end="426" style="border-top-color:var(--era-color-5b)">
+          <div class="era-card-header"><span class="era-card-name">第二次五人时期</span><span class="era-card-count">23 集</span></div>
+          <div class="era-card-range">2014.11-2015.04</div>
+          <div class="era-card-duration">5个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、朴明秀、HAHA、郑俊河</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="427" data-era-end="453" style="border-top-color:var(--era-color-5)">
+          <div class="era-card-header"><span class="era-card-name">第五次六人时期</span><span class="era-card-count">17 集</span></div>
+          <div class="era-card-range">2015.04-2015.11</div>
+          <div class="era-card-duration">7个月</div>
+          <div class="era-card-members">刘在石、郑亨敦、朴明秀、HAHA、郑俊河、黄光熙</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="454" data-era-end="503" style="border-top-color:var(--era-color-final)">
+          <div class="era-card-header"><span class="era-card-name">第三次五人时期</span><span class="era-card-count">65 集</span></div>
+          <div class="era-card-range">2015.11-2016.12</div>
+          <div class="era-card-duration">1年1个月</div>
+          <div class="era-card-members">刘在石、朴明秀、HAHA、郑俊河、黄光熙</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="504" data-era-end="520" style="border-top-color:var(--era-color-4)">
+          <div class="era-card-header"><span class="era-card-name">第六次六人时期</span><span class="era-card-count">16 集</span></div>
+          <div class="era-card-range">2016.12-2017.03</div>
+          <div class="era-card-duration">3个月</div>
+          <div class="era-card-members">刘在石、朴明秀、HAHA、郑俊河、黄光熙、梁世炯</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="521" data-era-end="571" style="border-top-color:var(--era-color-5b)">
+          <div class="era-card-header"><span class="era-card-name">第四次五人时期</span><span class="era-card-count">28 集</span></div>
+          <div class="era-card-range">2017.03-2018.01</div>
+          <div class="era-card-duration">10个月</div>
+          <div class="era-card-members">刘在石、朴明秀、HAHA、郑俊河、梁世炯</div>
+        </div>
+        <div class="era-card-arrow">→</div>
+        <div class="era-card" data-era-start="572" data-era-end="622" style="border-top-color:var(--era-color-3)">
+          <div class="era-card-header"><span class="era-card-name">第七次六人时期</span><span class="era-card-count">0 集</span></div>
+          <div class="era-card-range">2018.01-2018.04</div>
+          <div class="era-card-duration">3个月</div>
+          <div class="era-card-members">刘在石、朴明秀、HAHA、郑俊河、梁世炯、曹世镐</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag" style="display:inline-block;font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">CATALOG</span>
+      <h2 class="section-title" style="font-size:clamp(26px,4vw,36px);margin-bottom:16px;">特辑目录</h2>
+      <p style="font-size:16px;color:var(--text-2);max-width:600px;margin-bottom:32px;">共 39 个特辑类别，622 集节目。点击搜索或筛选查找。</p>
+    </div>
+    <div class="search-bar reveal">
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="搜索集名、年份、关键词...（按 / 快速搜索）">
+      <button class="search-clear" id="searchClear" aria-label="清除搜索" style="display:none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="search-result-count" id="searchCount"></div>
+    <div class="filters reveal" id="filters">
+      <button class="filter-btn active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="追击战特辑">追击战特辑</button>
+          <button class="filter-btn" data-filter="奥运会特辑">奥运会特辑</button>
+          <button class="filter-btn" data-filter="歌谣祭特辑">歌谣祭特辑</button>
+          <button class="filter-btn" data-filter="百期特辑">百期特辑</button>
+          <button class="filter-btn" data-filter="女装特辑">女装特辑</button>
+          <button class="filter-btn" data-filter="长期特辑">长期特辑</button>
+          <button class="filter-btn" data-filter="新闻系列">新闻系列</button>
+          <button class="filter-btn" data-filter="暑假系列">暑假系列</button>
+          <button class="filter-btn" data-filter="节日系列">节日系列</button>
+          <button class="filter-btn" data-filter="捉迷藏系列">捉迷藏系列</button>
+          <button class="filter-btn" data-filter="打工系列">打工系列</button>
+          <button class="filter-btn" data-filter="经典回顾系列">经典回顾系列</button>
+          <button class="filter-btn" data-filter="他人的生活系列">他人的生活系列</button>
+          <button class="filter-btn" data-filter="恋爱系列">恋爱系列</button>
+          <button class="filter-btn" data-filter="三期系列">三期系列</button>
+          <button class="filter-btn" data-filter="一期系列">一期系列</button>
+          <button class="filter-btn" data-filter="国外特辑">国外特辑</button>
+          <button class="filter-btn" data-filter="演唱会特辑">演唱会特辑</button>
+          <button class="filter-btn" data-filter="六六歌特辑">六六歌特辑</button>
+          <button class="filter-btn" data-filter="钱的战争">钱的战争</button>
+          <button class="filter-btn" data-filter="明秀十二岁">明秀十二岁</button>
+          <button class="filter-btn" data-filter="拍年历特辑">拍年历特辑</button>
+          <button class="filter-btn" data-filter="请客特辑">请客特辑</button>
+          <button class="filter-btn" data-filter="运动特辑">运动特辑</button>
+          <button class="filter-btn" data-filter="岛屿特辑">岛屿特辑</button>
+          <button class="filter-btn" data-filter="节约能源系列">节约能源系列</button>
+          <button class="filter-btn" data-filter="无限商社系列">无限商社系列</button>
+          <button class="filter-btn" data-filter="庆典特辑">庆典特辑</button>
+          <button class="filter-btn" data-filter="最后的成员系列">最后的成员系列</button>
+          <button class="filter-btn" data-filter="恶搞MV系列">恶搞MV系列</button>
+          <button class="filter-btn" data-filter="送快递系列">送快递系列</button>
+          <button class="filter-btn" data-filter="减肥特辑">减肥特辑</button>
+          <button class="filter-btn" data-filter="球系列">球系列</button>
+          <button class="filter-btn" data-filter="春游秋游系列">春游秋游系列</button>
+          <button class="filter-btn" data-filter="观相系列">观相系列</button>
+          <button class="filter-btn" data-filter="没能守住系列">没能守住系列</button>
+          <button class="filter-btn" data-filter="纳凉系列">纳凉系列</button>
+          <button class="filter-btn" data-filter="外貌系列">外貌系列</button>
+          <button class="filter-btn" data-filter="两期系列">两期系列</button>
+
+    </div>
+    <div class="cat-grid" id="catGrid">
+      
+        <div class="cat-card reveal" data-cat="追击战特辑" data-eps="26">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">追击战特辑</h3>
+            <span class="cat-count">26 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e110 080621 拿著钱跑吧（上）">E110 080621 拿著钱跑吧（上）</div>
+    <div class="ep-item" data-title="e111 080628 拿著钱跑吧（中）">E111 080628 拿著钱跑吧（中）</div>
+    <div class="ep-item" data-title="e112 080705 拿著钱跑吧（下）">E112 080705 拿著钱跑吧（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e158 090620 越狱吧青春痘（上）">E158 090620 越狱吧青春痘（上）</div>
+    <div class="ep-item" data-title="e159 090627 越狱吧青春痘（下）">E159 090627 越狱吧青春痘（下）</div>
+    <div class="ep-item" data-title="e169 090905 追著尾巴跑（上）">E169 090905 追著尾巴跑（上）</div>
+    <div class="ep-item" data-title="e170 090912 追著尾巴跑（下）">E170 090912 追著尾巴跑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e186 100102 好兄弟坏兄弟（上）">E186 100102 好兄弟坏兄弟（上）</div>
+    <div class="ep-item" data-title="e187 100109 好兄弟坏兄弟（中）">E187 100109 好兄弟坏兄弟（中）</div>
+    <div class="ep-item" data-title="e188 100116 好兄弟坏兄弟（下）">E188 100116 好兄弟坏兄弟（下）</div>
+    <div class="ep-item" data-title="e223 101106 半夜生存战（hd）">E223 101106 半夜生存战（HD）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e265 110903 生死时速特辑（上）">E265 110903 生死时速特辑（上）</div>
+    <div class="ep-item" data-title="e267 110917 生死时速特辑（中）">E267 110917 生死时速特辑（中）</div>
+    <div class="ep-item" data-title="e268 110924 生死时速特辑（下）">E268 110924 生死时速特辑（下）</div>
+    <div class="ep-item" data-title="e271 111015 童话&lt;龟兔簿传&gt;特辑">E271 111015 童话&lt;龟兔簿传&gt;特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e299 121013 童话&lt;太阳和月亮&gt;特辑（上）">E299 121013 童话&lt;太阳和月亮&gt;特辑（上）</div>
+    <div class="ep-item" data-title="e301 121027 童话&lt;太阳和月亮&gt;特辑（下）">E301 121027 童话&lt;太阳和月亮&gt;特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e347 130914 拿著钱包跑ⅱ— 100个光头的袭击（上）">E347 130914 拿著钱包跑Ⅱ— 100个光头的袭击（上）</div>
+    <div class="ep-item" data-title="e348 130921 拿著钱包跑ⅱ— 100个光头的袭击（下）">E348 130921 拿著钱包跑Ⅱ— 100个光头的袭击（下）</div>
+    <div class="ep-item" data-title="e314 130126 吸血鬼vs猎人（上）">E314 130126 吸血鬼VS猎人（上）</div>
+    <div class="ep-item" data-title="e315 130202 吸血鬼vs猎人（下）">E315 130202 吸血鬼VS猎人（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e414 150207 走到最后特辑（上）">E414 150207 走到最后特辑（上）</div>
+    <div class="ep-item" data-title="e415 150214 走到最后特辑（下）">E415 150214 走到最后特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e461 160102 无挑公开通缉（下）">E461 160102 无挑公开通缉（下）</div>
+    <div class="ep-item" data-title="e499 160924 众神的战争－ 综艺之神 vs 演技之神（上）">E499 160924 众神的战争－ 综艺之神 VS 演技之神（上）</div>
+    <div class="ep-item" data-title="e500 161001 众神的战争－ 综艺之神 vs 演技之神（下）">E500 161001 众神的战争－ 综艺之神 VS 演技之神（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="奥运会特辑" data-eps="8">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">奥运会特辑</h3>
+            <span class="cat-count">8 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e089 080126 2008年北京奥运会体操特辑">E089 080126 2008年北京奥运会体操特辑</div>
+    <div class="ep-item" data-title="e096 080315 2008年北京奥运会摔跤特辑（上）">E096 080315 2008年北京奥运会摔跤特辑（上）</div>
+    <div class="ep-item" data-title="e097 080322 2008年北京奥运会摔跤特辑（下）">E097 080322 2008年北京奥运会摔跤特辑（下）</div>
+    <div class="ep-item" data-title="e117 080816 二零零八年北京奥运会特辑（1）——异色奥运会">E117 080816 二零零八年北京奥运会特辑（1）——异色奥运会</div>
+    <div class="ep-item" data-title="e118 080823 二零零八年北京奥运会特辑（2）">E118 080823 二零零八年北京奥运会特辑（2）</div>
+    <div class="ep-item" data-title="e119 080830 二零零八年北京奥运会特辑（3）">E119 080830 二零零八年北京奥运会特辑（3）</div>
+    <div class="ep-item" data-title="e120 080906 二零零八年北京奥运会特辑（4）——羽毛球特辑">E120 080906 二零零八年北京奥运会特辑（4）——羽毛球特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e236 110212 无限挑战冬奥会">E236 110212 无限挑战冬奥会</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="歌谣祭特辑" data-eps="25">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">歌谣祭特辑</h3>
+            <span class="cat-count">25 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e061 070707 江边北路歌谣祭（上）">E061 070707 江边北路歌谣祭（上）</div>
+    <div class="ep-item" data-title="e062 070714 江边北路歌谣祭（下）">E062 070714 江边北路歌谣祭（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e160 090704 奥林匹克歌谣节（上）">E160 090704 奥林匹克歌谣节（上）</div>
+    <div class="ep-item" data-title="e161 090711 奥林匹克歌谣节（下）">E161 090711 奥林匹克歌谣节（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e247 110430 歌谣祭 晚宴特辑（1）">E247 110430 歌谣祭 晚宴特辑（1）</div>
+    <div class="ep-item" data-title="e248 110507 歌谣祭 晚宴特辑（2）">E248 110507 歌谣祭 晚宴特辑（2）</div>
+    <div class="ep-item" data-title="e253 110611 西海岸高速公路 歌谣祭 第一回 伟大的诞生">E253 110611 西海岸高速公路 歌谣祭 第一回 伟大的诞生</div>
+    <div class="ep-item" data-title="e254 110618 西海岸高速公路 歌谣祭 第二回 山寨音乐中心">E254 110618 西海岸高速公路 歌谣祭 第二回 山寨音乐中心</div>
+    <div class="ep-item" data-title="e255 110625 西海岸高速公路 歌谣祭 第三回 音乐旅行 talala">E255 110625 西海岸高速公路 歌谣祭 第三回 音乐旅行 Talala</div>
+    <div class="ep-item" data-title="e256 110702 西海岸高速公路 歌谣祭 最终回 steam of saturday night">E256 110702 西海岸高速公路 歌谣祭 最终回 Steam of Saturday Night</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e301 121027 朴明秀的怎样呢歌谣特辑（上）">E301 121027 朴明秀的怎样呢歌谣特辑（上）</div>
+    <div class="ep-item" data-title="e310 121229 朴明秀的怎样呢歌谣（中）">E310 121229 朴明秀的怎样呢歌谣（中）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e311 130105 朴明秀的怎样呢歌谣（下）">E311 130105 朴明秀的怎样呢歌谣（下）</div>
+    <div class="ep-item" data-title="e346 130907 自由路歌谣祭之无挑之夜">E346 130907 自由路歌谣祭之无挑之夜</div>
+    <div class="ep-item" data-title="e349 130928 自由路歌谣祭（1）+100分钟讨论 ">E349 130928 自由路歌谣祭（1）+100分钟讨论 </div>
+    <div class="ep-item" data-title="e351 131012 自由路歌谣祭（2）">E351 131012 自由路歌谣祭（2）</div>
+    <div class="ep-item" data-title="e352 131019 自由路歌谣祭（3）">E352 131019 自由路歌谣祭（3）</div>
+    <div class="ep-item" data-title="e353 131026 自由路歌谣祭（4）">E353 131026 自由路歌谣祭（4）</div>
+    <div class="ep-item" data-title="e354 131102 自由路歌谣祭 (最终回)">E354 131102 自由路歌谣祭 (最终回)</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e435 20150704 2015无限挑战歌谣祭（1）：蒙面舞会">E435 20150704 2015无限挑战歌谣祭（1）：蒙面舞会</div>
+    <div class="ep-item" data-title="e436 20150711 2015无限挑战歌谣祭（2）：伙伴选择">E436 20150711 2015无限挑战歌谣祭（2）：伙伴选择</div>
+    <div class="ep-item" data-title="e437 20150718 2015无限挑战歌谣祭（3）：初见面">E437 20150718 2015无限挑战歌谣祭（3）：初见面</div>
+    <div class="ep-item" data-title="e438 20150725 2015无限挑战歌谣祭（4）：紧急大会（上）">E438 20150725 2015无限挑战歌谣祭（4）：紧急大会（上）</div>
+    <div class="ep-item" data-title="e439 20150801 2015无限挑战歌谣祭（5）：紧急大会（下）">E439 20150801 2015无限挑战歌谣祭（5）：紧急大会（下）</div>
+    <div class="ep-item" data-title="e440 20150808 2015无限挑战歌谣祭（6）：中间检查">E440 20150808 2015无限挑战歌谣祭（6）：中间检查</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="百期特辑" data-eps="14">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">百期特辑</h3>
+            <span class="cat-count">14 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e050 070421 无挑50回特辑（上）">E050 070421 无挑50回特辑（上）</div>
+    <div class="ep-item" data-title="e051 070428 无挑50回特辑（下）">E051 070428 无挑50回特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e100 080412 一百回特辑（上）">E100 080412 一百回特辑（上）</div>
+    <div class="ep-item" data-title="e101 080419 一百回特辑（下）">E101 080419 一百回特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e200 100529 二百回特辑（上）">E200 100529 二百回特辑（上）</div>
+    <div class="ep-item" data-title="e201 100605 200回特辑（下）">E201 100605 200回特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e300 121020 三百期特辑（上）">E300 121020 三百期特辑（上）</div>
+    <div class="ep-item" data-title="e301 121027 300期特辑（下）">E301 121027 300期特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e400 141018 400期特辑：begin again（1）">E400 141018 400期特辑：Begin Again（1）</div>
+    <div class="ep-item" data-title="e401 141025 400期特辑：begin again（2）">E401 141025 400期特辑：Begin Again（2）</div>
+    <div class="ep-item" data-title="e402 141101 400期特辑：begin again（3）">E402 141101 400期特辑：Begin Again（3）</div>
+    <div class="ep-item" data-title="e403 141108 400期特辑：begin again（4）">E403 141108 400期特辑：Begin Again（4）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e501 161008 500回特辑：无挑儿go（上）">E501 161008 500回特辑：无挑儿GO（上）</div>
+    <div class="ep-item" data-title="e502 161015 500回特辑：无挑儿go（下）">E502 161015 500回特辑：无挑儿GO（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="女装特辑" data-eps="5">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">女装特辑</h3>
+            <span class="cat-count">5 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e051 070428 无限女子高中特辑">E051 070428 无限女子高中特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e145 090314 六兄妹特辑">E145 090314 六兄妹特辑</div>
+    <div class="ep-item" data-title="e153 090509 春香大会">E153 090509 春香大会</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e302 121103 姐姐的诱惑">E302 121103 姐姐的诱惑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e340 130727 传闻中的七公主">E340 130727 传闻中的七公主</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="长期特辑" data-eps="73">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">长期特辑</h3>
+            <span class="cat-count">73 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e044 070310 连续剧特辑（1）">E044 070310 连续剧特辑（1）</div>
+    <div class="ep-item" data-title="e045 070317 连续剧特辑（2）">E045 070317 连续剧特辑（2）</div>
+    <div class="ep-item" data-title="e046 070324 罗曼史（3）">E046 070324 罗曼史（3）</div>
+    <div class="ep-item" data-title="e047 070331 罗曼史（4）">E047 070331 罗曼史（4）</div>
+    <div class="ep-item" data-title="e080 071124 国标舞特辑（上）">E080 071124 国标舞特辑（上）</div>
+    <div class="ep-item" data-title="e081 071201 国标舞特辑（中）">E081 071201 国标舞特辑（中）</div>
+    <div class="ep-item" data-title="e082 071208 国标舞特辑（下）">E082 071208 国标舞特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e129 081108 有氧健美操特辑（1）">E129 081108 有氧健美操特辑（1）</div>
+    <div class="ep-item" data-title="e130 081115 有氧健美操特辑（2）">E130 081115 有氧健美操特辑（2）</div>
+    <div class="ep-item" data-title="e131 081122 有氧健美操特辑（3）">E131 081122 有氧健美操特辑（3）</div>
+    <div class="ep-item" data-title="e132 081129 有氧健美操特辑（4）">E132 081129 有氧健美操特辑（4）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e175 091017 农活特辑（上）">E175 091017 农活特辑（上）</div>
+    <div class="ep-item" data-title="e176 091024 农活特辑（中）">E176 091024 农活特辑（中）</div>
+    <div class="ep-item" data-title="e177 091031 农活特辑（下）">E177 091031 农活特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e205 100703 职业摔角特辑（1）">E205 100703 职业摔角特辑（1）</div>
+    <div class="ep-item" data-title="e206 100710 职业摔角特辑（2）">E206 100710 职业摔角特辑（2）</div>
+    <div class="ep-item" data-title="e207 100717 职业摔角特辑（3）">E207 100717 职业摔角特辑（3）</div>
+    <div class="ep-item" data-title="e208 100724 职业摔角特辑（4）">E208 100724 职业摔角特辑（4）</div>
+    <div class="ep-item" data-title="e209 100731 职业摔角特辑（5）">E209 100731 职业摔角特辑（5）</div>
+    <div class="ep-item" data-title="e210 100807 职业摔角特辑（6）">E210 100807 职业摔角特辑（6）</div>
+    <div class="ep-item" data-title="e211 100814 职业摔角特辑（7）">E211 100814 职业摔角特辑（7）</div>
+    <div class="ep-item" data-title="e213 100828 职业摔角特辑（8）">E213 100828 职业摔角特辑（8）</div>
+    <div class="ep-item" data-title="e214 100904 职业摔角特辑（9）">E214 100904 职业摔角特辑（9）</div>
+    <div class="ep-item" data-title="e215 100911 职业摔角特辑（10）">E215 100911 职业摔角特辑（10）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e245 110416 赛艇特辑（1）">E245 110416 赛艇特辑（1）</div>
+    <div class="ep-item" data-title="e246 110423 赛艇特辑（2）">E246 110423 赛艇特辑（2）</div>
+    <div class="ep-item" data-title="e257 110709 赛艇特辑（3）">E257 110709 赛艇特辑（3）</div>
+    <div class="ep-item" data-title="e258 110716 赛艇特辑（4）">E258 110716 赛艇特辑（4）</div>
+    <div class="ep-item" data-title="e259 110723 赛艇特辑（5）">E259 110723 赛艇特辑（5）</div>
+    <div class="ep-item" data-title="e260 110730 赛艇特辑（6）">E260 110730 赛艇特辑（6）</div>
+    <div class="ep-item" data-title="e261 110806 赛艇特辑（7）">E261 110806 赛艇特辑（7）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e280 111217 haha vs 宏哲 （存疑，还没看）">E280 111217 HAHA vs 宏哲 （存疑，还没看）</div>
+    <div class="ep-item" data-title="e285 120121 haha vs 洪哲（1）">E285 120121 HAHA vs 洪哲（1）</div>
+    <div class="ep-item" data-title="e286 120128 haha vs洪哲特辑（2）">E286 120128 HAHA vs洪哲特辑（2）</div>
+    <div class="ep-item" data-title="e287 120721 洪哲特辑（回顾）">E287 120721 洪哲特辑（回顾）</div>
+    <div class="ep-item" data-title="e288 120728 haha vs 洪哲最终回">E288 120728 HAHA vs 洪哲最终回</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e373 140322 ksf特辑（1）：速度与激情">E373 140322 KSF特辑（1）：速度与激情</div>
+    <div class="ep-item" data-title="e375 140405 ksf特辑（2）：极速风流">E375 140405 KSF特辑（2）：极速风流</div>
+    <div class="ep-item" data-title="e376 140412 ksf特辑（3）：决战的序幕">E376 140412 KSF特辑（3）：决战的序幕</div>
+    <div class="ep-item" data-title="e386 140705 ksf特辑（4）：市中心急速奔驰">E386 140705 KSF特辑（4）：市中心急速奔驰</div>
+    <div class="ep-item" data-title="e387 140712 ksf特辑（5）：决战之日">E387 140712 KSF特辑（5）：决战之日</div>
+    <div class="ep-item" data-title="e388 140719 ksf特辑（6）：最后的竞赛">E388 140719 KSF特辑（6）：最后的竞赛</div>
+    <div class="ep-item" data-title="e395 140906radio star特辑（1）——金信英">E395 140906Radio Star特辑（1）——金信英</div>
+    <div class="ep-item" data-title="e396 140913radio star特辑（2）——全炫茂、裴哲秀、金信英、朴庆琳、tablo(epik high)、金钟铉(shinee)">E396 140913Radio Star特辑（2）——全炫茂、裴哲秀、金信英、朴庆琳、Tablo(Epik High)、金钟铉(SHINee)</div>
+    <div class="ep-item" data-title="e397 140920radio star特辑（3）——全炫茂、金信英、李国主、奎利(kara)、曹成模、金道相、苏志燮（声音出演）、李栋旭（声音出演）">E397 140920Radio Star特辑（3）——全炫茂、金信英、李国主、奎利(Kara)、曹成模、金道相、苏志燮（声音出演）、李栋旭（声音出演）</div>
+    <div class="ep-item" data-title="e398 141004radio star特辑（4）——裴哲秀、sunny（少女时代）、tablo(epik high)、李笛、金钟铉(shinee)、星（声音出演）">E398 141004Radio Star特辑（4）——裴哲秀、Sunny（少女时代）、Tablo(Epik High)、李笛、金钟铉(SHINee)、星（声音出演）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e473 160326 婚礼歌手特辑（1）">E473 160326 婚礼歌手特辑（1）</div>
+    <div class="ep-item" data-title="e474 160402 婚礼歌手特辑（2）">E474 160402 婚礼歌手特辑（2）</div>
+    <div class="ep-item" data-title="e480 160514 婚礼歌手特辑（3）">E480 160514 婚礼歌手特辑（3）</div>
+    <div class="ep-item" data-title="e481 160521 婚礼歌手特辑（4）">E481 160521 婚礼歌手特辑（4）</div>
+    <div class="ep-item" data-title="e482 160528 婚礼歌手特辑（5）">E482 160528 婚礼歌手特辑（5）</div>
+    <div class="ep-item" data-title="e478 160604 接力漫画（上） 嘉宾：尹胎镐(《未生》原作网络漫画作者)、李末年(网络漫画《西游记》作者)、赵浩民(网络漫画《与神同行》作者)、旗安84(电影《时尚天王》原作网络漫画作者)、无敌粉红(漫画家)、gasfard(漫画家)">E478 160604 接力漫画（上） 嘉宾：尹胎镐(《未生》原作网络漫画作者)、李末年(网络漫画《西游记》作者)、赵浩民(网络漫画《与神同行》作者)、旗安84(电影《时尚天王》原作网络漫画作者)、无敌粉红(漫画家)、Gasfard(漫画家)</div>
+    <div class="ep-item" data-title="e479 160611 接力漫画（下） 嘉宾：尹胎镐(《未生》原作网络漫画作者)、李末年(网络漫画《西游记》作者)、赵浩民(网络漫画《与神同行》作者)、旗安84(电影《时尚天王》原作网络漫画作者)、无敌粉红(漫画家)、gasfard(漫画家)">E479 160611 接力漫画（下） 嘉宾：尹胎镐(《未生》原作网络漫画作者)、李末年(网络漫画《西游记》作者)、赵浩民(网络漫画《与神同行》作者)、旗安84(电影《时尚天王》原作网络漫画作者)、无敌粉红(漫画家)、Gasfard(漫画家)</div>
+    <div class="ep-item" data-title="e481 160625 接力漫画第一回－2046 嘉宾：旗安84">E481 160625 接力漫画第一回－2046 嘉宾：旗安84</div>
+    <div class="ep-item" data-title="e482 160702 接力漫画第二回－无限挑战最后的一天 嘉宾：李末年">E482 160702 接力漫画第二回－无限挑战最后的一天 嘉宾：李末年</div>
+    <div class="ep-item" data-title="e483 160709 接力漫画第三回－无挑animals 嘉宾：gasfard">E483 160709 接力漫画第三回－无挑Animals 嘉宾：Gasfard</div>
+    <div class="ep-item" data-title="e484 160716 接力漫画第四回－光熙君 嘉宾：无敌粉红">E484 160716 接力漫画第四回－光熙君 嘉宾：无敌粉红</div>
+    <div class="ep-item" data-title="e485 160723 接力漫画第五回－舍弃初心！ 嘉宾：尹胎镐">E485 160723 接力漫画第五回－舍弃初心！ 嘉宾：尹胎镐</div>
+    <div class="ep-item" data-title="e486 160730 接力漫画最终回－无限挑战阴间篇 嘉宾：赵浩民">E486 160730 接力漫画最终回－无限挑战阴间篇 嘉宾：赵浩民</div>
+    <div class="ep-item" data-title="e491 160903 接力漫画－公布结果 嘉宾：金软景">E491 160903 接力漫画－公布结果 嘉宾：金软景</div>
+    <div class="ep-item" data-title="e501 161112 伟大的遗产（1） 嘉宾：gaeko(dynamic duo)、zico(block b)、宋旻浩(winner)、dok2、bewhy、dindin">E501 161112 伟大的遗产（1） 嘉宾：GAEKO(Dynamic Duo)、Zico(Block B)、宋旻浩(WINNER)、Dok2、BewhY、DinDin</div>
+    <div class="ep-item" data-title="e502 161119 伟大的遗产（2） 嘉宾：gaeko(dynamic duo)、zico(block b)、宋旻浩(winner)、dok2、bewhy、dindin">E502 161119 伟大的遗产（2） 嘉宾：GAEKO(Dynamic Duo)、Zico(Block B)、宋旻浩(WINNER)、Dok2、BewhY、DinDin</div>
+    <div class="ep-item" data-title="e507 161224 伟大的遗产（3） 嘉宾：dok2">E507 161224 伟大的遗产（3） 嘉宾：Dok2</div>
+    <div class="ep-item" data-title="e508 161231 伟大的遗产（4） 嘉宾：gaeko(dynamic duo)、zico(block b)、宋旻浩">E508 161231 伟大的遗产（4） 嘉宾：GAEKO(Dynamic Duo)、Zico(Block B)、宋旻浩</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2017年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e514 170107 郑埻夏大赏企划（1） 嘉宾：李敬揆、金锺旼、申智">E514 170107 郑埻夏大赏企划（1） 嘉宾：李敬揆、金锺旼、申智</div>
+    <div class="ep-item" data-title="e533 170610 郑埻夏大赏企划（2）－5少年漂流记 ——">E533 170610 郑埻夏大赏企划（2）－5少年漂流记 ——</div>
+    <div class="ep-item" data-title="e542 170812 郑埻夏大赏企划（3）－lala land（上） 嘉宾：裴正南、裴斗娜、杰克·布莱克">E542 170812 郑埻夏大赏企划（3）－LALA LAND（上） 嘉宾：裴正南、裴斗娜、杰克·布莱克</div>
+    <div class="ep-item" data-title="e543 170819 郑埻夏大赏企划（4）－lala land（下） 嘉宾：迈克尔·凯利、德鲁·巴里莫尔、添美·奥利云">E543 170819 郑埻夏大赏企划（4）－LALA LAND（下） 嘉宾：迈克尔·凯利、德鲁·巴里莫尔、添美·奥利云</div>
+    <div class="ep-item" data-title="e547 171202 郑埻夏大赏企划（5）－嗨哟嗨哟 木筏纵横汉江 嘉宾：曹世镐">E547 171202 郑埻夏大赏企划（5）－嗨哟嗨哟 木筏纵横汉江 嘉宾：曹世镐</div>
+    <div class="ep-item" data-title="e536 170701 真正的男人（1） 嘉宾：裴正南">E536 170701 真正的男人（1） 嘉宾：裴正南</div>
+    <div class="ep-item" data-title="e537 170708 真正的男人（2）">E537 170708 真正的男人（2）</div>
+    <div class="ep-item" data-title="e538 170715 真正的男人（3） 嘉宾：裴正南、李圣旻（声音出演）、梁世灿（声音出演）、haha妈妈（声音出演）">E538 170715 真正的男人（3） 嘉宾：裴正南、李圣旻（声音出演）、梁世灿（声音出演）、Haha妈妈（声音出演）</div>
+    <div class="ep-item" data-title="e539 170722 真正的男人（4） 嘉宾：裴正南">E539 170722 真正的男人（4） 嘉宾：裴正南</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="新闻系列" data-eps="10">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">新闻系列</h3>
+            <span class="cat-count">10 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e095 080308 无限news（朴明秀结婚新闻）">E095 080308 无限NEWS（朴明秀结婚新闻）</div>
+    <div class="ep-item" data-title="e108 080607 无限news（刘在石结婚新闻）">E108 080607 无限NEWS（刘在石结婚新闻）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e230 110101 二零一零年末总结特辑">E230 110101 二零一零年末总结特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="120405 网络电视 无限新闻特别篇（郑俊河结婚新闻）">120405 网络电视 无限新闻特别篇（郑俊河结婚新闻）</div>
+    <div class="ep-item" data-title="e287 120721 无限新闻">E287 120721 无限新闻</div>
+    <div class="ep-item" data-title="e292 120825 无限新闻（haha结婚新闻）">E292 120825 无限新闻（HAHA结婚新闻）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e432 150613 无限新闻：2015上半年结算">E432 150613 无限新闻：2015上半年结算</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e492 160806  无限新闻2016 ">E492 160806  无限新闻2016 </div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2017年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e532 170603  无限新闻－2017上半年结算">E532 170603  无限新闻－2017上半年结算</div>
+    <div class="ep-item" data-title="e546 171125  2017无限新闻">E546 171125  2017无限新闻</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="暑假系列" data-eps="12">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">暑假系列</h3>
+            <span class="cat-count">12 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e009 060701 暑假特辑（上）——夏威夷">E009 060701 暑假特辑（上）——夏威夷</div>
+    <div class="ep-item" data-title="e010 060708 暑假特辑（下）——巴黎">E010 060708 暑假特辑（下）——巴黎</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e063 070721 夏日特辑">E063 070721 夏日特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e115 080726 夏日特辑——加勒比海盗">E115 080726 夏日特辑——加勒比海盗</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e168 090829 暑期特辑">E168 090829 暑期特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e207 100717 秘密度假（上）">E207 100717 秘密度假（上）</div>
+    <div class="ep-item" data-title="e208 100724 秘密度假（下）">E208 100724 秘密度假（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e260 110730 夏日特辑1">E260 110730 夏日特辑1</div>
+    <div class="ep-item" data-title="e264 110827 夏日特辑2">E264 110827 夏日特辑2</div>
+    <div class="ep-item" data-title="e265 110903 夏日特辑3">E265 110903 夏日特辑3</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e390 140802 热带夜特辑">E390 140802 热带夜特辑</div>
+    <div class="ep-item" data-title="e391 140809 无挑：酷暑时代">E391 140809 无挑：酷暑时代</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="节日系列" data-eps="13">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">节日系列</h3>
+            <span class="cat-count">13 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e022 061007 2006年中秋特辑">E022 061007 2006年中秋特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e072 070922 2007年中秋特辑——金妍儿">E072 070922 2007年中秋特辑——金妍儿</div>
+    <div class="ep-item" data-title="e035 070107 2007年新年特辑">E035 070107 2007年新年特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e121 080913 二零零八年中秋特辑——宗家媳妇">E121 080913 二零零八年中秋特辑——宗家媳妇</div>
+    <div class="ep-item" data-title="e086 080105 2008年新年特辑（上）">E086 080105 2008年新年特辑（上）</div>
+    <div class="ep-item" data-title="e087 080112 2008年新年特辑（下）">E087 080112 2008年新年特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e144 090307 妇女节特辑——少女时代">E144 090307 妇女节特辑——少女时代</div>
+    <div class="ep-item" data-title="e173 091003 2009年中秋特辑——无限挑战电视台（上）">E173 091003 2009年中秋特辑——无限挑战电视台（上）</div>
+    <div class="ep-item" data-title="e174 091010 2009年中秋特辑——无限挑战电视台（下）">E174 091010 2009年中秋特辑——无限挑战电视台（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e216 100918 2010年中秋特辑">E216 100918 2010年中秋特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e266 110910 中秋送礼特辑">E266 110910 中秋送礼特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e315 130202 2013新年特辑">E315 130202 2013新年特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e367 140201 新年特辑：一起来掷尤茨">E367 140201 新年特辑：一起来掷尤茨</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="捉迷藏系列" data-eps="4">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">捉迷藏系列</h3>
+            <span class="cat-count">4 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e324 130406 捉迷藏（上）">E324 130406 捉迷藏（上）</div>
+    <div class="ep-item" data-title="e325 130413 捉迷藏（下）">E325 130413 捉迷藏（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e486 160730 扑通扑通捉迷藏（上）">E486 160730 扑通扑通捉迷藏（上）</div>
+    <div class="ep-item" data-title="e487 160806 扑通扑通捉迷藏（下）">E487 160806 扑通扑通捉迷藏（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="打工系列" data-eps="3">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">打工系列</h3>
+            <span class="cat-count">3 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e406 141129 无限挑战特别企划战（3）：极限打工（上）">E406 141129 无限挑战特别企划战（3）：极限打工（上）</div>
+    <div class="ep-item" data-title="e407 141206 无限挑战特别企划战（4）：极限打工（下）">E407 141206 无限挑战特别企划战（4）：极限打工（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e492 160910  2016极限打工 ">E492 160910  2016极限打工 </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="经典回顾系列" data-eps="4">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">经典回顾系列</h3>
+            <span class="cat-count">4 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2017年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e517 170218 经典特辑（1）－角色人物秀">E517 170218 经典特辑（1）－角色人物秀</div>
+    <div class="ep-item" data-title="e518 170225 经典特辑（2）－经典追击战">E518 170225 经典特辑（2）－经典追击战</div>
+    <div class="ep-item" data-title="e519 170304 经典特辑（3）－真人实境秀">E519 170304 经典特辑（3）－真人实境秀</div>
+    <div class="ep-item" data-title="e520 170311 经典特辑（4）－身体搞笑">E520 170311 经典特辑（4）－身体搞笑</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="他人的生活系列" data-eps="5">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">他人的生活系列</h3>
+            <span class="cat-count">5 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e232 110115 他人的生活——朴明秀（上）">E232 110115 他人的生活——朴明秀（上）</div>
+    <div class="ep-item" data-title="e233 110122 他人的生活——朴明秀（下）">E233 110122 他人的生活——朴明秀（下）</div>
+    <div class="ep-item" data-title="e242 110326 他人的生活——郑俊河（上）">E242 110326 他人的生活——郑俊河（上）</div>
+    <div class="ep-item" data-title="e243 110402 他人的生活——郑俊河（下）">E243 110402 他人的生活——郑俊河（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e482 160702 刘在锡生活 vs 朴明洙生活">E482 160702 刘在锡生活 VS 朴明洙生活</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="恋爱系列" data-eps="5">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">恋爱系列</h3>
+            <span class="cat-count">5 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e004 060527 结婚特辑">E004 060527 结婚特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e036 070113 追踪红色高跟鞋女孩">E036 070113 追踪红色高跟鞋女孩</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e251 110528 恋爱操作团特辑（上）">E251 110528 恋爱操作团特辑（上）</div>
+    <div class="ep-item" data-title="e252 110604 恋爱操作团特辑（下）">E252 110604 恋爱操作团特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e380 140524 洪哲啊~结婚吧！">E380 140524 洪哲啊~结婚吧！</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="三期系列" data-eps="30">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">三期系列</h3>
+            <span class="cat-count">30 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e288 120728 搞笑学概论（上）">E288 120728 搞笑学概论（上）</div>
+    <div class="ep-item" data-title="e289 120804 搞笑学概论（中）">E289 120804 搞笑学概论（中）</div>
+    <div class="ep-item" data-title="e290 120811 搞笑学概论（下）">E290 120811 搞笑学概论（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e334 130615 我们去哪儿特辑（上）">E334 130615 我们去哪儿特辑（上）</div>
+    <div class="ep-item" data-title="e335 130622 我们去哪儿特辑（中）">E335 130622 我们去哪儿特辑（中）</div>
+    <div class="ep-item" data-title="e336 130629 我们去哪儿特辑（下）">E336 130629 我们去哪儿特辑（下）</div>
+    <div class="ep-item" data-title="e343 130817 拜托无限挑战(上)">E343 130817 拜托无限挑战(上)</div>
+    <div class="ep-item" data-title="e344 130824 拜托无限挑战(中)">E344 130824 拜托无限挑战(中)</div>
+    <div class="ep-item" data-title="e345 130831 拜托无限挑战(下) ">E345 130831 拜托无限挑战(下) </div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e363 140104 if特辑 （上） ">E363 140104 IF特辑 （上） </div>
+    <div class="ep-item" data-title="e364 140111 if特辑 （中）">E364 140111 IF特辑 （中）</div>
+    <div class="ep-item" data-title="e365 140118 if特辑 （下）">E365 140118 IF特辑 （下）</div>
+    <div class="ep-item" data-title="e393 140823哥·狂·迷camp（上）">E393 140823哥·狂·迷CAMP（上）</div>
+    <div class="ep-item" data-title="e394 140830哥·狂·迷camp（中）">E394 140830哥·狂·迷CAMP（中）</div>
+    <div class="ep-item" data-title="e395 140906哥·狂·迷camp（下）">E395 140906哥·狂·迷CAMP（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e474 160402 完美的感官（上）">E474 160402 完美的感官（上）</div>
+    <div class="ep-item" data-title="e475 160409 完美的感官（中） ">E475 160409 完美的感官（中） </div>
+    <div class="ep-item" data-title="e476 160416 完美的感官（下）">E476 160416 完美的感官（下）</div>
+    <div class="ep-item" data-title="e479 160611 今天要做什么？（上）">E479 160611 今天要做什么？（上）</div>
+    <div class="ep-item" data-title="e480 160618 今天要做什么？（中） ">E480 160618 今天要做什么？（中） </div>
+    <div class="ep-item" data-title="e481 160625 今天要做什么？（下）">E481 160625 今天要做什么？（下）</div>
+    <div class="ep-item" data-title="e498 161022 地心引力特辑（上） ">E498 161022 地心引力特辑（上） </div>
+    <div class="ep-item" data-title="e499 161029 地心引力特辑（中）">E499 161029 地心引力特辑（中）</div>
+    <div class="ep-item" data-title="e500 161105 地心引力特辑（下） ">E500 161105 地心引力特辑（下） </div>
+    <div class="ep-item" data-title="e504 161203 圣诞老人学院（上）">E504 161203 圣诞老人学院（上）</div>
+    <div class="ep-item" data-title="e505 161210 圣诞老人学院（中）">E505 161210 圣诞老人学院（中）</div>
+    <div class="ep-item" data-title="e506 161217 圣诞老人学院（下）">E506 161217 圣诞老人学院（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2017年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e524 170408 2018平昌（上）">E524 170408 2018平昌（上）</div>
+    <div class="ep-item" data-title="e525 170415 2018平昌（中）">E525 170415 2018平昌（中）</div>
+    <div class="ep-item" data-title="e526 170422 2018平昌（下） ">E526 170422 2018平昌（下） </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="一期系列" data-eps="87">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">一期系列</h3>
+            <span class="cat-count">87 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e003 060520 宇宙特辑">E003 060520 宇宙特辑</div>
+    <div class="ep-item" data-title="e023 061014 亨敦来玩吧">E023 061014 亨敦来玩吧</div>
+    <div class="ep-item" data-title="e025 061028 农村体验特辑">E025 061028 农村体验特辑</div>
+    <div class="ep-item" data-title="e027 061111 高考特辑">E027 061111 高考特辑</div>
+    <div class="ep-item" data-title="e030 061202 腌泡菜特辑">E030 061202 腌泡菜特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e037 070120 无限医生特辑+算命特辑">E037 070120 无限医生特辑+算命特辑</div>
+    <div class="ep-item" data-title="e038 070127 复古特辑">E038 070127 复古特辑</div>
+    <div class="ep-item" data-title="e039 070203 英语研修特辑">E039 070203 英语研修特辑</div>
+    <div class="ep-item" data-title="e042 070224 录影100分钟讨论特辑 + 金猪年特辑">E042 070224 录影100分钟讨论特辑 + 金猪年特辑</div>
+    <div class="ep-item" data-title="e043 070303 开学特辑——一日老师">E043 070303 开学特辑——一日老师</div>
+    <div class="ep-item" data-title="e048 070407 郑俊河生日特辑 ">E048 070407 郑俊河生日特辑 </div>
+    <div class="ep-item" data-title="e052 070505 李英爱特辑">E052 070505 李英爱特辑</div>
+    <div class="ep-item" data-title="e053 070512 逢春马戏团特辑">E053 070512 逢春马戏团特辑</div>
+    <div class="ep-item" data-title="e054 070519 无限韩国小姐选美大会——崔智友">E054 070519 无限韩国小姐选美大会——崔智友</div>
+    <div class="ep-item" data-title="e056 070602 插秧特辑">E056 070602 插秧特辑</div>
+    <div class="ep-item" data-title="e065 070804 西部特辑">E065 070804 西部特辑</div>
+    <div class="ep-item" data-title="e066 070811 水男孩特辑">E066 070811 水男孩特辑</div>
+    <div class="ep-item" data-title="e071 070915 欲望都市">E071 070915 欲望都市</div>
+    <div class="ep-item" data-title="e075 071013 发疯的死党">E075 071013 发疯的死党</div>
+    <div class="ep-item" data-title="e076 071020 爸爸课程特辑">E076 071020 爸爸课程特辑</div>
+    <div class="ep-item" data-title="e078 071103 地球特攻队特辑">E078 071103 地球特攻队特辑</div>
+    <div class="ep-item" data-title="e084 071222 圣诞凌晨颂特辑">E084 071222 圣诞凌晨颂特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e088 080119 客串李算特辑">E088 080119 客串李算特辑</div>
+    <div class="ep-item" data-title="e090 080202 隐藏摄影机 + 寻找崔助理特辑">E090 080202 隐藏摄影机 + 寻找崔助理特辑</div>
+    <div class="ep-item" data-title="e091 080209 特种兵特辑 + haha妈妈的年糕汤">E091 080209 特种兵特辑 + HAHA妈妈的年糕汤</div>
+    <div class="ep-item" data-title="e098 080329 植树日速递特辑">E098 080329 植树日速递特辑</div>
+    <div class="ep-item" data-title="e099 080405 四个乌鸦的梦+我的笨哥哥婚礼">E099 080405 四个乌鸦的梦+我的笨哥哥婚礼</div>
+    <div class="ep-item" data-title="e104 080510 建造儿童图书馆特辑">E104 080510 建造儿童图书馆特辑</div>
+    <div class="ep-item" data-title="e105 080517 童谣特辑">E105 080517 童谣特辑</div>
+    <div class="ep-item" data-title="e106 080524 女子手球特辑">E106 080524 女子手球特辑</div>
+    <div class="ep-item" data-title="e107 080531 挑战健力士纪录特辑">E107 080531 挑战健力士纪录特辑</div>
+    <div class="ep-item" data-title="e116 080802 junjin找100个闹钟">E116 080802 Junjin找100个闹钟</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e141 090214 现写电视剧本特辑——花样男子">E141 090214 现写电视剧本特辑——花样男子</div>
+    <div class="ep-item" data-title="e143 090228 智能及心理医学计划特辑">E143 090228 智能及心理医学计划特辑</div>
+    <div class="ep-item" data-title="e144 090307 妇女节特辑——少女时代">E144 090307 妇女节特辑——少女时代</div>
+    <div class="ep-item" data-title="e146 090321 疯孩子选秀特辑">E146 090321 疯孩子选秀特辑</div>
+    <div class="ep-item" data-title="e147 090328 服装设计师特辑">E147 090328 服装设计师特辑</div>
+    <div class="ep-item" data-title="e151 090425 金妍儿特辑">E151 090425 金妍儿特辑</div>
+    <div class="ep-item" data-title="e152 090502 一天的世界旅行">E152 090502 一天的世界旅行</div>
+    <div class="ep-item" data-title="e163 090725 music core+sos海洋搜救队">E163 090725 Music core+SOS海洋搜救队</div>
+    <div class="ep-item" data-title="e164 090801 说出你的愿望特辑">E164 090801 说出你的愿望特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e186 100102 照片展fan meeting ">E186 100102 照片展fan meeting </div>
+    <div class="ep-item" data-title="e189 100123 恶搞阿凡达">E189 100123 恶搞阿凡达</div>
+    <div class="ep-item" data-title="e204 100626 位置重组特辑">E204 100626 位置重组特辑</div>
+    <div class="ep-item" data-title="e217 100925 bingo游戏特辑">E217 100925 Bingo游戏特辑</div>
+    <div class="ep-item" data-title="e222 101030 7个人的视线">E222 101030 7个人的视线</div>
+    <div class="ep-item" data-title="e227 101211 郑俊河的吓一跳攻击">E227 101211 郑俊河的吓一跳攻击</div>
+    <div class="ep-item" data-title="e228 101218 幻想旅行特辑">E228 101218 幻想旅行特辑</div>
+    <div class="ep-item" data-title="e229 101225 xmas单身派对（hd）">E229 101225 Xmas单身派对（HD）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e230 110101 二零一零年末总结特辑">E230 110101 二零一零年末总结特辑</div>
+    <div class="ep-item" data-title="e233 110122 死亡笔记特辑">E233 110122 死亡笔记特辑</div>
+    <div class="ep-item" data-title="e239 110305 生死决断特辑">E239 110305 生死决断特辑</div>
+    <div class="ep-item" data-title="e240 110312 读书检查">E240 110312 读书检查</div>
+    <div class="ep-item" data-title="e274 111105 考试特辑">E274 111105 考试特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e296 120922 孙妍在—左冲右突的体操学校">E296 120922 孙妍在—左冲右突的体操学校</div>
+    <div class="ep-item" data-title="e303 121110 共同警卫区域特辑">E303 121110 共同警卫区域特辑</div>
+    <div class="ep-item" data-title="e307 121208 haha婚礼巴士特辑">E307 121208 HAHA婚礼巴士特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e319 130302 我vs我">E319 130302 我VS我</div>
+    <div class="ep-item" data-title="e320 130309 帅气的一天">E320 130309 帅气的一天</div>
+    <div class="ep-item" data-title="e321 130316 no压力特辑">E321 130316 NO压力特辑</div>
+    <div class="ep-item" data-title="e328 130504 bingo特辑第二部">E328 130504 bingo特辑第二部</div>
+    <div class="ep-item" data-title="e336 130629 先知朴明秀特辑">E336 130629 先知朴明秀特辑</div>
+    <div class="ep-item" data-title="e337 130706 搞笑才能活——defconn、徐长勋">E337 130706 搞笑才能活——Defconn、徐长勋</div>
+    <div class="ep-item" data-title="e338 130713 黑与白特辑——defconn">E338 130713 黑与白特辑——Defconn</div>
+    <div class="ep-item" data-title="e339 130720 针灸体验 + 完全的男人特辑">E339 130720 针灸体验 + 完全的男人特辑</div>
+    <div class="ep-item" data-title="e343 130817 隐藏摄像机 ">E343 130817 隐藏摄像机 </div>
+    <div class="ep-item" data-title="e359 131207 我们，一起走过特辑">E359 131207 我们，一起走过特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e368 140208 一起来掷尤茨惩罚 + 无挑侦探事务所">E368 140208 一起来掷尤茨惩罚 + 无挑侦探事务所</div>
+    <div class="ep-item" data-title="e380 140524 洪哲啊~结婚吧！">E380 140524 洪哲啊~结婚吧！</div>
+    <div class="ep-item" data-title="e382 140607 饿肚子特辑">E382 140607 饿肚子特辑</div>
+    <div class="ep-item" data-title="e399 141011 韩语特辑">E399 141011 韩语特辑</div>
+    <div class="ep-item" data-title="e408 141213 诱惑的巨人——徐章勋">E408 141213 诱惑的巨人——徐章勋</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e418 150307 无挑幼儿园">E418 150307 无挑幼儿园</div>
+    <div class="ep-item" data-title="e433 150620  走向世界奖学测验特辑——朴炯植(ze:a)（声音出演）、u-ie金宥真（after school）（声音出演）、金济东">E433 150620  走向世界奖学测验特辑——朴炯植(ZE:A)（声音出演）、U-IE金宥真（After School）（声音出演）、金济东</div>
+    <div class="ep-item" data-title="e434 150627 需要浪漫特辑——u-ie金宥真、金济东、池相烈、金永哲、金淑、申凤善、宋恩伊">E434 150627 需要浪漫特辑——U-IE金宥真、金济东、池相烈、金永哲、金淑、申凤善、宋恩伊</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e458 160116 宇宙特辑－火星 嘉宾：沈亨倬">E458 160116 宇宙特辑－火星 嘉宾：沈亨倬</div>
+    <div class="ep-item" data-title="e459 160123 幸运的信件 ——">E459 160123 幸运的信件 ——</div>
+    <div class="ep-item" data-title="e460 160130 综艺学校－school of 乐 嘉宾：杰克·布莱克、sam hammington、sam okyere">E460 160130 综艺学校－School of 乐 嘉宾：杰克·布莱克、Sam Hammington、Sam Okyere</div>
+    <div class="ep-item" data-title="e467 160319 hip hop之神－mc敏智 嘉宾：zico(block b)、吉(leessang)、simon d(supreme team)、mad clown、gray">E467 160319 Hip Hop之神－MC敏智 嘉宾：Zico(Block B)、吉(Leessang)、Simon D(Supreme Team)、Mad Clown、GRAY</div>
+    <div class="ep-item" data-title="e493 160917 dancing king 嘉宾：exo、圭贤(super junior)">E493 160917 Dancing King 嘉宾：EXO、圭贤(Super Junior)</div>
+    <div class="ep-item" data-title="e498 161022 我们是自然人 ——">E498 161022 我们是自然人 ——</div>
+    <div class="ep-item" data-title="e500 161105 傻瓜战争 — 内战 ——">E500 161105 傻瓜战争 — 内战 ——</div>
+    <div class="ep-item" data-title="e504 161203 不愉快的一天 ——">E504 161203 不愉快的一天 ——</div>
+    <div class="ep-item" data-title="e506 161217 bigbang x 无限挑战 嘉宾：bigbang">E506 161217 BIGBANG X 无限挑战 嘉宾：BIGBANG</div>
+    <div class="ep-item" data-title="e507 161224 一起称赞吧 ——">E507 161224 一起称赞吧 ——</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2017年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e527 170429 真实游戏">E527 170429 真实游戏</div>
+    <div class="ep-item" data-title="e528 170506 美好的一天 嘉宾：徐玄振">E528 170506 美好的一天 嘉宾：徐玄振</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="国外特辑" data-eps="45">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">国外特辑</h3>
+            <span class="cat-count">45 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e015 060819 新西兰特辑（上）">E015 060819 新西兰特辑（上）</div>
+    <div class="ep-item" data-title="e016 060826 新西兰特辑（中）">E016 060826 新西兰特辑（中）</div>
+    <div class="ep-item" data-title="e017 060902 新西兰特辑（下）">E017 060902 新西兰特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e040 070210 阿拉斯加特辑">E040 070210 阿拉斯加特辑</div>
+    <div class="ep-item" data-title="e041 070217 2007年中国新年特辑">E041 070217 2007年中国新年特辑</div>
+    <div class="ep-item" data-title="e073 070929 说话小心特辑——日本">E073 070929 说话小心特辑——日本</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e093 080223 印度特辑（上）">E093 080223 印度特辑（上）</div>
+    <div class="ep-item" data-title="e094 080301 印度特辑（中）">E094 080301 印度特辑（中）</div>
+    <div class="ep-item" data-title="e095 080308 印度特辑（下）">E095 080308 印度特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e138 090124 连橇特辑（上）">E138 090124 连橇特辑（上）</div>
+    <div class="ep-item" data-title="e139 090131 连橇特辑（中）">E139 090131 连橇特辑（中）</div>
+    <div class="ep-item" data-title="e140 090207 连橇特辑（下）">E140 090207 连橇特辑（下）</div>
+    <div class="ep-item" data-title="e178 091107 食客特辑（上）">E178 091107 食客特辑（上）</div>
+    <div class="ep-item" data-title="e179 091114 食客特辑（下）">E179 091114 食客特辑（下）</div>
+    <div class="ep-item" data-title="e180 091121 纽约之食客（上）">E180 091121 纽约之食客（上）</div>
+    <div class="ep-item" data-title="e181 091128 纽约之食客（下）">E181 091128 纽约之食客（下）</div>
+    <div class="ep-item" data-title="e182 091205 穿恶臭的恶魔（上）">E182 091205 穿恶臭的恶魔（上）</div>
+    <div class="ep-item" data-title="e183 091212 穿恶臭的恶魔（下）">E183 091212 穿恶臭的恶魔（下）</div>
+    <div class="ep-item" data-title="e185 091226 纽约黑帮特辑">E185 091226 纽约黑帮特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e195 100306 oh my 帐篷（上）（阿拉斯加+蹦极台）">E195 100306 oh my 帐篷（上）（阿拉斯加+蹦极台）</div>
+    <div class="ep-item" data-title="e196 100313 oh my 帐篷（中）（阿拉斯加+蹦极台）">E196 100313 oh my 帐篷（中）（阿拉斯加+蹦极台）</div>
+    <div class="ep-item" data-title="e197 100320 oh my 帐篷（下）（阿拉斯加+蹦极台）">E197 100320 oh my 帐篷（下）（阿拉斯加+蹦极台）</div>
+    <div class="ep-item" data-title="e200 100529 印度女僵尸（上）">E200 100529 印度女僵尸（上）</div>
+    <div class="ep-item" data-title="e201 100605 印度女僵尸（下）">E201 100605 印度女僵尸（下）</div>
+    <div class="ep-item" data-title="e226 101204 登陆纽约（上）">E226 101204 登陆纽约（上）</div>
+    <div class="ep-item" data-title="e227 101211 登陆纽约（下）">E227 101211 登陆纽约（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e237 110219 鄂霍次克海特辑（上）">E237 110219 鄂霍次克海特辑（上）</div>
+    <div class="ep-item" data-title="e238 110226 鄂霍次克海特辑（下）">E238 110226 鄂霍次克海特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e312 130112 纽约style（上）">E312 130112 纽约Style（上）</div>
+    <div class="ep-item" data-title="e313 130119 纽约style（下）">E313 130119 纽约Style（下）</div>
+    <div class="ep-item" data-title="e322 130323 夏威夷特辑（上）">E322 130323 夏威夷特辑（上）</div>
+    <div class="ep-item" data-title="e323 130330 夏威夷特辑（中）">E323 130330 夏威夷特辑（中）</div>
+    <div class="ep-item" data-title="e324 130406 夏威夷特辑（下）">E324 130406 夏威夷特辑（下）</div>
+    <div class="ep-item" data-title="e355 131109 挑战米兰">E355 131109 挑战米兰</div>
+    <div class="ep-item" data-title="e358 131130 米兰vs牙买加">E358 131130 米兰VS牙买加</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e369 140222 牙买加特辑（上）">E369 140222 牙买加特辑（上）</div>
+    <div class="ep-item" data-title="e370 140301 牙买加特辑（中）">E370 140301 牙买加特辑（中）</div>
+    <div class="ep-item" data-title="e371 140308 牙买加特辑（下）">E371 140308 牙买加特辑（下）</div>
+    <div class="ep-item" data-title="e383 140614 无限挑战应援团（5）：巴西世界杯特辑">E383 140614 无限挑战应援团（5）：巴西世界杯特辑</div>
+    <div class="ep-item" data-title="e384 140621 无限挑战应援团（6）：巴西世界杯特辑">E384 140621 无限挑战应援团（6）：巴西世界杯特辑</div>
+    <div class="ep-item" data-title="e385 140628 无限挑战应援团（7）：巴西世界杯特辑">E385 140628 无限挑战应援团（7）：巴西世界杯特辑</div>
+    <div class="ep-item" data-title="e389 140726 曼谷特辑">E389 140726 曼谷特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e432 20150613真・曼谷特辑 ">E432 20150613真・曼谷特辑 </div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e493 140813  加利福尼亚州l.a.特辑（上） ">E493 140813  加利福尼亚州L.A.特辑（上） </div>
+    <div class="ep-item" data-title="e494 140820  加利福尼亚州l.a.特辑（下） ">E494 140820  加利福尼亚州L.A.特辑（下） </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="演唱会特辑" data-eps="12">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">演唱会特辑</h3>
+            <span class="cat-count">12 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e049 070414  活动要做不做特辑 第一季">E049 070414  活动要做不做特辑 第一季</div>
+    <div class="ep-item" data-title="e055 070526 活动要做不做特辑 第二季">E055 070526 活动要做不做特辑 第二季</div>
+    <div class="ep-item" data-title="e084 071222 谢谢演唱会准备篇">E084 071222 谢谢演唱会准备篇</div>
+    <div class="ep-item" data-title="e085 071229 谢谢演唱会特辑">E085 071229 谢谢演唱会特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e092 080216 haha游击音乐会">E092 080216 HAHA游击音乐会</div>
+    <div class="ep-item" data-title="e135 081220 you&amp;me演唱会准备篇">E135 081220 you&amp;me演唱会准备篇</div>
+    <div class="ep-item" data-title="e136 081227 you&amp;me演唱会（上）">E136 081227 you&amp;me演唱会（上）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e137 090117 you&amp;me演唱会（下）">E137 090117 you&amp;me演唱会（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e215 100911朴明秀游击演唱会">E215 100911朴明秀游击演唱会</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e268 110924 爱做不做特辑 第3季（1）">E268 110924 爱做不做特辑 第3季（1）</div>
+    <div class="ep-item" data-title="e269 111001 爱做不做特辑 第3季（2）">E269 111001 爱做不做特辑 第3季（2）</div>
+    <div class="ep-item" data-title="e270 111008 爱做不做特辑 第3季（3）">E270 111008 爱做不做特辑 第3季（3）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="六六歌特辑" data-eps="8">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">六六歌特辑</h3>
+            <span class="cat-count">8 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e402 141101 无限挑战特别企划战（1）：周六周六歌手（1）">E402 141101 无限挑战特别企划战（1）：周六周六歌手（1）</div>
+    <div class="ep-item" data-title="e403 141108 无限挑战特别企划战（2）：周六周六歌手（2）">E403 141108 无限挑战特别企划战（2）：周六周六歌手（2）</div>
+    <div class="ep-item" data-title="e409 141220 无限挑战特别企划战（5）：周六周六歌手（3）">E409 141220 无限挑战特别企划战（5）：周六周六歌手（3）</div>
+    <div class="ep-item" data-title="e410 141227 无限挑战特别企划战（6）：周六周六歌手（4）">E410 141227 无限挑战特别企划战（6）：周六周六歌手（4）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e411 150103 无限挑战特别企划战（7）：周六周六歌手（5）">E411 150103 无限挑战特别企划战（7）：周六周六歌手（5）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e476 160416 六六歌2－水晶男孩（上）">E476 160416 六六歌2－水晶男孩（上）</div>
+    <div class="ep-item" data-title="e476 160423 六六歌2－水晶男孩（中）">E476 160423 六六歌2－水晶男孩（中）</div>
+    <div class="ep-item" data-title="e476 160430 六六歌2－水晶男孩（下）">E476 160430 六六歌2－水晶男孩（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="钱的战争" data-eps="3">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">钱的战争</h3>
+            <span class="cat-count">3 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e244 110409 钱的战争特辑">E244 110409 钱的战争特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e404 141115 钱的战争2（上）">E404 141115 钱的战争2（上）</div>
+    <div class="ep-item" data-title="e405 141122 钱的战争2（下）">E405 141122 钱的战争2（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="明秀十二岁" data-eps="3">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">明秀十二岁</h3>
+            <span class="cat-count">3 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e278 111203 明秀12岁特辑（上）">E278 111203 明秀12岁特辑（上）</div>
+    <div class="ep-item" data-title="e279 111210 明秀12岁特辑（下）">E279 111210 明秀12岁特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e326 130420 明秀的12岁第二部 ">E326 130420 明秀的12岁第二部 </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="拍年历特辑" data-eps="15">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">拍年历特辑</h3>
+            <span class="cat-count">15 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e083 071215 2008年历拍摄特辑">E083 071215 2008年历拍摄特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e132 081129 2009年历拍辑（上）">E132 081129 2009年历拍辑（上）</div>
+    <div class="ep-item" data-title="e133 081206 2009年历拍辑（中）">E133 081206 2009年历拍辑（中）</div>
+    <div class="ep-item" data-title="e134 081213 2009年历拍辑（下）">E134 081213 2009年历拍辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e162 090718 2010年上半年历拍摄">E162 090718 2010年上半年历拍摄</div>
+    <div class="ep-item" data-title="e183 091212 2010下半年历拍摄（上）">E183 091212 2010下半年历拍摄（上）</div>
+    <div class="ep-item" data-title="e184 091219 2010下半年历拍摄（下）">E184 091219 2010下半年历拍摄（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e202 100612 二零一一年无限挑战挂历（1）">E202 100612 二零一一年无限挑战挂历（1）</div>
+    <div class="ep-item" data-title="e203 100619 二零一一年无限挑战挂历（2）">E203 100619 二零一一年无限挑战挂历（2）</div>
+    <div class="ep-item" data-title="e218 101002 2011年挂历特辑（3）">E218 101002 2011年挂历特辑（3）</div>
+    <div class="ep-item" data-title="e219 101009 2011年挂历特辑（4）">E219 101009 2011年挂历特辑（4）</div>
+    <div class="ep-item" data-title="e224 101120 2011年挂历特辑（5）">E224 101120 2011年挂历特辑（5）</div>
+    <div class="ep-item" data-title="e225 101127 2011年挂历特辑（6）">E225 101127 2011年挂历特辑（6）</div>
+    <div class="ep-item" data-title="e226 101204 2011年挂历特辑 end ">E226 101204 2011年挂历特辑 end </div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e277 111126 2012月历特辑">E277 111126 2012月历特辑</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="请客特辑" data-eps="2">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">请客特辑</h3>
+            <span class="cat-count">2 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e154 090516 朴明秀的奇袭">E154 090516 朴明秀的奇袭</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e231 110108 郑总务plan b请客特辑">E231 110108 郑总务PLAN B请客特辑</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="运动特辑" data-eps="2">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">运动特辑</h3>
+            <span class="cat-count">2 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e031 061209 无限少年运动会">E031 061209 无限少年运动会</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e074 071006 秋天运动会特辑">E074 071006 秋天运动会特辑</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="岛屿特辑" data-eps="3">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">岛屿特辑</h3>
+            <span class="cat-count">3 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e059 070623 无人岛特辑（上）">E059 070623 无人岛特辑（上）</div>
+    <div class="ep-item" data-title="e060 070630 无人岛特辑（下）">E060 070630 无人岛特辑（下）</div>
+    <div class="ep-item" data-title="e064 070728 实尾岛特辑">E064 070728 实尾岛特辑</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="节约能源系列" data-eps="2">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">节约能源系列</h3>
+            <span class="cat-count">2 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e079 071110 节约能源特辑（1）">E079 071110 节约能源特辑（1）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e114 080719 节约能源特辑（2）">E114 080719 节约能源特辑（2）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="无限商社系列" data-eps="14">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">无限商社系列</h3>
+            <span class="cat-count">14 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e270 111008  无限公司特辑">E270 111008  无限公司特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e284 120114 无限公司特辑（年终聚餐）">E284 120114 无限公司特辑（年终聚餐）</div>
+    <div class="ep-item" data-title="e285 120121 无限公司（登山）">E285 120121 无限公司（登山）</div>
+    <div class="ep-item" data-title="e297 120929 无限商社（gd特辑）上">E297 120929 无限商社（GD特辑）上</div>
+    <div class="ep-item" data-title="e298 121006 无限商社（gd特辑）下">E298 121006 无限商社（GD特辑）下</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e327 130427 无限商社八周年（上）">E327 130427 无限商社八周年（上）</div>
+    <div class="ep-item" data-title="e332 130601 无限商社八周年（中）">E332 130601 无限商社八周年（中）</div>
+    <div class="ep-item" data-title="e333 130608 无限商社八周年特辑（下）">E333 130608 无限商社八周年特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e413 150124 无限商社10周年特辑：我是武打演员（1）">E413 150124 无限商社10周年特辑：我是武打演员（1）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e479 160507  无限商社 ">E479 160507  无限商社 </div>
+    <div class="ep-item" data-title="e495 160827  2016无限商社begins">E495 160827  2016无限商社Begins</div>
+    <div class="ep-item" data-title="e496 160903  2016无限商社（上）">E496 160903  2016无限商社（上）</div>
+    <div class="ep-item" data-title="e497 160910  2016无限商社(下)">E497 160910  2016无限商社(下)</div>
+    <div class="ep-item" data-title="e497 160915 中秋特辑 2016无限商社 危机的社员">E497 160915 中秋特辑 2016无限商社 危机的社员</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="庆典特辑" data-eps="46">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">庆典特辑</h3>
+            <span class="cat-count">46 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e011 060715 神话特辑（上）">E011 060715 神话特辑（上）</div>
+    <div class="ep-item" data-title="e012 060729 神话特辑（下）">E012 060729 神话特辑（下）</div>
+    <div class="ep-item" data-title="e032 061216 圣诞特辑（上）+ 金泰熙特辑">E032 061216 圣诞特辑（上）+ 金泰熙特辑</div>
+    <div class="ep-item" data-title="e033 061223 圣诞特辑（下）">E033 061223 圣诞特辑（下）</div>
+    <div class="ep-item" data-title="e034 061230 无限挑战颁奖典礼">E034 061230 无限挑战颁奖典礼</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e165 090808 夏季生存特辑（上）">E165 090808 夏季生存特辑（上）</div>
+    <div class="ep-item" data-title="e166 090815 夏季生存特辑（中）">E166 090815 夏季生存特辑（中）</div>
+    <div class="ep-item" data-title="e167 090822 夏季生存特辑（下）">E167 090822 夏季生存特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e281 111224 我也是歌手特辑（上）">E281 111224 我也是歌手特辑（上）</div>
+    <div class="ep-item" data-title="e282 111231 我也是歌手特辑（中）">E282 111231 我也是歌手特辑（中）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e283 120107 我也是歌手特辑（下）">E283 120107 我也是歌手特辑（下）</div>
+    <div class="ep-item" data-title="e292 120825 还是你去夏威夷吧（上）">E292 120825 还是你去夏威夷吧（上）</div>
+    <div class="ep-item" data-title="e293 120901 还是你去夏威夷吧（中）">E293 120901 还是你去夏威夷吧（中）</div>
+    <div class="ep-item" data-title="e294 120908 还是你去夏威夷吧（下）">E294 120908 还是你去夏威夷吧（下）</div>
+    <div class="ep-item" data-title="e304 121117 介·丑·友庆典（上）">E304 121117 介·丑·友庆典（上）</div>
+    <div class="ep-item" data-title="e305 121124 介·丑·友庆典（中）">E305 121124 介·丑·友庆典（中）</div>
+    <div class="ep-item" data-title="e306 121201 介·丑·友庆典（下）">E306 121201 介·丑·友庆典（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e341 130803 综艺夏令营(上)">E341 130803 综艺夏令营(上)</div>
+    <div class="ep-item" data-title="e342 130810 综艺夏令营(下)">E342 130810 综艺夏令营(下)</div>
+    <div class="ep-item" data-title="e359 131207 介·凄·友特辑（1）">E359 131207 介·凄·友特辑（1）</div>
+    <div class="ep-item" data-title="e360 131214 介·凄·友特辑（2）">E360 131214 介·凄·友特辑（2）</div>
+    <div class="ep-item" data-title="e361 131221 介·凄·友特辑（3）">E361 131221 介·凄·友特辑（3）</div>
+    <div class="ep-item" data-title="e362 131228 介·凄·友特辑（4）">E362 131228 介·凄·友特辑（4）</div>
+    <div class="ep-item" data-title="e345 130831 无限挑战应援团（1）">E345 130831 无限挑战应援团（1）</div>
+    <div class="ep-item" data-title="e350 131005 无限挑战应援团（2）">E350 131005 无限挑战应援团（2）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e366 140125 无限挑战应援团（3）">E366 140125 无限挑战应援团（3）</div>
+    <div class="ep-item" data-title="e374 140329 无限挑战应援团（4）">E374 140329 无限挑战应援团（4）</div>
+    <div class="ep-item" data-title="e377 140503 选择2014（1）">E377 140503 选择2014（1）</div>
+    <div class="ep-item" data-title="e378 140510 选择2014（2）">E378 140510 选择2014（2）</div>
+    <div class="ep-item" data-title="e379 140517 选择2014（3）">E379 140517 选择2014（3）</div>
+    <div class="ep-item" data-title="e380 140524 选择2014（4）">E380 140524 选择2014（4）</div>
+    <div class="ep-item" data-title="e381 140531 选择2014（5）">E381 140531 选择2014（5）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e416 150221 无挑大盛宴（上）">E416 150221 无挑大盛宴（上）</div>
+    <div class="ep-item" data-title="e417 150228 无挑大盛宴（下）+无挑小盛宴：无限挑战10周年纪念感谢奖座颁奖典礼">E417 150228 无挑大盛宴（下）+无挑小盛宴：无限挑战10周年纪念感谢奖座颁奖典礼</div>
+    <div class="ep-item" data-title="e425 20150425 无挑十周年+无人岛2015（上）">E425 20150425 无挑十周年+无人岛2015（上）</div>
+    <div class="ep-item" data-title="e426 20150502 无挑十周年+无人岛2015（下）">E426 20150502 无挑十周年+无人岛2015（下）</div>
+    <div class="ep-item" data-title="e429 20150523十周年度假特辑—海外极限打工（上）">E429 20150523十周年度假特辑—海外极限打工（上）</div>
+    <div class="ep-item" data-title="e430 20150530十周年度假特辑：海外极限打工（中）">E430 20150530十周年度假特辑：海外极限打工（中）</div>
+    <div class="ep-item" data-title="e431 20150606十周年度假特辑：海外极限打工（下）">E431 20150606十周年度假特辑：海外极限打工（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e462 160109 综艺大会 ">E462 160109 综艺大会 </div>
+    <div class="ep-item" data-title="e466 160206  介·丑·友庆典2（上）">E466 160206  介·丑·友庆典2（上）</div>
+    <div class="ep-item" data-title="e466 160213  介·丑·友庆典2（中）">E466 160213  介·丑·友庆典2（中）</div>
+    <div class="ep-item" data-title="e466 160220  介·丑·友庆典2（下）">E466 160220  介·丑·友庆典2（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2017年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e540 170729 无挑夏日庆典">E540 170729 无挑夏日庆典</div>
+    <div class="ep-item" data-title="e544 170826 无挑之夜（上）">E544 170826 无挑之夜（上）</div>
+    <div class="ep-item" data-title="e545 170902 无挑之夜（下）">E545 170902 无挑之夜（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="最后的成员系列" data-eps="9">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">最后的成员系列</h3>
+            <span class="cat-count">9 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e419 150314 sixthman：秘密成员（1）">E419 150314 SIXTHMAN：秘密成员（1）</div>
+    <div class="ep-item" data-title="e420 150320 sixthman：秘密成员（2）">E420 150320 SIXTHMAN：秘密成员（2）</div>
+    <div class="ep-item" data-title="e421 150328 sixthman：秘密成员（3）">E421 150328 SIXTHMAN：秘密成员（3）</div>
+    <div class="ep-item" data-title="e422 150404 sixthman：秘密成员（4）">E422 150404 SIXTHMAN：秘密成员（4）</div>
+    <div class="ep-item" data-title="e423 150411 sixthman：秘密成员（5）">E423 150411 SIXTHMAN：秘密成员（5）</div>
+    <div class="ep-item" data-title="e424 150418 sixthman：秘密成员（6）">E424 150418 SIXTHMAN：秘密成员（6）</div>
+    <div class="ep-item" data-title="e427 150509 无挑欢迎仪式：光熙的挑战（上）">E427 150509 无挑欢迎仪式：光熙的挑战（上）</div>
+    <div class="ep-item" data-title="e428 150516 无挑欢迎仪式：光熙的挑战（中）">E428 150516 无挑欢迎仪式：光熙的挑战（中）</div>
+    <div class="ep-item" data-title="e429 150523 无挑欢迎仪式：光熙的挑战（下）">E429 150523 无挑欢迎仪式：光熙的挑战（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="恶搞MV系列" data-eps="3">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">恶搞MV系列</h3>
+            <span class="cat-count">3 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e142 090221 中年时代mv-gee + 就业就是未来">E142 090221 中年时代MV-Gee + 就业就是未来</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e294 120908 北京style+无挑style拍摄 上">E294 120908 北京style+无挑style拍摄 上</div>
+    <div class="ep-item" data-title="e295 120915 北京style+无挑style拍摄 下">E295 120915 北京style+无挑style拍摄 下</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="送快递系列" data-eps="6">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">送快递系列</h3>
+            <span class="cat-count">6 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e280 111217 无限快递特辑2012（上）">E280 111217 无限快递特辑2012（上）</div>
+    <div class="ep-item" data-title="e281 111224 无限快递特辑2012（下）">E281 111224 无限快递特辑2012（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e308 121215 无限快递特辑2013（上）">E308 121215 无限快递特辑2013（上）</div>
+    <div class="ep-item" data-title="e309 121222 无限快递特辑2013（中）">E309 121222 无限快递特辑2013（中）</div>
+    <div class="ep-item" data-title="e310 121229 无限快递特辑2013（下）">E310 121229 无限快递特辑2013（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e433 20150620送货的无挑（1）">E433 20150620送货的无挑（1）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="减肥特辑" data-eps="2">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">减肥特辑</h3>
+            <span class="cat-count">2 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e192 100213  减肥挑战特辑1">E192 100213  减肥挑战特辑1</div>
+    <div class="ep-item" data-title="e199 100522  减肥挑战特辑2">E199 100522  减肥挑战特辑2</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="球系列" data-eps="8">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">球系列</h3>
+            <span class="cat-count">8 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e005 060603 世界杯特辑（1）">E005 060603 世界杯特辑（1）</div>
+    <div class="ep-item" data-title="e006 060610 世界杯特辑（2）">E006 060610 世界杯特辑（2）</div>
+    <div class="ep-item" data-title="e007 060617 世界杯特辑（3）">E007 060617 世界杯特辑（3）</div>
+    <div class="ep-item" data-title="e008 060624 世界杯特辑（4）">E008 060624 世界杯特辑（4）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e057 070609 足球特辑（上）——亨利">E057 070609 足球特辑（上）——亨利</div>
+    <div class="ep-item" data-title="e058 070616 足球特辑（下）——亨利">E058 070616 足球特辑（下）——亨利</div>
+    <div class="ep-item" data-title="e077 071027 美式足球特辑">E077 071027 美式足球特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e316 130209 数字棒球">E316 130209 数字棒球</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="春游秋游系列" data-eps="2">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">春游秋游系列</h3>
+            <span class="cat-count">2 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e024 061021 秋天郊游特辑">E024 061021 秋天郊游特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e250 110521 春游特辑">E250 110521 春游特辑</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="观相系列" data-eps="3">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">观相系列</h3>
+            <span class="cat-count">3 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e355 131109 观相特辑">E355 131109 观相特辑</div>
+    <div class="ep-item" data-title="e356 131116 观相之王的游戏特辑(上)">E356 131116 观相之王的游戏特辑(上)</div>
+    <div class="ep-item" data-title="e357 131123 观相之王的游戏特辑(下)">E357 131123 观相之王的游戏特辑(下)</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="没能守住系列" data-eps="2">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">没能守住系列</h3>
+            <span class="cat-count">2 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e122 080920 没守住特辑（1）+ 隐藏摄影机">E122 080920 没守住特辑（1）+ 隐藏摄影机</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e148 090404 没守住特辑（2）——妇女节特辑处罚 + 恶搞观众 + 服装设计师特辑处罚">E148 090404 没守住特辑（2）——妇女节特辑处罚 + 恶搞观众 + 服装设计师特辑处罚</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="纳凉系列" data-eps="9">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">纳凉系列</h3>
+            <span class="cat-count">9 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e013 060805 纳凉特辑（上）——废校">E013 060805 纳凉特辑（上）——废校</div>
+    <div class="ep-item" data-title="e014 060812 纳凉特辑（下）——传说的故乡">E014 060812 纳凉特辑（下）——传说的故乡</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e116 080802 纳凉特辑-生化危机">E116 080802 纳凉特辑-生化危机</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e167 090822 集装箱特辑">E167 090822 集装箱特辑</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e211 100814 惊悚派对（上） ">E211 100814 惊悚派对（上） </div>
+    <div class="ep-item" data-title="e212 100821 惊悚派对（下）">E212 100821 惊悚派对（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2015年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e412 150110 纳凉特辑：小鬼当家">E412 150110 纳凉特辑：小鬼当家</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e488 160709 纳凉特辑－鬼哭声（上）">E488 160709 纳凉特辑－鬼哭声（上）</div>
+    <div class="ep-item" data-title="e489 160716 纳凉特辑－鬼哭声（下）">E489 160716 纳凉特辑－鬼哭声（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="外貌系列" data-eps="9">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">外貌系列</h3>
+            <span class="cat-count">9 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e028 061118 挑战超级模特儿（上）">E028 061118 挑战超级模特儿（上）</div>
+    <div class="ep-item" data-title="e029 061125 挑战超级模特儿（下）">E029 061125 挑战超级模特儿（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e171 090919 千元极品男（上）">E171 090919 千元极品男（上）</div>
+    <div class="ep-item" data-title="e172 090926 千元极品男（下）">E172 090926 千元极品男（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e209 100731 偶像选秀（上）">E209 100731 偶像选秀（上）</div>
+    <div class="ep-item" data-title="e210 100807 偶像选秀（下）">E210 100807 偶像选秀（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e240 110312 原来是美男特辑（上）">E240 110312 原来是美男特辑（上）</div>
+    <div class="ep-item" data-title="e241 110319 原来是美男特辑（中）">E241 110319 原来是美男特辑（中）</div>
+    <div class="ep-item" data-title="e242 110326 原来是美男特辑（下）">E242 110326 原来是美男特辑（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+        <div class="cat-card reveal" data-cat="两期系列" data-eps="90">
+          <div class="cat-header" tabindex="0" role="button" aria-expanded="true">
+            <h3 class="cat-name">两期系列</h3>
+            <span class="cat-count">90 集</span>
+          </div>
+          <div class="cat-body">
+            <div class="ep-year-group">
+  <span class="ep-year-tag">2006年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e001 060506 魏圣美特辑（上）">E001 060506 魏圣美特辑（上）</div>
+    <div class="ep-item" data-title="e002 060513 魏圣美特辑（下）">E002 060513 魏圣美特辑（下）</div>
+    <div class="ep-item" data-title="e018 060909 格斗王特辑（上）">E018 060909 格斗王特辑（上）</div>
+    <div class="ep-item" data-title="e019 060916 格斗王特辑（下）">E019 060916 格斗王特辑（下）</div>
+    <div class="ep-item" data-title="e020 060927 小学特辑（上）">E020 060927 小学特辑（上）</div>
+    <div class="ep-item" data-title="e021 060930 小学特辑（下）">E021 060930 小学特辑（下）</div>
+    <div class="ep-item" data-title="e020 060927  希望你们快点变亲（上）">E020 060927  希望你们快点变亲（上）</div>
+    <div class="ep-item" data-title="e021 060930  希望你们快点变亲（下）">E021 060930  希望你们快点变亲（下）</div>
+    <div class="ep-item" data-title="e026 061104 金秀路特辑（上）">E026 061104 金秀路特辑（上）</div>
+    <div class="ep-item" data-title="e027 061111 金秀路特辑（下）">E027 061111 金秀路特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2007年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e048 070407 亨敦搬家吧（上）">E048 070407 亨敦搬家吧（上）</div>
+    <div class="ep-item" data-title="e049 070414 亨敦搬家吧（下）">E049 070414 亨敦搬家吧（下）</div>
+    <div class="ep-item" data-title="e062 070714 电视台24小时不睡特辑（上）">E062 070714 电视台24小时不睡特辑（上）</div>
+    <div class="ep-item" data-title="e063 070721 电视台24小时不睡特辑（下）">E063 070721 电视台24小时不睡特辑（下）</div>
+    <div class="ep-item" data-title="e067 070818 首尔观光抢第一特辑（上）">E067 070818 首尔观光抢第一特辑（上）</div>
+    <div class="ep-item" data-title="e068 070825 首尔观光抢第一特辑（下）">E068 070825 首尔观光抢第一特辑（下）</div>
+    <div class="ep-item" data-title="e075 071013 pd征选特辑（上）">E075 071013 PD征选特辑（上）</div>
+    <div class="ep-item" data-title="e076 071020 pd征选特辑（下）">E076 071020 PD征选特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2008年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e102 080426 庆州寻宝特辑（上）">E102 080426 庆州寻宝特辑（上）</div>
+    <div class="ep-item" data-title="e103 080503 庆州寻宝特辑（下）">E103 080503 庆州寻宝特辑（下）</div>
+    <div class="ep-item" data-title="e108 080607 家族的诞生（上）">E108 080607 家族的诞生（上）</div>
+    <div class="ep-item" data-title="e109 080614 家族的诞生（下）">E109 080614 家族的诞生（下）</div>
+    <div class="ep-item" data-title="e112 080705 无限girls（上）">E112 080705 无限Girls（上）</div>
+    <div class="ep-item" data-title="e113 080712 无限girls（下）">E113 080712 无限Girls（下）</div>
+    <div class="ep-item" data-title="e123 080927 pd特攻队（上）">E123 080927 PD特攻队（上）</div>
+    <div class="ep-item" data-title="e124 081004 pd特攻队（下）">E124 081004 PD特攻队（下）</div>
+    <div class="ep-item" data-title="e125 081011 大韩民国的设计（上）">E125 081011 大韩民国的设计（上）</div>
+    <div class="ep-item" data-title="e126 081018 大韩民国的设计（下）">E126 081018 大韩民国的设计（下）</div>
+    <div class="ep-item" data-title="e127 081025 一日经纪人（上）">E127 081025 一日经纪人（上）</div>
+    <div class="ep-item" data-title="e128 081101 一日经纪人（下）">E128 081101 一日经纪人（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2009年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e149 090411 人生剧场篇（上）">E149 090411 人生剧场篇（上）</div>
+    <div class="ep-item" data-title="e150 090418 人生剧场篇（下）">E150 090418 人生剧场篇（下）</div>
+    <div class="ep-item" data-title="e156 090606 宫·百万富翁（上）">E156 090606 宫·百万富翁（上）</div>
+    <div class="ep-item" data-title="e157 090613 宫·百万富翁（下）">E157 090613 宫·百万富翁（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2010年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e189 100123 拳击少女（上）">E189 100123 拳击少女（上）</div>
+    <div class="ep-item" data-title="e190 100130 拳击少女（下）">E190 100130 拳击少女（下）</div>
+    <div class="ep-item" data-title="e191 100206 f1赛车（上）">E191 100206 F1赛车（上）</div>
+    <div class="ep-item" data-title="e192 100213 f1赛车（下）">E192 100213 F1赛车（下）</div>
+    <div class="ep-item" data-title="e193 100220 罪与吉（上）">E193 100220 罪与吉（上）</div>
+    <div class="ep-item" data-title="e194 100227 罪与吉（下）">E194 100227 罪与吉（下）</div>
+    <div class="ep-item" data-title="e198 100327 艺能之神（上）">E198 100327 艺能之神（上）</div>
+    <div class="ep-item" data-title="e199 100522 艺能之神（下）">E199 100522 艺能之神（下）</div>
+    <div class="ep-item" data-title="e220 101016 心灵感应特辑（上）">E220 101016 心灵感应特辑（上）</div>
+    <div class="ep-item" data-title="e221 101023 心灵感应特辑（下）">E221 101023 心灵感应特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2011年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e234 110129 无限挑战fan tv盛载著爱（上）">E234 110129 无限挑战fan tv盛载著爱（上）</div>
+    <div class="ep-item" data-title="e235 110205 无限挑战fan tv盛载著爱（下）">E235 110205 无限挑战fan tv盛载著爱（下）</div>
+    <div class="ep-item" data-title="e248 110507 首尔黑帮（上）">E248 110507 首尔黑帮（上）</div>
+    <div class="ep-item" data-title="e249 110514 首尔黑帮（下）">E249 110514 首尔黑帮（下）</div>
+    <div class="ep-item" data-title="e262 110813 雨天取消特辑（1）">E262 110813 雨天取消特辑（1）</div>
+    <div class="ep-item" data-title="e263 110820 雨天取消特辑（2）">E263 110820 雨天取消特辑（2）</div>
+    <div class="ep-item" data-title="e272 111022 伙伴特辑（上）">E272 111022 伙伴特辑（上）</div>
+    <div class="ep-item" data-title="e273 111029 伙伴特辑（下）">E273 111029 伙伴特辑（下）</div>
+    <div class="ep-item" data-title="e275 111112 tv战争特辑（上）">E275 111112 TV战争特辑（上）</div>
+    <div class="ep-item" data-title="e276 111119 tv战争特辑（下）">E276 111119 TV战争特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2012年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e290 120811 言之命至特辑（上）">E290 120811 言之命至特辑（上）</div>
+    <div class="ep-item" data-title="e291 120818 言之命至特辑（下）">E291 120818 言之命至特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2013年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e317 130216 竞争特辑（上）">E317 130216 竞争特辑（上）</div>
+    <div class="ep-item" data-title="e318 130223 竞争特辑（下）">E318 130223 竞争特辑（下）</div>
+    <div class="ep-item" data-title="e329 130511 tv特讲特辑（上）">E329 130511 TV特讲特辑（上）</div>
+    <div class="ep-item" data-title="e330 130518 tv特讲特辑（下）">E330 130518 TV特讲特辑（下）</div>
+    <div class="ep-item" data-title="e330 130518 来啦来啦biong特辑（上）">E330 130518 来啦来啦Biong特辑（上）</div>
+    <div class="ep-item" data-title="e331 130525 来啦来啦biong特辑（下）">E331 130525 来啦来啦Biong特辑（下）</div>
+    <div class="ep-item" data-title="e333 130608 少数派特辑（上）">E333 130608 少数派特辑（上）</div>
+    <div class="ep-item" data-title="e334 130615 少数派特辑（下）">E334 130615 少数派特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2014年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e369 140222 哥！去哪儿？（上）">E369 140222 哥！去哪儿？（上）</div>
+    <div class="ep-item" data-title="e370 140301 哥！去哪儿？（下）">E370 140301 哥！去哪儿？（下）</div>
+    <div class="ep-item" data-title="e371 140308 保护地球特辑（上）">E371 140308 保护地球特辑（上）</div>
+    <div class="ep-item" data-title="e372 140315 保护地球特辑（下）">E372 140315 保护地球特辑（下）</div>
+    <div class="ep-item" data-title="e392 140816 盗贼们特辑（上）">E392 140816 盗贼们特辑（上）</div>
+    <div class="ep-item" data-title="e393 140823 盗贼们特辑（下）">E393 140823 盗贼们特辑（下）</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2016年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e464 160227 坏记忆橡皮擦（上）">E464 160227 坏记忆橡皮擦（上）</div>
+    <div class="ep-item" data-title="e465 160305 坏记忆橡皮擦（下）">E465 160305 坏记忆橡皮擦（下）</div>
+    <div class="ep-item" data-title="e465 160305 春天来了－收视率特工队（上）">E465 160305 春天来了－收视率特工队（上）</div>
+    <div class="ep-item" data-title="e466 160312 春天来了－收视率特工队（下）">E466 160312 春天来了－收视率特工队（下）</div>
+    <div class="ep-item" data-title="e485 160723 纠纷调解委员会（上）">E485 160723 纠纷调解委员会（上）</div>
+    <div class="ep-item" data-title="e486 160730 纠纷调解委员会（下） 嘉宾：金信英">E486 160730 纠纷调解委员会（下） 嘉宾：金信英</div>
+    <div class="ep-item" data-title="e503 161126 北极熊的眼泪（上） ——">E503 161126 北极熊的眼泪（上） ——</div>
+    <div class="ep-item" data-title="e504 161203 北极熊的眼泪（下） ——">E504 161203 北极熊的眼泪（下） ——</div>
+  </div>
+</div>
+<div class="ep-year-group">
+  <span class="ep-year-tag">2017年</span>
+  <div class="ep-list">
+    <div class="ep-item" data-title="e515 170114 你的名字（上） 嘉宾：金锺旼、崔民勇、赵权">E515 170114 你的名字（上） 嘉宾：金锺旼、崔民勇、赵权</div>
+    <div class="ep-item" data-title="e516 170121 你的名字（下） 嘉宾：金锺旼（声音出演）、白青刚、jackson(got7)（影片出演）">E516 170121 你的名字（下） 嘉宾：金锺旼（声音出演）、白青刚、Jackson(GOT7)（影片出演）</div>
+    <div class="ep-item" data-title="e521 170318 对决vs爱做不做（上）">E521 170318 对决VS爱做不做（上）</div>
+    <div class="ep-item" data-title="e522 170325 对决vs爱做不做（下） 嘉宾：金庆皓、金泰镇、朴完奎、河相旭、张恒俊（声音出演）">E522 170325 对决VS爱做不做（下） 嘉宾：金庆皓、金泰镇、朴完奎、河相旭、张恒俊（声音出演）</div>
+    <div class="ep-item" data-title="e523 170401 国民（上） 嘉宾：李贞味、吴晨焕、李勇周、金炫我、朴柱民（大韩民国国会议员）">E523 170401 国民（上） 嘉宾：李贞味、吴晨焕、李勇周、金炫我、朴柱民（大韩民国国会议员）</div>
+    <div class="ep-item" data-title="e524 170408 国民（下）">E524 170408 国民（下）</div>
+    <div class="ep-item" data-title="e529 170513 隐藏卡片（上） 嘉宾：卢弘喆（声音出演）、金秀贤（声音出演）、李尚俊、金多蕴、金明善、梁培车">E529 170513 隐藏卡片（上） 嘉宾：卢弘喆（声音出演）、金秀贤（声音出演）、李尚俊、金多蕴、金明善、梁培车</div>
+    <div class="ep-item" data-title="e530 170520 隐藏卡片（下） ——">E530 170520 隐藏卡片（下） ——</div>
+    <div class="ep-item" data-title="e530 170520 未来综艺研究所（上） 嘉宾：金秦禹(winner)、crush、文世润、柳炳宰、裴正南、dindin、郑宥美（声音出演）">E530 170520 未来综艺研究所（上） 嘉宾：金秦禹(WINNER)、Crush、文世润、柳炳宰、裴正南、DinDin、郑宥美（声音出演）</div>
+    <div class="ep-item" data-title="e531 170527 未来综艺研究所（下） 嘉宾：金秦禹(winner)、crush、文世润、柳炳宰、裴正南、dindin、郑宥美（声音出演）、金莲子（特别出演）">E531 170527 未来综艺研究所（下） 嘉宾：金秦禹(WINNER)、Crush、文世润、柳炳宰、裴正南、DinDin、郑宥美（声音出演）、金莲子（特别出演）</div>
+    <div class="ep-item" data-title="e534 170617 与孝利共舞（上） 嘉宾：李孝利、裴正南、金雪镇">E534 170617 与孝利共舞（上） 嘉宾：李孝利、裴正南、金雪镇</div>
+    <div class="ep-item" data-title="e535 170624 与孝利共舞（下）">E535 170624 与孝利共舞（下）</div>
+  </div>
+</div>
+
+          </div>
+        </div>
+        
+    </div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <p class="empty-title">未找到匹配的节目</p>
+      <p class="empty-desc">尝试更换关键词或点击"全部"重置筛选</p>
+      <button class="btn btn-outline" id="emptyReset" style="margin-top:12px;">重置筛选</button>
+    </div>
+  </div>
+</section>
+
+<section id="stats">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag" style="display:inline-block;font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">STATISTICS</span>
+      <h2 class="section-title" style="font-size:clamp(26px,4vw,36px);margin-bottom:16px;">年份统计</h2>
+      <p style="font-size:16px;color:var(--text-2);max-width:600px;margin-bottom:48px;">各年份节目数量分布，看看哪一年最 prolific。</p>
+    </div>
+    <div class="year-stats">
+      <div class="reveal">
+        <div class="year-bars">
+          
+            <div class="year-bar-item">
+              <span class="year-bar-label">2006年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="50"></div></div>
+              <span class="year-bar-count">37</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2007年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="77"></div></div>
+              <span class="year-bar-count">57</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2008年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="75"></div></div>
+              <span class="year-bar-count">56</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2009年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="68"></div></div>
+              <span class="year-bar-count">51</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2010年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="78"></div></div>
+              <span class="year-bar-count">58</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2011年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="85"></div></div>
+              <span class="year-bar-count">63</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2012年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="52"></div></div>
+              <span class="year-bar-count">39</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2013年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="83"></div></div>
+              <span class="year-bar-count">62</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2014年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="77"></div></div>
+              <span class="year-bar-count">57</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2015年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="44"></div></div>
+              <span class="year-bar-count">33</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2016年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="100"></div></div>
+              <span class="year-bar-count">74</span>
+            </div>
+            
+            <div class="year-bar-item">
+              <span class="year-bar-label">2017年</span>
+              <div class="year-bar-track"><div class="year-bar-fill" data-width="47"></div></div>
+              <span class="year-bar-count">35</span>
+            </div>
+            
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="year-info-card">
+          <h3>年份详情</h3>
+          <div class="year-info-list">
+            <div class="year-info-item"><span class="year-info-year">2006年</span><span class="year-info-eps">37 集</span></div><div class="year-info-item"><span class="year-info-year">2007年</span><span class="year-info-eps">57 集</span></div><div class="year-info-item"><span class="year-info-year">2008年</span><span class="year-info-eps">56 集</span></div><div class="year-info-item"><span class="year-info-year">2009年</span><span class="year-info-eps">51 集</span></div><div class="year-info-item"><span class="year-info-year">2010年</span><span class="year-info-eps">58 集</span></div><div class="year-info-item"><span class="year-info-year">2011年</span><span class="year-info-eps">63 集</span></div><div class="year-info-item"><span class="year-info-year">2012年</span><span class="year-info-eps">39 集</span></div><div class="year-info-item"><span class="year-info-year">2013年</span><span class="year-info-eps">62 集</span></div><div class="year-info-item"><span class="year-info-year">2014年</span><span class="year-info-eps">57 集</span></div><div class="year-info-item"><span class="year-info-year">2015年</span><span class="year-info-eps">33 集</span></div><div class="year-info-item"><span class="year-info-year">2016年</span><span class="year-info-eps">74 集</span></div><div class="year-info-item"><span class="year-info-year">2017年</span><span class="year-info-eps">35 集</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-grid reveal">
+      <div class="chart-box">
+        <div class="chart-box-title">分类 Treemap（点击联动筛选）</div>
+        <div id="chartTreemap" class="chart-canvas"></div>
+        <div class="chart-hint">点击色块筛选对应分类的剧集</div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">年份集数趋势（点击联动筛选）</div>
+        <div id="chartYear" class="chart-canvas"></div>
+        <div class="chart-hint">点击柱子筛选对应年份的剧集</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="members">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag" style="display:inline-block;font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;">MEMBERS</span>
+      <h2 class="section-title" style="font-size:clamp(26px,4vw,36px);margin-bottom:16px;">成员变动</h2>
+      <p style="font-size:16px;color:var(--text-2);max-width:600px;margin-bottom:48px;">从 2005 年首播到 2018 年停播，成员阵容经历了多次变化。</p>
+    </div>
+    <div class="member-tl-grid">
+      <div class="reveal">
+        <h3 style="font-size:18px;margin-bottom:20px;">加入与退出事件</h3>
+        <div class="member-events">
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2005.4月，刘在石、郑亨敦和卢洪哲（初始成员）</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2005.10月，朴明秀加入</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2005.12月，HAHA加入</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2006.3月，郑俊河加入。</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2008.2月，HAHA因入伍下车。（E95）</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2008.6月，歌手JunJin加入。（E108）</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2009.4月，吉加入。(E151)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2009.10月，junjin因入伍下车。(E178)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2010.3月，HAHA回归。(E198)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2014.4月，吉因酒驾事件而退出了节目。(E377)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2014.11月，卢洪哲因酒驾事件而退出了节目。(E404)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2015.4月，黄光熙加入。(E427)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2015.11，郑亨敦由于健康原因不得不选择休息。(E454,或许准确)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2016.12月，梁世炯加入。（E504,或许准确）</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2017.3月，黄光熙因入伍下车。(E521,或许准确)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2018.1月，曹世镐加入。(E572,或许准确)</div>
+          </div>
+          
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">2018.4月，正式停播。</div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 style="font-size:18px;margin-bottom:20px;">成员时期</h3>
+        <div class="period-list">
+          <div class="period-tag">第一次六人时期：2006.3月，郑俊河加入。</div>
+<div class="period-tag">第一次五人时期：2008.2月，HAHA因入伍下车。</div>
+<div class="period-tag">第二次六人时期：2008.6月，歌手JunJin加入。</div>
+<div class="period-tag">第一次七人时期：2009.4月，吉加入。</div>
+<div class="period-tag">第二次六人时期：2009.10月，junjin因入伍下车。</div>
+<div class="period-tag">第二次七人时期：2010.3月，HAHA回归</div>
+<div class="period-tag">第三次六人时期：2014.4月，吉因酒驾事件而退出了节目。</div>
+<div class="period-tag">第二次五人时期：2014.11月，卢洪哲因酒驾事件而退出了节目。</div>
+<div class="period-tag">第四次六人时期：2015.4月，黄光熙加入。</div>
+<div class="period-tag">第三次五人时期：2015.11，郑亨敦由于健康原因不得不选择休息。</div>
+<div class="period-tag">第五次六人时期：2016.12月，梁世炯加入。</div>
+<div class="period-tag">第四次五人时期：2017.3月，黄光熙因入伍下车。</div>
+<div class="period-tag">第六次六人时期：2018.1月，曹世镐加入。</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html" class="footer-link">首页</a><a href="other-watching.html" class="footer-link">其他观看</a><a href="timeline.html" class="footer-link">时间轴</a>
+    </div>
+    <div class="footer-meta">
+      <span>更新于 2026.08</span>
+      <span class="footer-theme-tag" id="footerThemeTag">简约现代</span>
+    </div>
+  </div></footer>
+
+<script>
+// Theme switch
+(function(){
+  const html=document.documentElement,btns=document.querySelectorAll('.theme-btn'),KEY='wutz-theme';
+  const saved=localStorage.getItem(KEY);
+  if(saved){setTheme(saved);}
+  function setTheme(t){
+    document.body.classList.add('theme-transitioning');
+    html.setAttribute('data-theme',t);
+    localStorage.setItem(KEY,t);
+    btns.forEach(b=>b.classList.toggle('active',b.dataset.theme===t));
+    setTimeout(()=>document.body.classList.remove('theme-transitioning'),500);
+  }
+  btns.forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.theme)));
+})();
+
+// Mobile nav
+(function(){
+  const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+  t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});
+  l.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=>{l.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}));
+})();
+
+// Nav highlight
+(function(){
+  const secs=document.querySelectorAll('section[id]'),links=document.querySelectorAll('.nav-link');
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));}}),{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(s=>obs.observe(s));
+})();
+
+// Reveal
+(function(){
+  const els=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+  els.forEach(e=>obs.observe(e));
+})();
+
+// Year bar animation
+(function(){
+  const bars=document.querySelectorAll('.year-bar-fill');
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.width+'%';obs.unobserve(e.target);}}),{threshold:0.3});
+  bars.forEach(b=>obs.observe(b));
+})();
+
+// Filter
+(function(){
+  const btns=document.querySelectorAll('.filter-btn'),cards=document.querySelectorAll('.cat-card');
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    const f=b.dataset.filter;
+    btns.forEach(x=>x.classList.remove('active'));b.classList.add('active');
+    cards.forEach(c=>{c.style.display=(f==='all'||c.dataset.cat===f)?'':'none';});
+    checkEmptyState();
+  }));
+})();
+
+// Search with debounce + clear button + highlight + empty state
+(function(){
+  const input=document.getElementById('searchInput'),count=document.getElementById('searchCount'),
+        clearBtn=document.getElementById('searchClear'),emptyState=document.getElementById('emptyState'),
+        emptyReset=document.getElementById('emptyReset'),
+        cards=document.querySelectorAll('.cat-card');
+  var debounceTimer=null;
+
+  function escapeReg(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+
+  function highlightText(el,q){
+    var orig=el.dataset.title||el.textContent;
+    if(!q){el.innerHTML=el.textContent=orig;return;}
+    var re=new RegExp('('+escapeReg(q)+')','gi');
+    el.innerHTML=orig.replace(re,'<mark class="search-hl">$1</mark>');
+  }
+
+  function doSearch(){
+    var q=input.value.trim().toLowerCase();
+    clearBtn.style.display=q?'flex':'none';
+    var total=0;
+    cards.forEach(function(card){
+      var cardHasVisible=false;
+      card.querySelectorAll('.ep-item').forEach(function(ep){
+        var t=ep.dataset.title||'';
+        var match=!q||t.toLowerCase().includes(q);
+        ep.classList.toggle('hidden',!match);
+        if(match){cardHasVisible=true;total++;highlightText(ep,q);}
+      });
+      card.querySelectorAll('.ep-year-tag').forEach(function(tag){
+        if(q&&tag.textContent.toLowerCase().includes(q)){cardHasVisible=true;}
+      });
+      card.style.display=cardHasVisible?'':'none';
+    });
+    count.textContent=q?'找到 '+total+' 集匹配 "'+input.value+'"':'';
+    checkEmptyState();
+  }
+
+  input.addEventListener('input',function(){
+    clearTimeout(debounceTimer);
+    debounceTimer=setTimeout(doSearch,300);
+  });
+
+  clearBtn.addEventListener('click',function(){
+    input.value='';doSearch();input.focus();
+  });
+
+  // Keyboard shortcut: / to focus search
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==input&&!e.ctrlKey&&!e.metaKey&&!e.altKey){
+      var tag=document.activeElement.tagName;
+      if(tag!=='INPUT'&&tag!=='TEXTAREA'){
+        e.preventDefault();input.focus();
+      }
+    }
+  });
+
+  // Empty reset button
+  if(emptyReset){
+    emptyReset.addEventListener('click',function(){
+      input.value='';
+      var allBtn=document.querySelector('.filter-btn[data-filter="all"]');
+      if(allBtn)allBtn.click();
+      doSearch();
+    });
+  }
+
+  window.checkEmptyState=function(){
+    var anyVisible=false;
+    cards.forEach(function(c){if(c.style.display!=='none')anyVisible=true;});
+    if(emptyState)emptyState.style.display=anyVisible?'none':'block';
+  };
+})();
+
+// Nav scroll highlight: highlight #eras/#catalog/#stats nav links on scroll
+(function(){
+  var sections=['eras','catalog','stats'];
+  var navLinks={};
+  sections.forEach(function(id){
+    var link=document.querySelector('.nav-link[href=\"#'+id+'\"]');
+    if(link)navLinks[id]=link;
+  });
+  if(!Object.keys(navLinks).length)return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        Object.values(navLinks).forEach(function(l){l.classList.remove('active');});
+        if(navLinks[e.target.id])navLinks[e.target.id].classList.add('active');
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  sections.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)obs.observe(el);
+  });
+})();
+
+// Category body toggle with keyboard support + aria-expanded
+(function(){
+  document.querySelectorAll('.cat-header').forEach(function(h){
+    function toggle(){
+      var b=h.nextElementSibling;
+      if(!b)return;
+      var expanded=b.classList.toggle('collapsed');
+      h.setAttribute('aria-expanded',!expanded);
+    }
+    h.addEventListener('click',toggle);
+    h.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){
+        e.preventDefault();toggle();
+      }
+    });
+  });
+})();
+
+// ECharts: Treemap + Year chart with chart-catalog interaction
+// Lazy load ECharts CDN
+(function(){
+  function initCharts(){
+  if(typeof echarts==='undefined'){console.warn('ECharts not loaded');return;}
+  var tmData=[{name:"两期系列",value:90},{name:"一期系列",value:87},{name:"长期特辑",value:73},{name:"庆典特辑",value:46},{name:"国外特辑",value:45},{name:"三期系列",value:30},{name:"追击战特辑",value:26},{name:"歌谣祭特辑",value:25},{name:"拍年历特辑",value:15},{name:"百期特辑",value:14},{name:"无限商社系列",value:14},{name:"节日系列",value:13},{name:"暑假系列",value:12},{name:"演唱会特辑",value:12},{name:"纳凉系列",value:9},{name:"外貌系列",value:9},{name:"新闻系列",value:9},{name:"最后的成员系列",value:9},{name:"球系列",value:8},{name:"奥运会特辑",value:8},{name:"六六歌特辑",value:8},{name:"送快递系列",value:6},{name:"恋爱系列",value:5},{name:"女装特辑",value:5},{name:"他人的生活系列",value:5},{name:"捉迷藏系列",value:4},{name:"经典回顾系列",value:4},{name:"岛屿特辑",value:3},{name:"恶搞MV系列",value:3},{name:"钱的战争",value:3},{name:"明秀十二岁",value:3},{name:"观相系列",value:3},{name:"打工系列",value:3},{name:"春游秋游系列",value:2},{name:"运动特辑",value:2},{name:"节约能源系列",value:2},{name:"没能守住系列",value:2},{name:"请客特辑",value:2},{name:"减肥特辑",value:2}];
+  var years=[2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017];
+  var counts=[37,57,56,51,58,63,38,62,57,33,74,35];
+
+  function getThemeColors(){
+    var bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
+    var text=getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
+    var text2=getComputedStyle(document.documentElement).getPropertyValue('--text-2').trim();
+    var accent=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    var border=getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
+    var bg2=getComputedStyle(document.documentElement).getPropertyValue('--bg-2').trim();
+    var isDark=bg==='#0a0e1a'||bg==='#1a1a2e';
+    return{bg:bg,text:text,text2:text2,accent:accent,border:border,bg2:bg2,isDark:isDark,
+      palette:isDark?['#00ff9d','#00d4ff','#a855f7','#f59e0b','#ef4444','#10b981','#3b82f6','#ec4899','#8b5cf6','#14b8a6','#f97316','#06b6d4','#84cc16','#e11d48','#6366f1','#d946ef','#0ea5e9','#22c55e','#fbbf24','#f43f5e','#8b5cf6','#06b6d4','#10b981','#f59e0b','#3b82f6','#ec4899','#84cc16','#ef4444','#a855f7','#14b8a6','#f97316','#0ea5e9','#22c55e','#fbbf24','#f43f5e','#6366f1','#d946ef','#0ea5e9']:['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4','#84cc16','#f97316','#6366f1','#14b8a6','#e11d48','#a855f7','#0ea5e9','#22c55e','#fbbf24','#f43f5e','#d946ef','#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4','#84cc16','#f97316','#6366f1','#14b8a6','#e11d48','#a855f7','#0ea5e9','#22c55e','#fbbf24','#f43f5e','#d946ef','#3b82f6','#10b981','#f59e0b']
+    };
+  }
+
+  var chartTm=echarts.init(document.getElementById('chartTreemap'));
+  var chartYr=echarts.init(document.getElementById('chartYear'));
+
+  function renderCharts(){
+    var c=getThemeColors();
+    chartTm.setOption({
+      tooltip:{formatter:function(p){return p.name+': '+p.value+' 集';}},
+      series:[{
+        type:'treemap',data:tmData,
+        roam:false,nodeClick:false,
+        label:{show:true,formatter:function(p){var n=p.name;return n.length>6?n.slice(0,6)+'..':n;},fontSize:11,color:c.text},
+        upperLabel:{show:true,height:22,color:c.text2,fontSize:12},
+        itemStyle:{borderColor:c.bg2,borderWidth:2,gapWidth:2},
+        levels:[{itemStyle:{borderColor:c.bg,borderWidth:4,gapWidth:4}}],
+        breadcrumb:{show:false}
+      }]
+    });
+    chartYr.setOption({
+      tooltip:{trigger:'axis',formatter:function(p){return p[0].name+'年: '+p[0].value+' 集';}},
+      grid:{left:'8%',right:'5%',top:'10%',bottom:'12%'},
+      xAxis:{type:'category',data:years.map(function(y){return String(y);}),axisLabel:{color:c.text2,fontSize:11},axisLine:{lineStyle:{color:c.border}}},
+      yAxis:{type:'value',axisLabel:{color:c.text2,fontSize:11},splitLine:{lineStyle:{color:c.border,opacity:0.5}},axisLine:{show:false}},
+      series:[{
+        type:'bar',data:counts.map(function(v,i){return{value:v,itemStyle:{color:c.palette[i%c.palette.length]}};}),
+        barWidth:'55%',
+        label:{show:true,position:'top',color:c.text2,fontSize:11},
+        emphasis:{itemStyle:{color:c.accent,shadowBlur:10,shadowColor:c.accent}}
+      }]
+    });
+  }
+  renderCharts();
+
+  // Chart-catalog interaction
+  // Right-side filter result panel
+(function(){
+  var panel=document.getElementById('resultPanel');
+  var overlay=document.getElementById('resultPanelOverlay');
+  var closeBtn=document.getElementById('resultPanelClose');
+  var listEl=document.getElementById('resultPanelList');
+  var titleEl=document.getElementById('resultPanelTitle');
+  var countEl=document.getElementById('resultPanelCount');
+  var searchInput=document.getElementById('resultPanelSearch');
+  var toggleBtn=document.getElementById('resultPanelToggle');
+  if(!panel)return;
+
+  function openPanel(){panel.classList.add('open');if(overlay)overlay.classList.add('open');}
+  function closePanel(){panel.classList.remove('open');if(overlay)overlay.classList.remove('open');}
+
+  closeBtn.addEventListener('click',closePanel);
+  if(overlay)overlay.addEventListener('click',closePanel);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open')){closePanel();e.stopPropagation();}});
+
+  window.fillResultPanel=function(items,label){
+    if(!listEl)return;
+    listEl.innerHTML='';
+    if(!items||!items.length){
+      listEl.innerHTML='<div class="result-panel-empty">未找到匹配剧集</div>';
+      if(countEl)countEl.textContent='0 条';
+      return;
+    }
+    var docFrag=document.createDocumentFragment();
+    items.forEach(function(item){
+      var d=document.createElement('div');
+      d.className='result-panel-item';
+      d.setAttribute('role','button');
+      d.setAttribute('tabindex','0');
+      d.textContent=item.title||item.text||item;
+      d.addEventListener('click',function(){
+        // Scroll to original card in catalog
+        if(item.cardSelector){
+          var card=document.querySelector(item.cardSelector);
+          if(card){card.scrollIntoView({behavior:'smooth',block:'center'});}
+        }
+      });
+      d.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();d.click();}});
+      docFrag.appendChild(d);
+    });
+    listEl.appendChild(docFrag);
+    if(titleEl)titleEl.textContent=label||'筛选结果';
+    if(countEl)countEl.textContent=items.length+' 条';
+    openPanel();
+  };
+
+  // Panel search
+  if(searchInput){
+    searchInput.addEventListener('input',function(){
+      var q=this.value.trim().toLowerCase();
+      var items=listEl.querySelectorAll('.result-panel-item');
+      var visible=0;
+      items.forEach(function(item){
+        var t=item.textContent.toLowerCase();
+        var match=t.indexOf(q)!==-1;
+        item.style.display=match?'':'none';
+        if(match)visible++;
+        // Highlight
+        var orig=item.textContent;
+        if(q&&match){
+          var re=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+          item.innerHTML=orig.replace(re,'<mark>$1</mark>');
+        }else{item.textContent=orig;}
+      });
+      if(countEl)countEl.textContent=visible+' / '+items.length+' 条';
+    });
+  }
+})();
+
+// Filter and scroll with panel fill - user choice: panel always opens, scroll is optional
+function filterAndScroll(filterType,filterValue,options){
+  options=options||{};
+  var searchInput=document.getElementById('searchInput');
+  var filterBtns=document.querySelectorAll('.filter-btn');
+  var panelItems=[];
+  if(filterType==='cat'){
+    filterBtns.forEach(function(b){b.classList.toggle('active',b.dataset.filter===filterValue);});
+    var cards=document.querySelectorAll('.cat-card');
+    cards.forEach(function(card){
+      card.style.display=(filterValue==='all'||card.dataset.cat===filterValue)?'':'none';
+      if(filterValue!=='all'&&card.dataset.cat===filterValue){
+        // Collect episodes for panel
+        var titleEl=card.querySelector('.cat-name');
+        var title=titleEl?titleEl.textContent.trim():card.dataset.cat;
+        card.querySelectorAll('.ep-item').forEach(function(ep){
+          panelItems.push({
+            title: (title||'')+' - '+(ep.dataset.title||ep.textContent||''),
+            cardSelector: '[data-cat="'+card.dataset.cat+'"]'
+          });
+        });
+      }
+    });
+    if(options.scroll!==false){
+      document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
+    }
+    if(window.checkEmptyState)window.checkEmptyState();
+    if(filterValue!=='all'&&window.fillResultPanel){
+      window.fillResultPanel(panelItems,filterValue+' ('+panelItems.length+' 集)');
+    }
+  }else if(filterType==='year'){
+    searchInput.value='';
+    var yr=filterValue;
+    var cards=document.querySelectorAll('.cat-card');
+    cards.forEach(function(card){card.style.display='';});
+    filterBtns.forEach(function(b){b.classList.remove('active');});
+    var firstBtn=document.querySelector('.filter-btn[data-filter="all"]');
+    if(firstBtn)firstBtn.classList.add('active');
+    var yearTags=document.querySelectorAll('.ep-year-tag');
+    yearTags.forEach(function(tag){
+      if(tag.textContent===yr+'年'){
+        var card=tag.closest('.cat-card');
+        if(card){
+          card.style.display='';
+          var group=tag.closest('.ep-year-group');
+          if(group)group.style.display='';
+          // Collect for panel
+          var titleEl=card.querySelector('.cat-name');
+          var title=titleEl?titleEl.textContent.trim():'';
+          var epEl=tag.closest('.ep-item');
+          if(epEl){
+            panelItems.push({
+              title: (title||'')+' - '+(epEl.dataset.title||epEl.textContent||''),
+              cardSelector: '[data-cat="'+card.dataset.cat+'"]'
+            });
+          }
+        }
+      }else{
+        var group=tag.closest('.ep-year-group');
+        if(group){
+          var hasOtherYear=group.querySelector('.ep-year-tag');
+          if(hasOtherYear&&hasOtherYear.textContent!==yr+'年'){
+            group.style.display='none';
+          }
+        }
+      }
+    });
+    if(options.scroll!==false){
+      document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
+    }
+    if(window.checkEmptyState)window.checkEmptyState();
+    if(window.fillResultPanel){
+      window.fillResultPanel(panelItems,yr+'年 ('+panelItems.length+' 集)');
+    }
+  }
+}
+
+
+  chartTm.on('click',function(p){
+    if(p.data&&p.data.name){filterAndScroll('cat',p.data.name,{scroll:false});}
+  });
+  chartYr.on('click',function(p){
+    if(p.name){filterAndScroll('year',parseInt(p.name),{scroll:false});}
+  });
+
+  // Re-render charts on theme change
+  document.querySelectorAll('.theme-btn').forEach(function(b){
+    b.addEventListener('click',function(){setTimeout(renderCharts,450);});
+  });
+
+  // Resize
+  window.addEventListener('resize',function(){chartTm.resize();chartYr.resize();});
+  }
+  // Lazy load ECharts then init
+  if(typeof echarts!=='undefined'){
+    initCharts();
+  }else{
+    var s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js';
+    s.onload=initCharts;
+    document.head.appendChild(s);
+  }
+})();
+
+
+// Reading progress bar
+(function(){
+  var bar=document.getElementById('readingProgress');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var sh=document.documentElement.scrollHeight-window.innerHeight;
+    var pct=sh>0?(window.scrollY/sh*100):0;
+    bar.style.width=pct+'%';
+  },{passive:true});
+})();
+
+// Update footer theme tag
+(function(){
+  var tag=document.getElementById('footerThemeTag');
+  if(!tag)return;
+  var labels={'minimal':'简约现代','darktech':'暗黑科技','creative':'活泼创意','guofeng':'国风雅韵','handdrawn':'手绘温暖'};
+  function updateTag(){
+    var t=document.documentElement.getAttribute('data-theme')||'minimal';
+    tag.textContent=labels[t]||t;
+  }
+  updateTag();
+  document.querySelectorAll('.theme-btn').forEach(function(b){
+    b.addEventListener('click',function(){setTimeout(updateTag,50);});
+  });
+})();
+
+// Back to top
+(function(){
+  var btn=document.getElementById('backToTop');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('visible',window.scrollY>300);
+  },{passive:true});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+
+</script>
+<button class="back-to-top" id="backToTop" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg></button>
+</body>
+</html>

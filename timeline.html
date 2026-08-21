@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="minimal">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%233b82f6'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='18' font-weight='bold' fill='white' font-family='sans-serif'%3EW%3C/text%3E%3C/svg%3E">
+<meta name="description" content="无限挑战成员变迁时间轴 - 2005-2018，17次人员变动，16个时期阶段">
+<meta property="og:type" content="website">
+<meta property="og:title" content="成员变迁时间轴 · 观看世界">
+<meta property="og:description" content="《无限挑战》2005-2018年成员变动全记录 - 17次人员变动，16个时期阶段，交替时间线可视化">
+<meta property="og:locale" content="zh_CN">
+<title>成员变迁时间轴 · 观看世界</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;700&family=ZCOOL+KuaiLe&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+:root {
+  --transition-theme: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-full: 9999px;
+  --max-width: 1200px; --nav-height: 60px;
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", Consolas, monospace;
+  /* Event type semantic colors - consistent across themes */
+  --evt-join: #3498db; --evt-join-bg: rgba(52,152,219,0.15); --evt-join-text: #2980b9;
+  --evt-out: #e74c3c; --evt-out-bg: rgba(231,76,60,0.15); --evt-out-text: #c0392b;
+  --evt-return: #27ae60; --evt-return-bg: rgba(39,174,96,0.15); --evt-return-text: #1e8449;
+  --evt-stop: #f39c12; --evt-stop-bg: rgba(243,156,18,0.15); --evt-stop-text: #d68910;
+}
+[data-theme="minimal"] {
+  --bg: #f8f9fa; --bg-2: #fff; --bg-3: #f1f3f5;
+  --text: #1a1a2e; --text-2: #6c757d; --text-3: #adb5bd;
+  --accent: #3b82f6; --accent-h: #2563eb; --accent-soft: rgba(59,130,246,0.1);
+  --border: #e9ecef; --card-bg: #fff; --card-border: #e9ecef;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06); --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-accent: 0 4px 20px rgba(59,130,246,0.2);
+  --hero-grad: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+  --nav-bg: rgba(255,255,255,0.85); --nav-border: rgba(0,0,0,0.06);
+  --tag-bg: #f1f3f5; --tag-text: #495057; --font-h: var(--font-base);
+}
+[data-theme="darktech"] {
+  --bg: #0a0e1a; --bg-2: #131826; --bg-3: #1a2033;
+  --text: #e2e8f0; --text-2: #94a3b8; --text-3: #64748b;
+  --accent: #00ff9d; --accent-h: #00cc7d; --accent-soft: rgba(0,255,157,0.08);
+  --border: #1e293b; --card-bg: #131826; --card-border: #1e293b;
+  --shadow: 0 2px 12px rgba(0,0,0,0.4); --shadow-hover: 0 8px 30px rgba(0,255,157,0.1);
+  --shadow-accent: 0 0 24px rgba(0,255,157,0.25);
+  --hero-grad: linear-gradient(135deg, #0a0e1a 0%, #0d1521 50%, #0a1f1a 100%);
+  --nav-bg: rgba(10,14,26,0.85); --nav-border: rgba(0,255,157,0.1);
+  --tag-bg: rgba(0,255,157,0.08); --tag-text: #00ff9d; --font-h: var(--font-mono);
+  /* Brighter event text for dark theme */
+  --evt-join-text: #5dade2; --evt-out-text: #ec7063; --evt-return-text: #52be80; --evt-stop-text: #f5b041;
+}
+[data-theme="creative"] {
+  --bg: #fef3ff; --bg-2: #fff; --bg-3: #f3e8ff;
+  --text: #2d1b4e; --text-2: #7c6a9c; --text-3: #b4a3c8;
+  --accent: #a855f7; --accent-h: #9333ea; --accent-soft: rgba(168,85,247,0.1);
+  --border: #f3e8ff; --card-bg: #fff; --card-border: #f3e8ff;
+  --shadow: 0 4px 16px rgba(168,85,247,0.08); --shadow-hover: 0 12px 36px rgba(168,85,247,0.18);
+  --shadow-accent: 0 4px 24px rgba(236,72,153,0.25);
+  --hero-grad: linear-gradient(135deg, #fef3ff 0%, #fce7f3 50%, #ddd6fe 100%);
+  --nav-bg: rgba(254,243,255,0.85); --nav-border: rgba(168,85,247,0.1);
+  --tag-bg: #f3e8ff; --tag-text: #7c3aed; --font-h: var(--font-base);
+}
+[data-theme="guofeng"] {
+  --bg: #f5f0e8; --bg-2: #faf6f0; --bg-3: #ede4d3;
+  --text: #3d2b1f; --text-2: #8b7355; --text-3: #b5a48a;
+  --accent: #8b2500; --accent-h: #a03000; --accent-soft: rgba(139,37,0,0.08);
+  --border: #d4c4a8; --card-bg: #faf6f0; --card-border: #d4c4a8;
+  --shadow: 0 2px 12px rgba(139,37,0,0.06); --shadow-hover: 0 8px 30px rgba(139,37,0,0.12);
+  --shadow-accent: 0 4px 20px rgba(212,160,23,0.2);
+  --hero-grad: linear-gradient(135deg, #f5f0e8 0%, #ede4d3 50%, #f5e6d3 100%);
+  --nav-bg: rgba(245,240,232,0.85); --nav-border: rgba(139,37,0,0.1);
+  --tag-bg: #ede4d3; --tag-text: #8b2500; --font-h: var(--font-base);
+}
+[data-theme="handdrawn"] {
+  --bg: #fdf6e3; --bg-2: #fffbf0; --bg-3: #f5ead0;
+  --text: #3d2b1f; --text-2: #8b7355; --text-3: #c4b59a;
+  --accent: #d97706; --accent-h: #b45309; --accent-soft: rgba(217,119,6,0.1);
+  --border: #e8dcc0; --card-bg: #fffbf0; --card-border: #e8dcc0;
+  --shadow: 0 2px 12px rgba(217,119,6,0.06); --shadow-hover: 0 8px 30px rgba(217,119,6,0.12);
+  --shadow-accent: 0 4px 20px rgba(217,119,6,0.2);
+  --hero-grad: linear-gradient(135deg, #fdf6e3 0%, #f5ead0 50%, #fce7c3 100%);
+  --nav-bg: rgba(253,246,227,0.85); --nav-border: rgba(217,119,6,0.1);
+  --tag-bg: #f5ead0; --tag-text: #b45309; --font-h: var(--font-base);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: calc(16px * var(--font-scale,1)); }
+body {
+  font-family: var(--font-base);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background var(--transition-theme), color var(--transition-theme);
+  -webkit-font-smoothing: antialiased;
+}
+.theme-transitioning * { transition: none !important; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+/* ===== Navbar ===== */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--nav-border);
+  height: var(--nav-height);
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+.navbar .container { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+.nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: calc(16px * var(--font-scale, 1)); color: var(--text); }
+.nav-logo-mark {
+  width: 28px; height: 28px; border-radius: var(--radius-sm);
+  background: var(--accent); color: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: calc(14px * var(--font-scale, 1)); font-weight: 800;
+}
+.nav-links { list-style: none; display: flex; gap: 4px; align-items: center; }
+.nav-link {
+  padding: 8px 14px; border-radius: var(--radius-sm); font-size: calc(14px * var(--font-scale, 1)); font-weight: 500;
+  color: var(--text-2); transition: all var(--transition-fast); position: relative;
+}
+.nav-link:hover { color: var(--accent); background: var(--accent-soft); }
+.nav-link.active { color: var(--accent); font-weight: 600; }
+.nav-link.active::after { content: ''; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); width: 20px; height: 2px; background: var(--accent); border-radius: 2px; }
+.theme-switcher { display: flex; gap: 6px; }
+.theme-btn {
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--border);
+  cursor: pointer; padding: 0; background: var(--bg-2); transition: all var(--transition-fast);
+}
+.theme-btn.active { border-color: var(--accent); transform: scale(1.15); }
+.theme-dot { display: block; width: 100%; height: 100%; border-radius: 50%; }
+
+/* Font toggle button */
+.font-toggle-btn { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-2); background: var(--bg-3); border: 1px solid var(--border); transition: all var(--transition-fast); cursor: pointer; }
+.font-toggle-btn:hover { color: var(--accent); background: var(--accent-soft); border-color: var(--accent); }
+
+/* Custom Theme Panel */
+.theme-panel, .font-panel {
+  position: fixed; top: calc(var(--nav-height) + 8px); right: -340px;
+  width: 320px; max-height: calc(100vh - var(--nav-height) - 20px);
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius-md); box-shadow: var(--shadow-hover);
+  z-index: 999; overflow-y: auto;
+  transition: right var(--transition-base);
+}
+.theme-panel.open, .font-panel.open { right: 12px; }
+.theme-panel-header, .font-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; background: var(--card-bg); z-index: 2;
+}
+.theme-panel-title, .font-panel-title { font-weight: 600; font-size: calc(15px * var(--font-scale, 1)); color: var(--text); }
+.theme-panel-close, .font-panel-close { background: none; border: none; font-size: calc(22px * var(--font-scale, 1)); color: var(--text-2); cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all var(--transition-fast); }
+.theme-panel-close:hover, .font-panel-close:hover { background: var(--bg-3); color: var(--text); }
+.theme-panel-body, .font-panel-body { padding: 16px; }
+.theme-color-group { margin-bottom: 14px; }
+.theme-color-group label { display: block; font-size: calc(12px * var(--font-scale, 1)); color: var(--text-2); margin-bottom: 5px; font-weight: 500; }
+.theme-color-group input[type="color"] {
+  width: 100%; height: 36px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--bg-2);
+  cursor: pointer; padding: 2px;
+}
+.theme-panel-actions { display: flex; gap: 8px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
+.btn-sm { padding: 6px 14px; font-size: calc(12px * var(--font-scale, 1)); border-radius: var(--radius-sm); }
+
+/* Contrast Meter */
+.contrast-meter { margin-top: 12px; padding: 12px; border-radius: var(--radius-sm); background: var(--bg-3); border: 1px solid var(--border); }
+.contrast-value { font-size: calc(13px * var(--font-scale, 1)); color: var(--text-2); }
+.contrast-value span { font-weight: 700; color: var(--text); font-size: calc(15px * var(--font-scale, 1)); }
+.contrast-rating { font-size: calc(11px * var(--font-scale, 1)); margin-top: 4px; padding: 2px 8px; border-radius: var(--radius-full); display: inline-block; font-weight: 500; }
+.contrast-rating.aaa { background: #dcfce7; color: #166534; }
+.contrast-rating.aa { background: #dbeafe; color: #1e40af; }
+.contrast-rating.fail { background: #fee2e2; color: #991b1b; }
+.contrast-bar { width: 100%; height: 6px; background: var(--border); border-radius: 3px; margin-top: 8px; overflow: hidden; }
+.contrast-bar > div { height: 100%; border-radius: 3px; transition: width 0.3s ease, background 0.3s ease; }
+
+/* Font Panel */
+.font-group { margin-bottom: 18px; }
+.font-group label { display: block; font-size: calc(12px * var(--font-scale, 1)); color: var(--text-2); margin-bottom: 8px; font-weight: 500; }
+.font-group label span { color: var(--accent); font-weight: 700; margin-left: 4px; }
+.font-options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.font-btn {
+  padding: 8px 6px; font-size: calc(13px * var(--font-scale, 1)); border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--bg-2); color: var(--text-2);
+  cursor: pointer; transition: all var(--transition-fast); text-align: center;
+}
+.font-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.font-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); font-weight: 500; }
+.font-size-labels { display: flex; justify-content: space-between; font-size: calc(12px * var(--font-scale, 1)); color: var(--text-3); margin-top: 6px; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .theme-panel, .font-panel { width: calc(100vw - 24px); right: -100vw; }
+  .theme-panel.open, .font-panel.open { right: 12px; }
+}
+.theme-btn[data-theme="minimal"] .theme-dot { background: linear-gradient(135deg, #3b82f6, #e3f2fd); }
+.theme-btn[data-theme="darktech"] .theme-dot { background: linear-gradient(135deg, #00ff9d, #0a0e1a); }
+.theme-btn[data-theme="creative"] .theme-dot { background: linear-gradient(135deg, #a855f7, #ec4899); }
+.theme-btn[data-theme="guofeng"] .theme-dot { background: linear-gradient(135deg, #8b2500, #d4a017); }
+.theme-btn[data-theme="handdrawn"] .theme-dot { background: linear-gradient(135deg, #d97706, #fdf6e3); }
+.nav-toggle { display: none; width: 40px; height: 40px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; border-radius: var(--radius-sm); border: none; background: transparent; cursor: pointer; }
+.nav-toggle span { width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: all var(--transition-fast); }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ===== Breadcrumb ===== */
+.breadcrumb {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 100;
+  background: var(--bg-3); border-bottom: 1px solid var(--border);
+  padding: 12px 0; font-size: calc(14px * var(--font-scale, 1));
+  transition: background var(--transition-theme), border-color var(--transition-theme);
+}
+.breadcrumb .container { display:flex; align-items:center; gap:8px; }
+.breadcrumb-back {
+  display:inline-flex; align-items:center; gap:6px;
+  color: var(--text-2); text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.breadcrumb-back:hover { color: var(--accent); }
+.breadcrumb-back svg { flex-shrink:0; }
+.breadcrumb-sep { color: var(--text-3); }
+.breadcrumb-current { color: var(--text); font-weight: 500; }
+
+/* ===== Hero ===== */
+.hero {
+  background: var(--hero-grad);
+  padding: 40px 0 40px;
+  text-align: center;
+  transition: background var(--transition-theme);
+}
+.hero h1 { font-size: calc(clamp(28px, 5vw, 42px) * var(--font-scale, 1)); font-weight: 800; color: var(--text); margin-bottom: 8px; letter-spacing: 2px; }
+.hero .subtitle { font-size: calc(16px * var(--font-scale, 1)); color: var(--text-2); margin-bottom: 16px; }
+.hero .period-badge { display: inline-block; background: var(--accent); color: var(--bg); padding: 6px 18px; border-radius: var(--radius-full); font-size: calc(14px * var(--font-scale, 1)); font-weight: 500; }
+
+/* ===== Stats Panel ===== */
+.stats-panel {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px; margin-bottom: 32px; padding: 0 0 24px;
+}
+.stat-card {
+  background: var(--card-bg); border-radius: var(--radius-md); padding: 16px;
+  text-align: center; box-shadow: var(--shadow); border-top: 3px solid var(--accent);
+  transition: all var(--transition-base);
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.stat-number { font-size: 1.6rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 4px; }
+.stat-label { font-size: 0.8rem; color: var(--text-2); }
+.stat-highlight { border-top-color: var(--evt-out); }
+.stat-highlight .stat-number { color: var(--evt-out); }
+
+/* ===== Legend ===== */
+.legend { display: flex; justify-content: center; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: calc(14px * var(--font-scale, 1)); color: var(--text-2); cursor: pointer; padding: 4px 12px; border-radius: var(--radius-full); transition: all var(--transition-fast); user-select: none; }
+.legend-item:hover { background: var(--accent-soft); color: var(--text); }
+.legend-item.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.legend-item.dimmed { opacity: 0.4; }
+.legend-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--card-bg); box-shadow: 0 0 4px rgba(0,0,0,0.15); transition: transform var(--transition-fast); }
+.legend-item:hover .legend-dot { transform: scale(1.2); }
+.dot-join { background: var(--evt-join); } .dot-out { background: var(--evt-out); } .dot-return { background: var(--evt-return); } .dot-stop { background: var(--evt-stop); }
+
+/* ===== Timeline ===== */
+.timeline-section { padding: 20px 0 60px; }
+.timeline { position: relative; padding: 20px 0; }
+.timeline::before {
+  content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 100%; border-radius: 2px; top: 0;
+  background: linear-gradient(to bottom, var(--evt-join), var(--accent), var(--accent), var(--evt-stop));
+}
+.event { position: relative; margin-bottom: 28px; display: flex; justify-content: center; align-items: flex-start; }
+.event-content {
+  width: 42%; background: var(--card-bg); border-radius: var(--radius-md); padding: 18px 22px;
+  box-shadow: var(--shadow); position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.event-content:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.event-content::before { content: ''; position: absolute; top: 24px; width: 0; height: 0; border: 10px solid transparent; }
+.event.left .event-content { margin-right: auto; margin-left: 0; text-align: right; border-left: 4px solid; }
+.event.left .event-content::before { right: -20px; border-left-color: var(--card-bg); border-right: none; }
+.event.right .event-content { margin-left: auto; margin-right: 0; text-align: left; border-right: 4px solid; }
+.event.right .event-content::before { left: -20px; border-right-color: var(--card-bg); border-left: none; }
+.event.join .event-content { border-color: var(--evt-join) !important; }
+.event.out .event-content { border-color: var(--evt-out) !important; }
+.event.return .event-content { border-color: var(--evt-return) !important; }
+.event.stop .event-content { border-color: var(--evt-stop) !important; }
+
+.event-node {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 3px solid var(--card-bg); box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+  z-index: 3; margin-top: 20px;
+}
+.event.join .event-node { background: var(--evt-join); }
+.event.out .event-node { background: var(--evt-out); }
+.event.return .event-node { background: var(--evt-return); }
+.event.stop .event-node { background: var(--evt-stop); }
+
+.event-date {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: var(--bg); padding: 4px 12px;
+  border-radius: 12px; font-size: 0.8rem; font-weight: 600;
+  white-space: nowrap; z-index: 4; margin-top: -12px;
+}
+.event-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+.event-type {
+  display: inline-block; padding: 2px 10px; border-radius: 10px;
+  font-size: 0.75rem; font-weight: 600; margin-bottom: 8px;
+}
+.event.join .event-type { background: var(--evt-join-bg); color: var(--evt-join-text); }
+.event.out .event-type { background: var(--evt-out-bg); color: var(--evt-out-text); }
+.event.return .event-type { background: var(--evt-return-bg); color: var(--evt-return-text); }
+.event.stop .event-type { background: var(--evt-stop-bg); color: var(--evt-stop-text); }
+.event-desc { font-size: 0.92rem; color: var(--text-2); line-height: 1.5; }
+.event-note { font-size: 0.82rem; color: var(--text-3); margin-top: 6px; font-style: italic; }
+
+.arrow-connector { position: relative; text-align: center; margin: calc(8px + var(--arrow-height, 0px)) 0; z-index: 2; transition: margin 0.3s ease; }
+.arrow-connector::after { content: '\2193'; color: var(--accent); font-size: 1.2rem; font-weight: bold; display: inline-block; padding: 4px; }
+
+.phase-result { position: relative; text-align: center; margin: 8px 0 32px 0; z-index: 2; }
+.phase-box {
+  display: inline-block; background: var(--card-bg); border: 2px solid var(--accent);
+  color: var(--accent); padding: 14px 28px; border-radius: 24px;
+  font-size: 0.9rem; font-weight: 600; box-shadow: var(--shadow);
+  line-height: 1.5; max-width: 85%; text-align: center;
+  transition: all var(--transition-base);
+}
+.phase-box .phase-title { display: block; font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.phase-box .phase-range { display: block; font-size: 0.78rem; color: var(--evt-out); font-weight: 500; margin-bottom: 6px; }
+.phase-box .phase-members { display: block; font-size: 0.82rem; color: var(--text-2); font-weight: 500; padding-top: 6px; border-top: 1px dashed var(--border); line-height: 1.6; }
+.phase-longest { border-color: var(--evt-stop); background: linear-gradient(135deg, var(--card-bg) 0%, rgba(243,156,18,0.08) 100%); }
+.phase-longest .phase-range { color: var(--evt-stop-text); font-weight: 700; }
+.phase-longest .phase-title { color: var(--evt-stop-text); }
+
+.start-phase { text-align: center; margin-bottom: 28px; z-index: 2; }
+.start-phase-box { display: inline-block; background: var(--accent); color: var(--bg); padding: 10px 24px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; box-shadow: var(--shadow-accent); }
+
+/* ===== Footer ===== */
+.footer { text-align: center; margin-top: 50px; padding: 24px 0; border-top: 1px solid var(--border); color: var(--text-3); font-size: 0.8rem; }
+.footer a { color: var(--accent); }
+.footer a:hover { text-decoration: underline; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed; top: var(--nav-height); left: 0; right: 0;
+    flex-direction: column; background: var(--nav-bg); backdrop-filter: blur(12px);
+    padding: 16px; gap: 4px; transform: translateY(-100%); opacity: 0;
+    pointer-events: none; transition: all var(--transition-base); border-bottom: 1px solid var(--nav-border);
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-link.active::after { display: none; }
+  .nav-toggle { display: flex; }
+  .timeline::before { left: 30px; }
+  .event { justify-content: flex-start; }
+  .event-content { width: calc(100% - 80px); margin-left: 60px !important; margin-right: 0 !important; text-align: left !important; border-left: 4px solid !important; border-right: none !important; }
+  .event-content::before { left: -20px !important; right: auto !important; border-right-color: var(--card-bg) !important; border-left: none !important; }
+  .event-node { left: 30px; }
+  .event-date { left: 30px; transform: translateX(-30%); }
+  .stats-panel { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 1.6rem; }
+  .phase-box { max-width: 95%; padding: 12px 16px; }
+}
+
+/* Animations - IntersectionObserver based */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.event, .phase-result, .start-phase { opacity: 0; }
+.event.reveal-in, .phase-result.reveal-in, .start-phase.reveal-in { animation: fadeInUp 0.5s ease forwards; }
+
+/* Legend filter effect */
+.event.dimmed { opacity: 0.2; transition: opacity 0.3s ease; }
+.event.highlighted .event-content { box-shadow: 0 0 20px var(--accent); transform: scale(1.02); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media print {
+  .navbar,.theme-switcher,.nav-toggle,.footer,.back-to-top,.hero-actions,.btn,.search-bar,.filters,.filter-btn,.era-cards-scroll,.chart-grid,.event-node,.arrow-connector,.theme-btn { display:none !important; }
+  body { background:#fff !important; color:#000 !important; }
+  section { padding:10px 0 !important; }
+  .container { max-width:100% !important; padding:0 !important; }
+  .hero-title { -webkit-text-fill-color:#000 !important; color:#000 !important; }
+  .cat-card,.event-content,.phase-box,.stat-card { box-shadow:none !important; border:1px solid #ccc !important; page-break-inside:avoid; }
+  .reveal { opacity:1 !important; transform:none !important; }
+  a { color:#000 !important; text-decoration:underline !important; }
+}
+
+/* Reading progress bar */
+.reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, var(--accent), var(--accent-h)); transition: width 0.1s ease; pointer-events: none; }
+/* Page fade-in */
+body { opacity: 0; animation: pageFadeIn 0.4s ease 0.1s forwards; }
+@keyframes pageFadeIn { to { opacity: 1; } }
+/* Enhanced footer */
+.footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.footer-link { font-size: calc(13px * var(--font-scale, 1)); color: var(--text-2); transition: color var(--transition-fast); }
+.footer-link:hover { color: var(--accent); }
+.footer-meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: calc(12px * var(--font-scale, 1)); color: var(--text-3); }
+.footer-theme-tag { padding: 2px 8px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent); font-size: calc(11px * var(--font-scale, 1)); font-weight: 600; }
+
+</style>
+<script>// Auto-detect system dark mode (only if no saved theme)
+(function(){
+  if(!localStorage.getItem('wutz-theme')&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){
+    document.documentElement.setAttribute('data-theme','darktech');
+    document.querySelectorAll('.theme-btn').forEach(function(b){
+      b.classList.toggle('active',b.dataset.theme==='darktech');
+    });
+  }
+})();
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "成员变迁时间轴",
+    "description": "《无限挑战》2005-2018年成员变动全记录 - 17次人员变动，16个时期阶段",
+    "inLanguage": "zh-CN"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://watching-world.local/index.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "时间轴",
+        "item": "https://watching-world.local/timeline.html"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="reading-progress" id="readingProgress"></div>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-mark">W</span>
+      <span>观看世界</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">首页</a></li>
+      <li><a href="wutz-catalog.html" class="nav-link active">无限挑战</a></li>
+      <li><a href="other-watching.html" class="nav-link">其他观看</a></li>
+    </ul>
+<div style="display:flex;align-items:center;gap:10px;">
+      <div class="theme-switcher" role="group" aria-label="Theme switcher">
+        <button class="theme-btn active" data-theme="minimal" data-label="简约现代" aria-label="Minimal theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="darktech" data-label="暗黑科技" aria-label="Dark tech theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="creative" data-label="活泼创意" aria-label="Creative theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="guofeng" data-label="国风雅韵" aria-label="Guofeng theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn" data-theme="handdrawn" data-label="手绘温暖" aria-label="Handdrawn theme"><span class="theme-dot"></span></button>
+        <button class="theme-btn custom-theme-btn" data-label="自定义主题" aria-label="Custom theme" onclick="toggleThemePanel()"><span class="theme-dot" style="background:linear-gradient(135deg,#ff6b6b,#4ecdc4,#45b7d1,#96ceb4,#ffeead);"></span></button>
+      </div>
+      <button class="font-toggle-btn" onclick="toggleFontPanel()" aria-label="字体设置" title="字体设置"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Custom Theme Panel -->
+<div class="theme-panel" id="themePanel">
+  <div class="theme-panel-header">
+    <span class="theme-panel-title">自定义主题</span>
+    <button class="theme-panel-close" onclick="toggleThemePanel()">&times;</button>
+  </div>
+  <div class="theme-panel-body">
+    <div class="theme-color-group">
+      <label>背景色</label>
+      <input type="color" id="customBg" value="#f8f9fa" oninput="updateCustomTheme()">
+    </div>
+    <div class="theme-color-group">
+      <label>卡片/面板色</label>
+      <input type="color" id="customBg2" value="#ffffff" oninput="updateCustomTheme()">
+    </div>
+    <div class="theme-color-group">
+      <label>强调色</label>
+      <input type="color" id="customAccent" value="#3b82f6" oninput="updateCustomTheme()">
+    </div>
+    <div class="theme-color-group">
+      <label>主文字色</label>
+      <input type="color" id="customText" value="#1a1a2e" oninput="updateCustomTheme()">
+    </div>
+    <div class="theme-color-group">
+      <label>次要文字色</label>
+      <input type="color" id="customText2" value="#6c757d" oninput="updateCustomTheme()">
+    </div>
+    <div class="theme-color-group">
+      <label>边框色</label>
+      <input type="color" id="customBorder" value="#e9ecef" oninput="updateCustomTheme()">
+    </div>
+    <div class="contrast-meter" id="contrastMeter">
+      <div class="contrast-value">对比度: <span id="contrastRatio">--</span></div>
+      <div class="contrast-rating" id="contrastRating">--</div>
+      <div class="contrast-bar"><div id="contrastBarFill"></div></div>
+    </div>
+    <div class="theme-panel-actions">
+      <button class="btn btn-sm" style="background:var(--accent);color:#fff;border:none;flex:1;" onclick="saveCustomTheme()">保存主题</button>
+      <button class="btn btn-sm" style="background:var(--bg-3);color:var(--text-2);border:1px solid var(--border);flex:1;" onclick="resetCustomTheme()">重置默认</button>
+    </div>
+  </div>
+</div>
+
+<!-- Font Panel -->
+<div class="font-panel" id="fontPanel">
+  <div class="font-panel-header">
+    <span class="font-panel-title">字体设置</span>
+    <button class="font-panel-close" onclick="toggleFontPanel()">&times;</button>
+  </div>
+  <div class="font-panel-body">
+    <div class="font-group">
+      <label>正文字体</label>
+      <div class="font-options" id="fontOptions">
+        <button class="font-btn active" data-font="system" data-label="系统默认" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;">系统默认</button>
+        <button class="font-btn" data-font="noto-sans" data-label="思源黑体" style="font-family:'Noto Sans SC',sans-serif;">思源黑体</button>
+        <button class="font-btn" data-font="noto-serif" data-label="思源宋体" style="font-family:'Noto Serif SC',serif;">思源宋体</button>
+        <button class="font-btn" data-font="ma-shan" data-label="马善政楷书" style="font-family:'Ma Shan Zheng',cursive;">马善政楷书</button>
+        <button class="font-btn" data-font="zcool-kuaile" data-label="站酷快乐体" style="font-family:'ZCOOL KuaiLe',cursive;">站酷快乐体</button>
+        <button class="font-btn" data-font="zcool-xiaowei" data-label="站酷小薇体" style="font-family:'ZCOOL XiaoWei',serif;">站酷小薇体</button>
+      </div>
+    </div>
+    <div class="font-group">
+      <label>标题字体</label>
+      <div class="font-options" id="fontHeadOptions">
+        <button class="font-btn active" data-font="system" data-label="跟随正文" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;">跟随正文</button>
+        <button class="font-btn" data-font="ma-shan" data-label="马善政楷书" style="font-family:'Ma Shan Zheng',cursive;">马善政楷书</button>
+        <button class="font-btn" data-font="noto-serif" data-label="思源宋体" style="font-family:'Noto Serif SC',serif;">思源宋体</button>
+        <button class="font-btn" data-font="zcool-xiaowei" data-label="站酷小薇体" style="font-family:'ZCOOL XiaoWei',serif;">站酷小薇体</button>
+      </div>
+    </div>
+    <div class="font-group">
+      <label>字号缩放 <span id="fontSizeVal">100%</span></label>
+      <input type="range" id="fontSizeRange" min="75" max="150" value="100" oninput="updateFontSize(this.value)">
+      <div class="font-size-labels"><span>75%</span><span>100%</span><span>150%</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <div class="container">
+    <a href="wutz-catalog.html" class="breadcrumb-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      返回无限挑战
+    </a>
+    <span class="breadcrumb-sep">/</span>
+    <span class="breadcrumb-current">成员变迁时间轴</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="container">
+    <h1>无限挑战</h1>
+    <div class="subtitle">成员变迁时间轴 · 2005-2018</div>
+    <div class="period-badge">开播 13 年 · 17 次人员变动 · 16 个时期阶段</div>
+  </div>
+</div>
+
+<div class="timeline-section">
+  <div class="container">
+
+    <div class="stats-panel">
+      <div class="stat-card">
+        <span class="stat-number">4年1个月</span>
+        <span class="stat-label">最长时期（七人）</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">2个月</span>
+        <span class="stat-label">最短时期（四人）</span>
+      </div>
+      <div class="stat-card stat-highlight">
+        <span class="stat-number">7次</span>
+        <span class="stat-label">六人时期（最频繁）</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">2次</span>
+        <span class="stat-label">七人时期</span>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item" data-filter="join" role="button" tabindex="0" aria-label="筛选加入事件"><div class="legend-dot dot-join"></div> 加入</div>
+      <div class="legend-item" data-filter="out" role="button" tabindex="0" aria-label="筛选退出事件"><div class="legend-dot dot-out"></div> 退出</div>
+      <div class="legend-item" data-filter="return" role="button" tabindex="0" aria-label="筛选回归事件"><div class="legend-dot dot-return"></div> 回归</div>
+      <div class="legend-item" data-filter="stop" role="button" tabindex="0" aria-label="筛选停播事件"><div class="legend-dot dot-stop"></div> 停播</div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="start-phase">
+        <div class="start-phase-box">2005.04 节目开播 · 初始阵容</div>
+      </div>
+      <div class="phase-result" data-months="6">
+        <div class="phase-box">
+          <span class="phase-title">三人时期</span>
+          <span class="phase-range">2005.04 - 2005.10 · 持续 6 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲</span>
+        </div>
+      </div>
+
+      <div class="event right join">
+        <div class="event-date">2005.10</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">加入</div>
+          <div class="event-title">朴明秀</div>
+          <div class="event-desc">正式加入节目</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="2">
+        <div class="phase-box">
+          <span class="phase-title">四人时期</span>
+          <span class="phase-range">2005.10 - 2005.12 · 持续 2 个月（最短）</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀</span>
+        </div>
+      </div>
+
+      <div class="event left join">
+        <div class="event-date">2005.12</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">加入</div>
+          <div class="event-title">HAHA</div>
+          <div class="event-desc">正式加入节目</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="3">
+        <div class="phase-box">
+          <span class="phase-title">五人时期</span>
+          <span class="phase-range">2005.12 - 2006.03 · 持续 3 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀、HAHA</span>
+        </div>
+      </div>
+
+      <div class="event right join">
+        <div class="event-date">2006.03</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">加入</div>
+          <div class="event-title">郑俊河</div>
+          <div class="event-desc">加入，成为经典六人组一员</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="23">
+        <div class="phase-box">
+          <span class="phase-title">第一次六人时期</span>
+          <span class="phase-range">2006.03 - 2008.02 · 持续 1 年 11 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀、HAHA、郑俊河</span>
+        </div>
+      </div>
+
+      <div class="event left out">
+        <div class="event-date">2008.02</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">退出</div>
+          <div class="event-title">HAHA</div>
+          <div class="event-desc">因入伍服役暂时离开节目</div>
+          <div class="event-note">服役期约2年</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="4">
+        <div class="phase-box">
+          <span class="phase-title">第一次五人时期</span>
+          <span class="phase-range">2008.02 - 2008.06 · 持续 4 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀、郑俊河</span>
+        </div>
+      </div>
+
+      <div class="event right join">
+        <div class="event-date">2008.06</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">加入</div>
+          <div class="event-title">JunJin（神话成员）</div>
+          <div class="event-desc">歌手加入，填补HAHA空缺</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="10">
+        <div class="phase-box">
+          <span class="phase-title">第二次六人时期</span>
+          <span class="phase-range">2008.06 - 2009.04 · 持续 10 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀、郑俊河、JunJin</span>
+        </div>
+      </div>
+
+      <div class="event left join">
+        <div class="event-date">2009.04</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">加入</div>
+          <div class="event-title">吉 (Gil)</div>
+          <div class="event-desc">Leessang成员加入，节目达七人规模</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="6">
+        <div class="phase-box">
+          <span class="phase-title">第一次七人时期</span>
+          <span class="phase-range">2009.04 - 2009.10 · 持续 6 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀、郑俊河、JunJin、吉</span>
+        </div>
+      </div>
+
+      <div class="event right out">
+        <div class="event-date">2009.10</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">退出</div>
+          <div class="event-title">JunJin</div>
+          <div class="event-desc">因入伍服役离开节目</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="5">
+        <div class="phase-box">
+          <span class="phase-title">第三次六人时期</span>
+          <span class="phase-range">2009.10 - 2010.03 · 持续 5 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀、郑俊河、吉</span>
+        </div>
+      </div>
+
+      <div class="event left return">
+        <div class="event-date">2010.03</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">回归</div>
+          <div class="event-title">HAHA</div>
+          <div class="event-desc">退伍后正式回归节目</div>
+          <div class="event-note">经典阵容再次齐聚，也是最稳定的黄金期</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="7">
+        <div class="phase-box phase-longest">
+          <span class="phase-title">第二次七人时期 ★ 最长</span>
+          <span class="phase-range">2010.03 - 2014.04 · 持续 4 年 1 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀、HAHA、郑俊河、吉</span>
+        </div>
+      </div>
+
+      <div class="event right out">
+        <div class="event-date">2014.04</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">退出</div>
+          <div class="event-title">吉 (Gil)</div>
+          <div class="event-desc">因酒驾事件被节目组辞退</div>
+          <div class="event-note">无限挑战首次因负面事件辞退成员</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="5">
+        <div class="phase-box">
+          <span class="phase-title">第四次六人时期</span>
+          <span class="phase-range">2014.04 - 2014.11 · 持续 7 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、卢洪哲、朴明秀、HAHA、郑俊河</span>
+        </div>
+      </div>
+
+      <div class="event left out">
+        <div class="event-date">2014.11</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">退出</div>
+          <div class="event-title">卢洪哲</div>
+          <div class="event-desc">因酒驾事件被节目组辞退</div>
+          <div class="event-note">创始成员离开，引发观众强烈反响</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="7">
+        <div class="phase-box">
+          <span class="phase-title">第二次五人时期</span>
+          <span class="phase-range">2014.11 - 2015.04 · 持续 5 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、朴明秀、HAHA、郑俊河</span>
+        </div>
+      </div>
+
+      <div class="event right join">
+        <div class="event-date">2015.04</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">加入</div>
+          <div class="event-title">黄光熙（帝国之子）</div>
+          <div class="event-desc">通过"第六人"选拔加入</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="13">
+        <div class="phase-box">
+          <span class="phase-title">第五次六人时期</span>
+          <span class="phase-range">2015.04 - 2015.11 · 持续 7 个月</span>
+          <span class="phase-members">刘在石、郑亨敦、朴明秀、HAHA、郑俊河、黄光熙</span>
+        </div>
+      </div>
+
+      <div class="event left out">
+        <div class="event-date">2015.11</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">退出</div>
+          <div class="event-title">郑亨敦</div>
+          <div class="event-desc">因健康原因（恐慌症）暂停活动</div>
+          <div class="event-note">节目陷入多事之秋</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="3">
+        <div class="phase-box">
+          <span class="phase-title">第三次五人时期</span>
+          <span class="phase-range">2015.11 - 2016.12 · 持续 1 年 1 个月</span>
+          <span class="phase-members">刘在石、朴明秀、HAHA、郑俊河、黄光熙</span>
+        </div>
+      </div>
+
+      <div class="event right join">
+        <div class="event-date">2016.12</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">加入</div>
+          <div class="event-title">梁世炯</div>
+          <div class="event-desc">正式加入节目</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="10">
+        <div class="phase-box">
+          <span class="phase-title">第六次六人时期</span>
+          <span class="phase-range">2016.12 - 2017.03 · 持续 3 个月</span>
+          <span class="phase-members">刘在石、朴明秀、HAHA、郑俊河、黄光熙、梁世炯</span>
+        </div>
+      </div>
+
+      <div class="event left out">
+        <div class="event-date">2017.03</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">退出</div>
+          <div class="event-title">黄光熙</div>
+          <div class="event-desc">因入伍服役暂时离开</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="3">
+        <div class="phase-box">
+          <span class="phase-title">第四次五人时期</span>
+          <span class="phase-range">2017.03 - 2018.01 · 持续 10 个月</span>
+          <span class="phase-members">刘在石、朴明秀、HAHA、郑俊河、梁世炯</span>
+        </div>
+      </div>
+
+      <div class="event right join">
+        <div class="event-date">2018.01</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">加入</div>
+          <div class="event-title">曹世镐</div>
+          <div class="event-desc">正式加入节目</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result" data-months="3">
+        <div class="phase-box">
+          <span class="phase-title">第七次六人时期（最后）</span>
+          <span class="phase-range">2018.01 - 2018.04 · 持续 3 个月</span>
+          <span class="phase-members">刘在石、朴明秀、HAHA、郑俊河、梁世炯、曹世镐</span>
+        </div>
+      </div>
+
+      <div class="event left stop">
+        <div class="event-date">2018.04</div>
+        <div class="event-node"></div>
+        <div class="event-content">
+          <div class="event-type">停播</div>
+          <div class="event-title">《无限挑战》正式停播</div>
+          <div class="event-desc">韩国综艺史上最长寿综艺节目之一落幕</div>
+          <div class="event-note">13年陪伴，563期节目，留下无数经典</div>
+        </div>
+      </div>
+      <div class="arrow-connector"></div>
+      <div class="phase-result">
+        <div class="phase-box" style="border-color:var(--evt-stop);color:var(--evt-stop-text);">
+          <span class="phase-title">节目落幕</span>
+          <span class="phase-range" style="color:var(--evt-stop-text);">2018.04 · 最终阵容</span>
+          <span class="phase-members">刘在石、朴明秀、HAHA、郑俊河、梁世炯、曹世镐</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html" class="footer-link">首页</a><a href="wutz-catalog.html" class="footer-link">无限挑战</a><a href="statistics.html" class="footer-link">3D统计</a><a href="other-watching.html" class="footer-link">其他观看</a>
+    </div>
+    <div class="footer-meta">
+      <span>更新于 2026.08</span>
+      <span class="footer-theme-tag" id="footerThemeTag">简约现代</span>
+    </div>
+  </div></footer>
+
+<script>
+(function(){
+  const html=document.documentElement,btns=document.querySelectorAll('.theme-btn'),KEY='wutz-theme';
+  const saved=localStorage.getItem(KEY);
+  if(saved){setTheme(saved);}
+  function setTheme(t){
+    document.body.classList.add('theme-transitioning');
+    html.setAttribute('data-theme',t);
+    localStorage.setItem(KEY,t);
+    btns.forEach(b=>b.classList.toggle('active',b.dataset.theme===t&&t!=='custom'));
+    setTimeout(()=>document.body.classList.remove('theme-transitioning'),500);
+  }
+  btns.forEach(b=>{
+    if(b.dataset.theme)b.addEventListener('click',()=>setTheme(b.dataset.theme));
+  });
+  window.setTheme=setTheme;
+})();
+
+// Custom Theme & Font System
+(function(){
+  const KEY='wutz-theme',FONT_KEY='wutz-font',HEAD_FONT_KEY='wutz-head-font',FONT_SIZE_KEY='wutz-font-size';
+  const html=document.documentElement;
+  function hexToRgb(h){
+    const n=h.replace('#','');
+    const bigint=parseInt(n.length===3?n.split('').map(c=>c+c).join(''):n,16);
+    return{r:(bigint>>16)&255,g:(bigint>>8)&255,b:bigint&255};
+  }
+  function lum(r,g,b){
+    const a=[r,g,b].map(function(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);});
+    return a[0]*0.2126+a[1]*0.7152+a[2]*0.0722;
+  }
+  function contrast(bgHex,txtHex){
+    const bg=hexToRgb(bgHex),txt=hexToRgb(txtHex);
+    const L1=lum(bg.r,bg.g,bg.b)+0.05;
+    const L2=lum(txt.r,txt.g,txt.b)+0.05;
+    return L1>L2?L1/L2:L2/L1;
+  }
+  function autoText(bgHex,desiredHex){
+    const c=contrast(bgHex,desiredHex);
+    if(c>=4.5)return desiredHex;
+    const bg=hexToRgb(bgHex);
+    const isDark=bg.r*0.299+bg.g*0.587+bg.b*0.114<128;
+    return isDark?'#e8e8e8':'#1a1a1a';
+  }
+  function updateContrastMeter(){
+    const bg=document.getElementById('customBg')?document.getElementById('customBg').value:'#f8f9fa';
+    const txt=document.getElementById('customText')?document.getElementById('customText').value:'#1a1a2e';
+    const r=contrast(bg,txt);
+    const ratioEl=document.getElementById('contrastRatio');
+    const ratingEl=document.getElementById('contrastRating');
+    const barEl=document.getElementById('contrastBarFill');
+    if(!ratioEl)return;
+    ratioEl.textContent=r.toFixed(2)+':1';
+    var cls='';var label='';var color='';
+    if(r>=7){cls='aaa';label='AAA 优秀';color='#16a34a';}
+    else if(r>=4.5){cls='aa';label='AA 良好';color='#2563eb';}
+    else{cls='fail';label='未达标';color='#dc2626';}
+    ratingEl.className='contrast-rating '+cls;
+    ratingEl.textContent=label;
+    var pct=Math.min(r/10*100,100);
+    barEl.style.width=pct+'%';
+    barEl.style.background=color;
+  }
+  window.updateCustomTheme=function(){
+    const bg=document.getElementById('customBg').value;
+    const bg2=document.getElementById('customBg2').value;
+    const accent=document.getElementById('customAccent').value;
+    const txtRaw=document.getElementById('customText').value;
+    const txt2Raw=document.getElementById('customText2').value;
+    const border=document.getElementById('customBorder').value;
+    const txt=autoText(bg,txtRaw);
+    const txt2=autoText(bg,txt2Raw);
+    const isDark=lum(hexToRgb(bg).r,hexToRgb(bg).g,hexToRgb(bg).b)<0.5;
+    if(!document.getElementById('customThemeStyle')){
+      var s=document.createElement('style');
+      s.id='customThemeStyle';
+      document.head.appendChild(s);
+    }
+    var css='[data-theme="custom"]{';
+    css+='--bg:'+bg+';--bg-2:'+bg2+';--bg-3:'+border+';';
+    css+='--text:'+txt+';--text-2:'+txt2+';--text-3:'+border+';';
+    css+='--accent:'+accent+';--accent-h:'+accent+';--accent-soft:'+accent+'1a;';
+    css+='--border:'+border+';--card-bg:'+bg2+';--card-border:'+border+';';
+    css+='--shadow:0 2px 12px rgba(0,0,0,'+(isDark?'0.4':'0.06')+');';
+    css+='--shadow-hover:0 8px 30px rgba(0,0,0,'+(isDark?'0.5':'0.12')+');';
+    css+='--shadow-accent:0 4px 20px '+accent+'40;';
+    css+='--hero-grad:linear-gradient(135deg,'+bg+' 0%,'+bg2+' 100%);';
+    css+='--nav-bg:'+bg+(isDark?'d9':'e0')+';--nav-border:'+border+';';
+    css+='--tag-bg:'+border+';--tag-text:'+txt2+';';
+    css+='--font-h:var(--font-base);}';
+    document.getElementById('customThemeStyle').textContent=css;
+    setTheme('custom');
+    updateContrastMeter();
+  };
+  window.saveCustomTheme=function(){
+    const vals={
+      bg:document.getElementById('customBg').value,
+      bg2:document.getElementById('customBg2').value,
+      accent:document.getElementById('customAccent').value,
+      text:document.getElementById('customText').value,
+      text2:document.getElementById('customText2').value,
+      border:document.getElementById('customBorder').value
+    };
+    localStorage.setItem('wutz-custom-theme',JSON.stringify(vals));
+    alert('主题已保存！');
+  };
+  window.resetCustomTheme=function(){
+    localStorage.removeItem('wutz-custom-theme');
+    document.getElementById('customBg').value='#f8f9fa';
+    document.getElementById('customBg2').value='#ffffff';
+    document.getElementById('customAccent').value='#3b82f6';
+    document.getElementById('customText').value='#1a1a2e';
+    document.getElementById('customText2').value='#6c757d';
+    document.getElementById('customBorder').value='#e9ecef';
+    updateCustomTheme();
+    setTheme('minimal');
+  };
+  window.toggleThemePanel=function(){
+    var p=document.getElementById('themePanel');
+    var f=document.getElementById('fontPanel');
+    if(f&&f.classList.contains('open'))f.classList.remove('open');
+    p.classList.toggle('open');
+  };
+  window.toggleFontPanel=function(){
+    var p=document.getElementById('fontPanel');
+    var t=document.getElementById('themePanel');
+    if(t&&t.classList.contains('open'))t.classList.remove('open');
+    p.classList.toggle('open');
+  };
+  window.updateFontSize=function(v){
+    document.documentElement.style.setProperty('--font-scale',v/100);
+    document.getElementById('fontSizeVal').textContent=v+'%';
+    localStorage.setItem(FONT_SIZE_KEY,v);
+  };
+  var fontMap={
+    'system':"-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif",
+    'noto-sans':"'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif",
+    'noto-serif':"'Noto Serif SC','STSong','SimSun',serif",
+    'ma-shan':"'Ma Shan Zheng','STKaiti',cursive",
+    'zcool-kuaile':"'ZCOOL KuaiLe','Hannotate SC',cursive",
+    'zcool-xiaowei':"'ZCOOL XiaoWei','STSong',serif"
+  };
+  function applyFont(base,head){
+    var b=fontMap[base]||fontMap['system'];
+    var h=fontMap[head]||b;
+    html.style.setProperty('--font-base',b);
+    html.style.setProperty('--font-h',h);
+    localStorage.setItem(FONT_KEY,base);
+    localStorage.setItem(HEAD_FONT_KEY,head);
+  }
+  document.querySelectorAll('#fontOptions .font-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('#fontOptions .font-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var headBtn=document.querySelector('#fontHeadOptions .font-btn.active');
+      var head=headBtn?headBtn.dataset.font:'system';
+      applyFont(btn.dataset.font,head);
+    });
+  });
+  document.querySelectorAll('#fontHeadOptions .font-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('#fontHeadOptions .font-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var baseBtn=document.querySelector('#fontOptions .font-btn.active');
+      var base=baseBtn?baseBtn.dataset.font:'system';
+      var head=btn.dataset.font==='system'?base:btn.dataset.font;
+      applyFont(base,head);
+    });
+  });
+  var savedCustom=localStorage.getItem('wutz-custom-theme');
+  if(savedCustom){
+    try{var c=JSON.parse(savedCustom);
+      document.getElementById('customBg').value=c.bg||'#f8f9fa';
+      document.getElementById('customBg2').value=c.bg2||'#ffffff';
+      document.getElementById('customAccent').value=c.accent||'#3b82f6';
+      document.getElementById('customText').value=c.text||'#1a1a2e';
+      document.getElementById('customText2').value=c.text2||'#6c757d';
+      document.getElementById('customBorder').value=c.border||'#e9ecef';
+    }catch(e){}
+  }
+  var savedFont=localStorage.getItem(FONT_KEY)||'system';
+  var savedHead=localStorage.getItem(HEAD_FONT_KEY)||'system';
+  var savedSize=localStorage.getItem(FONT_SIZE_KEY)||'100';
+  var sbtn=document.querySelector('#fontOptions .font-btn[data-font="'+savedFont+'"]');
+  if(sbtn){sbtn.click();}
+  var hbtn=document.querySelector('#fontHeadOptions .font-btn[data-font="'+savedHead+'"]');
+  if(hbtn){hbtn.click();}
+  document.getElementById('fontSizeRange').value=savedSize;
+  updateFontSize(savedSize);
+})();
+
+(function(){
+  const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+  t.addEventListener('click',()=>{const o=l.classList.toggle('open');t.classList.toggle('open',o);t.setAttribute('aria-expanded',o);});
+  l.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=>{l.classList.remove('open');t.classList.remove('open');t.setAttribute('aria-expanded','false');}));
+})();
+
+
+// Reading progress bar
+(function(){
+  var bar=document.getElementById('readingProgress');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var sh=document.documentElement.scrollHeight-window.innerHeight;
+    var pct=sh>0?(window.scrollY/sh*100):0;
+    bar.style.width=pct+'%';
+  },{passive:true});
+})();
+
+// Update footer theme tag
+(function(){
+  var tag=document.getElementById('footerThemeTag');
+  if(!tag)return;
+  var labels={'minimal':'简约现代','darktech':'暗黑科技','creative':'活泼创意','guofeng':'国风雅韵','handdrawn':'手绘温暖'};
+  function updateTag(){
+    var t=document.documentElement.getAttribute('data-theme')||'minimal';
+    tag.textContent=labels[t]||t;
+  }
+  updateTag();
+  document.querySelectorAll('.theme-btn').forEach(function(b){
+    b.addEventListener('click',function(){setTimeout(updateTag,50);});
+  });
+})();
+
+// Legend filter: click to highlight events of that type, dim others
+(function(){
+  var legendItems=document.querySelectorAll('.legend-item');
+  var events=document.querySelectorAll('.event');
+  var activeFilter=null;
+  legendItems.forEach(function(item){
+    function toggle(){
+      var type=item.dataset.filter;
+      if(activeFilter===type){
+        // Reset
+        activeFilter=null;
+        legendItems.forEach(function(l){l.classList.remove('active','dimmed');});
+        events.forEach(function(e){e.classList.remove('dimmed','highlighted');});
+      }else{
+        activeFilter=type;
+        legendItems.forEach(function(l){
+          l.classList.toggle('active',l.dataset.filter===type);
+          l.classList.toggle('dimmed',l.dataset.filter!==type);
+        });
+        events.forEach(function(e){
+          var match=e.classList.contains(type);
+          e.classList.toggle('highlighted',match);
+          e.classList.toggle('dimmed',!match);
+        });
+      }
+    }
+    item.addEventListener('click',toggle);
+    item.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}
+    });
+  });
+})();
+
+// Timeline proportional spacing
+(function(){
+  var maxMonths=49;
+  var maxExtra=80;
+  document.querySelectorAll('.phase-result').forEach(function(el){
+    var months=parseInt(el.dataset.months||'6');
+    var extra=(months/maxMonths)*maxExtra;
+    var nextArrow=el.nextElementSibling;
+    if(nextArrow&&nextArrow.classList.contains('arrow-connector')){
+      nextArrow.style.setProperty('--arrow-height',extra+'px');
+    }
+  });
+})();
+
+// IntersectionObserver entrance animation
+(function(){
+  var els=document.querySelectorAll('.event,.phase-result,.start-phase');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(e){e.classList.add('reveal-in');});
+    return;
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('reveal-in');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){obs.observe(e);});
+})();
+
+// Back to top
+(function(){
+  var btn=document.getElementById('backToTop');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('visible',window.scrollY>300);
+  },{passive:true});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+
+</script>
+<button class="back-to-top" id="backToTop" aria-label="回到顶部" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg></button>
+</body>
+</html>
